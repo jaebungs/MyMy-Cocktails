@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelect, useDispatch } from 'react-redux';
+
 
 const MyBarPage = () => {
+
+    useEffect(()=>{
+        
+    }, [])
+
     return (
         <div>
             <h1>My Bar</h1>
