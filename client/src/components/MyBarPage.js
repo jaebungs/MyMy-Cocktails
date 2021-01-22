@@ -1,10 +1,11 @@
 import React from 'react';
-import { connect } from "react-redux";
 
 const MyBarPage = () => {
     return (
         <div>
-            <h1>MyBarPage</h1>
+            <h1>My Bar</h1>
+            <p>Not built yet...</p>
+            <p>User can bookmark cocktails and Rate.</p>
         </div>
     )
 }

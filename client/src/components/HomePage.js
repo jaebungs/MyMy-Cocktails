@@ -1,4 +1,5 @@
 import React from 'react';
+import CocktailCards from './card/CocktailCards';
 
 const HomePage = () => {
     return (

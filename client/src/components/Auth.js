@@ -1,25 +1,39 @@
-import React, { useState } from "react";
-import {
-  Container,
-  Grid,
-  Typography,
-  Paper,
-  Avatar,
-  Button,
-  TextField,
-} from "@material-ui/core";
-import LockRoundedIcon from "@material-ui/icons/LockRounded";
-import Input from "./Input";
+import React, {useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {Container, Grid, Typography, Paper, Avatar, Button} from '@material-ui/core';
+import {GoogleLogin} from 'react-google-login';
+import LockRoundedIcon from '@material-ui/icons/LockRounded';
+import Input from './Input';
+import GoogleIcon from './icons/GoogleIcon';
+import {logInSuccess} from '../actions/auth';
 
 const Auth = () => {
-  const [ isSignUp, setIsSignUp ] = useState(false);
-  const state = null;
+  const [isSignUp, setIsSignUp] = useState(false);
+  const dispatch = useDispatch();
 
   const handleSubmit = () => {};
   const handleChange = () => {};
+
   const switchSignMode = () => {
-    setIsSignUp((prev)=> !prev)
-  }
+    setIsSignUp((prev) => !prev);
+  };
+
+  const googleSuccess = async (res) => {
+    const token = res?.tokenId;
+    const result = res?.profileObj;
+
+    try {
+      dispatch(logInSuccess({token, result}));
+      setIsSignUp(true);
+      console.log('Google login');
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const googleFailure = (err) => {
+    console.log('Google login failure.', err);
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -27,7 +41,7 @@ const Auth = () => {
         <Avatar>
           <LockRoundedIcon />
         </Avatar>
-        <Typography variant="h6">{isSignUp ? "Sign Up" : "Sign In"}</Typography>
+        <Typography variant="h6">{isSignUp ? 'Sign Up' : 'Sign In'}</Typography>
         <form onSubmit={handleSubmit}>
           <Grid container spacing={3}>
             {isSignUp && (
@@ -71,27 +85,39 @@ const Auth = () => {
               />
             )}
           </Grid>
-          <Button type="Submit" color="primary" variant="contained" fullWidth >{isSignUp ? 'Sign Up' : 'Sign In'}</Button>
+          <Button type="Submit" color="primary" variant="contained" fullWidth>
+            {isSignUp ? 'Sign Up' : 'Sign In'}
+          </Button>
+          <GoogleLogin
+            clientId="956177338567-9ihhch02mougfmc549q5t4tve3s675p0.apps.googleusercontent.com"
+            onSuccess={googleSuccess}
+            onFailure={googleFailure}
+            cookiePolicy="single_host_origin"
+            render={(props) => (
+              <Button
+                onClick={props.onClick}
+                disabled={props.disabled}
+                color="primary"
+                startIcon={<GoogleIcon />}
+                varaiant="contained"
+                fullWidth
+              >
+                Google Sign In
+              </Button>
+            )}
+          />
         </form>
         {!isSignUp ? (
           <div>
             <p>Don't have an account?</p>
-            <Button
-              onClick={switchSignMode}
-            >
-              Create an account here
-            </Button>
+            <Button onClick={switchSignMode}>Create an account here</Button>
           </div>
         ) : (
-            <div>
+          <div>
             <p>I already have an account.</p>
 
-                <Button
-              onClick={switchSignMode}
-            >
-              Go to Sign In
-            </Button>
-            </div>
+            <Button onClick={switchSignMode}>Go to Sign In</Button>
+          </div>
         )}
       </Paper>
     </Container>
