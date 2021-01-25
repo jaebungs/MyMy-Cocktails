@@ -1,10 +1,12 @@
 import { createStore, combineReducers } from "redux";
 import myBarReducer from "../reducers/myBar";
 import authReducer from '../reducers/auth';
+import cocktailsReducers from '../reducers/cocktails';
 
 export default () => {
   const store = createStore(
     combineReducers({
+      cocktails: cocktailsReducers,
       myBar: myBarReducer,
       auth: authReducer
     }),

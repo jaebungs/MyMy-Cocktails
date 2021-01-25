@@ -24,11 +24,6 @@ app.use(express.json());
 // Routes
 app.use('/cocktails', cocktailsRoutes);
 
-app.get('/', (req, res)=>{
-    console.log('TEST');
-    res.send('Hello from homepage')
-})
-
 app.listen(PORT, ()=>{
     console.log(`Server running on http://localhost:${PORT}`)
 })

@@ -9,6 +9,6 @@ const cocktailsSchema = new Schema({
     garnish: String
 })
 
-const Cocktail = mongoose.model('Cocktail', cocktailsSchema);
+const Cocktail = mongoose.model('CocktailAPI', cocktailsSchema, 'cocktail');
 
 module.exports = Cocktail;
