@@ -8,17 +8,17 @@ import RecipeModal from './modal/RecipeModal';
 const HomePage = () => {
 
   const [openRecipe, setOpenRecipe] = useState();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const cocktailsData = useSelector((state)=> state.cocktails);
-
-  useEffect(() => {
-    fetch('http://localhost:5000/cocktails')
-      .then((res) => res.json())
-      .then((data) => {
-        dispatch(storeAllCocktails(data));
-      })
-      .catch((err) => console.log('fetch error', err));
-  }, []);
+  
+  // useEffect(() => {
+  //   fetch('http://localhost:5000/cocktails')
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       dispatch(storeAllCocktails(data));
+  //     })
+  //     .catch((err) => console.log('fetch error', err));
+  // }, []);
 
   return (
       <Container maxWidth="lg">
