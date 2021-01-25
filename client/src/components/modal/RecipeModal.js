@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dialog, DialogTitle, DialogContentText, Button  } from '@material-ui/core';
+import { Dialog, DialogTitle, DialogContentText, Button, Typography  } from '@material-ui/core';
 
 
 const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecipe }) => {
@@ -7,26 +7,34 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
     const handleClose = () => {
         setOpenRecipe(null);
     }
+    const changeFirstCharToUpper = (sentence) => {
+        let words = sentence.toLowerCase().split(' ');
+        let newSentence = [];
+        words.forEach((word) => {
+            let newWord = word.charAt(0).toUpperCase() + word.slice(1);
+            newSentence.push(newWord);
+        })
+        
+        return newSentence.join(' ').trim();
+    }
 
     return (
         <Dialog open={!!name} fullWidth={true} maxWidth="sm">
             <DialogTitle>{name}</DialogTitle>
-            <DialogContentText>
-                <p><strong>Ingredients :</strong></p>
+                <Typography variant="h5">Ingredients :</Typography>
                 <ul>
-                    {ingredients.map((ingredient) => {
-                        return <li>{ingredient}</li>
+                    {ingredients.map((ingredient, index) => {
+                        return <li key={index} >{changeFirstCharToUpper(ingredient)}</li>
                     })}
                 </ul>
-                <p><strong>Instructions :</strong></p>
+                <Typography variant="h5">Instructions :</Typography>
                 <ol>
-                    {instruction.map((step)=>{
-                        return <li>{step}</li>
+                    {instruction.map((step, index)=>{
+                        return <li key={index}>{step}</li>
                     })}
                 </ol>
-                <p><strong>Garnish :</strong></p>
+                <Typography variant="h5">Garnish :</Typography>
                 <p>{garnish}</p>
-            </DialogContentText>
             <Button size="medium" variant="contained" color="secondary" onClick={handleClose}>Close</Button>
         </Dialog>
     )
