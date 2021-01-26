@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import { Grid ,Card, CardActionArea, CardContent, CardActions, Button , Typography  } from '@material-ui/core';
+import { liquorTypes } from '../../actions/cocktails';
 import LiquorChip from './LiquorChip';
 
 const CocktailCards = ({_id, name, ingredients, instruction, garnish, setOpenRecipe }) => {
-
-    const liquorTypes = ['whiskey', 'vermouth', 'gin', 'vodka', 'rum', 'brandy'
-    , 'mezcal', 'tequila', 'wine', 'beer', 'cognac']
     
     const [liquorChips, setLiquorChips] = useState({});
 
@@ -19,7 +17,7 @@ const CocktailCards = ({_id, name, ingredients, instruction, garnish, setOpenRec
 
     const createLiquorChips = (ingredients) => {
         let lowerCaseIngredients = [];
-        // make lowerCase and split all ingredients
+        // Find used ingredients by spliting.
         ingredients.forEach((ingredient)=> lowerCaseIngredients.push(...ingredient.toLowerCase().split(' ')));
         
         // check what ingredietns are listed to create chips.

@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Container, Grid, Typography, Paper, Avatar, Button} from '@material-ui/core';
 import {GoogleLogin} from 'react-google-login';
 import LockRoundedIcon from '@material-ui/icons/LockRounded';
-import Input from './Input';
+import Input from './inputs/Input';
 import GoogleIcon from './icons/GoogleIcon';
 import {logInSuccess} from '../actions/auth';
 

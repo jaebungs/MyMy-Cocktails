@@ -3,14 +3,10 @@ export const storeAllCocktails =(cocktails) => ({
     cocktails
 })
 
-export const searchByName = (page, subject) => ({
-    type: 'SEARCH_BY_NAME',
-    page,
-    subject
+export const addToMyBar = (cocktail) => ({
+    type: 'Add_TO_MY_BAR',
+    cocktail
 })
 
-export const searchByLiquor = (page, ...subject) => ({
-    type: 'SEARCH_BY_LIQUOR',
-    page,
-    subject
-})
+export const liquorTypes = ['whiskey', 'vermouth', 'gin', 'vodka', 'rum', 'brandy'
+, 'mezcal', 'tequila', 'wine', 'beer', 'cognac']

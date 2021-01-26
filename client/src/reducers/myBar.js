@@ -2,7 +2,9 @@ const myBarDefault = [];
 
 const myBarReducer = (state = myBarDefault, action) => {
   switch (action.type) {
-    case 'ADD_TO_MY_BAR':
+    case 'GET_ALL_MY_COCKTAILS':
+      return [...state];
+    case 'REMOVE_FROM_MY_COCKTAILS':
       return [...state];
     default:
       return state;

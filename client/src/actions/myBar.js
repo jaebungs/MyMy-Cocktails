@@ -1,8 +1,12 @@
-export const addToMyBar = (id) => ({
-    type: 'Add_TO_MY_BAR',
-    id
+export const getAllMyCocktails = () => ({
+    type: 'GET_ALL_MY_COCKTAILS'
 })
 
-export const getAllCocktails = () => ({
-    type: 'GET_ALL_COCKTAILS'
+export const removeFromMyCocktails = () => ({
+    type: 'REMOVE_FROM_MY_COCKTAILS'
+})
+
+export const rateCocktail = (id) => ({
+    type: 'RATE_COCKTAIL',
+    id
 })
