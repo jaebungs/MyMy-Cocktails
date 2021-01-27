@@ -4,8 +4,10 @@ import { liquorTypes } from '../../actions/cocktails';
 import { searchHomeByName, searchHomeByLiquor, searchMyByName, searchMYByLiquor } from '../../actions/filters';
 import { Box, FormGroup, FormControlLabel, Checkbox, Input, InputAdornment } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
+import { chipStyle } from '../styles/chipColor';
 
 const FilterInputs = () => {
+    const classes = chipStyle();
     
     const [checkedTypes, setCheckedTypes] = useState([]);
     const dispatch = useDispatch();
@@ -45,21 +47,21 @@ const FilterInputs = () => {
 
     return (
         <FormGroup>
-             
             <Box display="flex" flexWrap="wrap" justifyContent="center" align-items="center">
             {
                 liquorTypes.map((liquor,index) => {
                     return <FormControlLabel 
                             control={
-                                <Checkbox
-                                    // I wanted to put onChange to parent's of Checkbox...
-                                    checked={checkedTypes.includes(liquor) ? true : false}
-                                    onChange={handleChange}
-                                    value={liquor}
-                                    name={liquor}
-                                    color="primary"
-                                />
-                            }
+                                    <Checkbox
+                                        className={classes[liquor.replace(/\s/g, '')]}  
+                                        // I wanted to put onChange to parent's of Checkbox...
+                                        checked={checkedTypes.includes(liquor) ? true : false}
+                                        onChange={handleChange}
+                                        value={liquor}
+                                        name={liquor}
+                                        color="primary"
+                                    />
+                                }   
                         label={liquor.charAt(0).toUpperCase() + liquor.slice(1)} // first latter Cap
                         key={index}
                     />

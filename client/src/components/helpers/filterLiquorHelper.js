@@ -1,4 +1,5 @@
 // function for filtering cocktails that have all filterLiquors.
+// compare two array of strings(ingredients & filterLiquors) and get all including cocktail object.
 const filterByLiquors = (cocktails, filterLiquors) => { 
   return cocktails.filter((cocktail)=>{
     let containAll = true;

@@ -4,7 +4,7 @@ import { Provider, useDispatch } from 'react-redux';
 import AppRouters from './routers/AppRouters';
 import { storeAllCocktails } from './actions/cocktails';
 import configureStore from './store/configureStore';
-import 'normalize.css/normalize.css';
+import { CssBaseline } from '@material-ui/core';
   
 const store = configureStore();
 
@@ -18,6 +18,7 @@ fetch('http://localhost:5000/cocktails')
 
 const jsx = (
     <Provider store={store}>
+        <CssBaseline />
         <AppRouters />
     </Provider>
 )
