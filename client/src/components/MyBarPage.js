@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelect, useDispatch } from 'react-redux';
-import FilterButton from './inputs/filterButton';
+import FilterInputs from './inputs/FilterInputs';
 
 
 
@@ -12,7 +12,7 @@ const MyBarPage = () => {
 
     return (
         <div>
-            <FilterButton />
+            <FilterInputs />
             <h1>My Bar</h1>
             <p>Not built yet...</p>
             <p>User can bookmark cocktails and Rate.</p>

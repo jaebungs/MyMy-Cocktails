@@ -5,30 +5,32 @@ import LiquorChip from './LiquorChip';
 
 const CocktailCards = ({_id, name, ingredients, instruction, garnish, setOpenRecipe }) => {
     
-    const [liquorChips, setLiquorChips] = useState({});
+    // const [liquorChips, setLiquorChips] = useState({});
 
-    useEffect(()=>{
-        createLiquorChips(ingredients)
-    }, [])
+    // useEffect(()=>{
+    //     createLiquorChips(ingredients)
+    // }, [])
 
     const handleModal = () => {
         setOpenRecipe({_id, name, ingredients, instruction, garnish})
     }
 
     const createLiquorChips = (ingredients) => {
-        let lowerCaseIngredients = [];
-        // Find used ingredients by spliting.
-        ingredients.forEach((ingredient)=> lowerCaseIngredients.push(...ingredient.toLowerCase().split(' ')));
+        let chips = [];
         
         // check what ingredietns are listed to create chips.
-        liquorTypes.forEach((liquor)=>{
-            if(lowerCaseIngredients.includes(liquor)) {
-                // used object to omit duplicates.
-                setLiquorChips(prev=>{
-                    return {...prev, [liquor]:liquor}
-                })
-            }
+        ingredients.forEach((ingredient) => {
+            liquorTypes.forEach((liquor)=>{
+                if(ingredient.toLowerCase().includes(liquor.toLowerCase())) {
+                    // used object to omit duplicates.
+                    // setLiquorChips(prev=>{
+                    //     return {...prev, [liquor]:liquor}
+                    // })
+                    chips.push(liquor)
+                }
+            })
         })
+        return chips
     }
 
     return (
@@ -39,7 +41,7 @@ const CocktailCards = ({_id, name, ingredients, instruction, garnish, setOpenRec
                         <Typography variant="h5">{name}</Typography>
                     </CardContent>
                     {
-                        Object.keys(liquorChips).map((liquor, index) => {
+                        createLiquorChips(ingredients).map((liquor, index) => {
                             return <LiquorChip key={index} liquor={liquor} />
                         })
                     }

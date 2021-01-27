@@ -1,6 +1,6 @@
 import {useSelector} from 'react-redux';
 
-const Ingredient = () => {
+const ingredient = () => {
 
   const cocktailsData = useSelector((state) => state.cocktails);
 
@@ -14,4 +14,4 @@ const Ingredient = () => {
   return lowerCaseIngredients;
 };
 
-export default Ingredient;
+export default ingredient;
