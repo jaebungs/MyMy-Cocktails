@@ -30,23 +30,23 @@ const filterByLiquor = (cocktails, text, filterLiquors) => {
   }
 
 //   if liquor filter and search filter both are active.
-//   if (filterLiquors.length > 0 && text) {
-//     let textFiltered = []
-//     cocktails.forEach((cocktail)=>{
-//         if (cocktail.name.toLowerCase().includes(text.toLowerCase())){
-//             textFiltered.push(cocktail)
-//         }
-//     })
-//     textFiltered.forEach((cocktail) => {
-//         cocktail.ingredients.forEach((ingredient) => {
-//           filterLiquors.forEach((liquor) => {
-//             if (ingredient.toLowerCase().includes(liquor)) {
-//               filterResult.push(cocktail);
-//             }
-//           });
-//         });
-//       });
-//   }
+  if (filterLiquors.length > 0 && text) {
+    let textFiltered = []
+    cocktails.forEach((cocktail)=>{
+        if (cocktail.name.toLowerCase().includes(text.toLowerCase())){
+            textFiltered.push(cocktail)
+        }
+    })
+    textFiltered.forEach((cocktail) => {
+        cocktail.ingredients.forEach((ingredient) => {
+          filterLiquors.forEach((liquor) => {
+            if (ingredient.toLowerCase().includes(liquor)) {
+              filterResult.push(cocktail);
+            }
+          });
+        });
+      });
+  }
 
   return filterResult;
 };

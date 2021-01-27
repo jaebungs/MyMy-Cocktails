@@ -1,16 +1,10 @@
-import React, {useEffect, useState} from 'react'
-import { Grid ,Card, CardActionArea, CardContent, CardActions, Button , Typography  } from '@material-ui/core';
+import React from 'react'
+import { Grid ,Card, CardActionArea, CardContent, Typography  } from '@material-ui/core';
 import { liquorTypes } from '../../actions/cocktails';
 import LiquorChip from './LiquorChip';
 
 const CocktailCards = ({_id, name, ingredients, instruction, garnish, setOpenRecipe }) => {
     
-    // const [liquorChips, setLiquorChips] = useState({});
-
-    // useEffect(()=>{
-    //     createLiquorChips(ingredients)
-    // }, [])
-
     const handleModal = () => {
         setOpenRecipe({_id, name, ingredients, instruction, garnish})
     }
@@ -22,10 +16,6 @@ const CocktailCards = ({_id, name, ingredients, instruction, garnish, setOpenRec
         ingredients.forEach((ingredient) => {
             liquorTypes.forEach((liquor)=>{
                 if(ingredient.toLowerCase().includes(liquor.toLowerCase())) {
-                    // used object to omit duplicates.
-                    // setLiquorChips(prev=>{
-                    //     return {...prev, [liquor]:liquor}
-                    // })
                     chips.push(liquor)
                 }
             })
