@@ -4,7 +4,7 @@ import { createSelector } from 'reselect';
 import CocktailCards from './card/CocktailCards';
 import { Grid, Container, Input } from '@material-ui/core';
 import FilterInputs from './inputs/FilterInputs';
-import filterByLiquor from './helpers/filterByLiquor';
+import filterLiquorHelper from './helpers/filterLiquorHelper';
 import RecipeModal from './modal/RecipeModal';
 
 const HomePage = () => {
@@ -15,15 +15,15 @@ const HomePage = () => {
   const byLiquors = state=> state.filters.homeByLiquors;
   const byName = state=>state.filters.homeByName;
 
-  const filterByLiquors = createSelector (
+  const filterLiquors = createSelector (
     state => state.cocktails,
     byName,
     byLiquors,
-    filterByLiquor
+    filterLiquorHelper
   )
 
   const cocktailData = () => {
-    const cocktails = useSelector(filterByLiquors);
+    const cocktails = useSelector(filterLiquors);
     return cocktails
   }
 
