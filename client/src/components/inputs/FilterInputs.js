@@ -60,7 +60,7 @@ const FilterInputs = () => {
                                     color="primary"
                                 />
                             }
-                        label={liquor}
+                        label={liquor.charAt(0).toUpperCase() + liquor.slice(1)} // first latter Cap
                         key={index}
                     />
                 })
