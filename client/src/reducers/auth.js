@@ -2,7 +2,7 @@ const authDefault = {token: null, result: null};
 
 const authReducer = (state=authDefault, action) => {
     switch (action.type){
-        case 'LOG_IN_SUCCESS':
+        case 'LOG_IN':
             console.log(action?.data)
             return {...state, token: action?.token, result: action?.result};
 

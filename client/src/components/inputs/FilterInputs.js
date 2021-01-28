@@ -48,12 +48,13 @@ const FilterInputs = () => {
     return (
         <FormGroup>
             <Box display="flex" flexWrap="wrap" justifyContent="center" align-items="center">
-            {
+            {   
                 liquorTypes.map((liquor,index) => {
-                    return <FormControlLabel 
+                                        // convert liquor with no space
+                    return <FormControlLabel className={classes[liquor.replace(/\s/g, '')]} style={{paddingRight: '9px'}}
                             control={
                                     <Checkbox
-                                        className={classes[liquor.replace(/\s/g, '')]}  
+                                        
                                         // I wanted to put onChange to parent's of Checkbox...
                                         checked={checkedTypes.includes(liquor) ? true : false}
                                         onChange={handleChange}

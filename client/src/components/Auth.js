@@ -1,15 +1,17 @@
 import React, {useState} from 'react';
+import { useHistory } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
 import {Container, Grid, Typography, Paper, Avatar, Button} from '@material-ui/core';
 import {GoogleLogin} from 'react-google-login';
 import LockRoundedIcon from '@material-ui/icons/LockRounded';
 import Input from './inputs/Input';
 import GoogleIcon from './icons/GoogleIcon';
-import {logInSuccess} from '../actions/auth';
+import {logIn} from '../actions/auth';
 
 const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleSubmit = () => {};
   const handleChange = () => {};
@@ -23,11 +25,11 @@ const Auth = () => {
     const result = res?.profileObj;
 
     try {
-      dispatch(logInSuccess({token, result}));
-      setIsSignUp(true);
-      console.log('Google login');
+      dispatch(logIn({token, result})); //dispatch{type: 'AUTH', data: {result, token}} this format may show the flow clear. easier to debug.
+      history.push('/mybar');
+      console.log('Google login success');
     } catch (err) {
-      console.log(err);
+      console.log('login failed',err);
     }
   };
 

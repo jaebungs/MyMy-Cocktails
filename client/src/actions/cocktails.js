@@ -8,5 +8,4 @@ export const addToMyBar = (cocktail) => ({
     cocktail
 })
 
-export const liquorTypes = ['whiskey', 'sweet vermouth', 'dry vermouth', 'gin', 'vodka', 'rum', 'brandy'
-, 'mezcal', 'tequila', 'wine', 'beer', 'cognac', 'campari']
+export const liquorTypes = ['whiskey', 'rum', 'brandy', 'cognac', 'sweet vermouth', 'dry vermouth', 'gin', 'vodka', 'tequila', 'mezcal',  'wine', 'beer', 'campari', 'luxardo']

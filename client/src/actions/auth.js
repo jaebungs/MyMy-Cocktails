@@ -1,5 +1,5 @@
-export const logInSuccess = ({token, result}) => ({
-    type: 'LOG_IN_SUCCESS',
+export const logIn = ({token, result}) => ({
+    type: 'LOG_IN',
     token,
     result
 })

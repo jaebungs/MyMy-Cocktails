@@ -2,17 +2,18 @@ import {makeStyles} from '@material-ui/core/styles';
 
 export const navbarStyle = makeStyles({
     navbar: {
-        background: '#6d4c41',
-        padding: '2rem'
+        background: '#F2E18D',
+        padding: '2rem',
+        marginBottom: '2rem'
     },
     navTitle: {
-        color: '#fff',
+        color: '#000',
         textDecoration: 'none',
         fontSize: '3rem',
         margin: '0 1rem'
     },
     navItems: {
-        color: '#fff',
+        color: '#000',
         textDecoration: 'none',
         fontSize: '1.5rem',
         margin: '0 1rem'

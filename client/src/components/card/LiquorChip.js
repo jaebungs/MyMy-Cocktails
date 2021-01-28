@@ -9,7 +9,7 @@ const LiquorChip = ({liquor}) => {
     const upperCaseLiquor = liquor.charAt(0).toUpperCase() + liquor.slice(1); // first latter Cap
 
     return (
-        <Chip className={classes[liquor.replace(/\s/g, '')]} size="medium" label={upperCaseLiquor} />
+        <Chip className={classes[liquor.replace(/\s/g, '')]} variant="outlined" size="medium" label={upperCaseLiquor} />
     )
 }
 

@@ -247,6 +247,89 @@
       ],
       "instruction": ["Shake all with ice.", "Fine strain into chilled glass."],
       "garnish": "Lemon zest twist"
+    },
+    {
+      "name": "BA's Best Old-Fashioned",
+      "ingredients": [
+        "1 teaspoon raw or granulated sugar",
+        "2 ounces rye whiskey",
+        "3 dashes Bitters"
+      ],
+      "instruction": ["Stir sugar, bitters, and 2 tsp. warm water in a rocks glass until most of the sugar is dissolved.", "Add 3 ice cubes and pour rye over.", "Stir 20 seconds to chill cocktail and dilute whiskey."],
+      "garnish": "Orange wedge, Maraschino cherry"
+    },
+    {
+      "name": "Scofflaw",
+      "ingredients": [
+        "1 ounce vodka", 
+"3/4 ounce coffee liqueur", 
+"1 1/4 ounces fresh espresso",
+"1/2 ounce simple syrup, (1:1, sugar:water)"
+      ],
+      "instruction": ["Shake all with ice.", "Strain into a coupette glass."],
+      "garnish": "3 coffee beans"
+    },
+    {
+      "name": "Gimlet",
+      "ingredients": [
+        "2 oz Gin",
+        "3/4 oz Lime",
+        "3/4 oz Simple syrup"
+      ],
+      "instruction": ["Shake all with ice.", "Strain into a coupette glass."],
+      "garnish": "Lime wheel "
+    },
+    {
+      "name": "Campari Cocktail",
+      "ingredients": [
+        "1 ounce Campari",
+        "3/4 ounce​​ Vodka",
+        "1 dash​​ Angostura bitters"
+      ],
+      "instruction": ["Shake all with ice.", "Strain into a coupette glass."],
+      "garnish": "Lime twist "
+    },
+    {
+      "name": "Sidecar",
+      "ingredients": [
+        "3/4 ounce fresh lemon juice", 
+        "2 ounce Brandy",
+        "3/4 ounce Triple sec"
+      ],
+      "instruction": ["Combine all and fill shaker with ice", "Strain into a glass."],
+      "garnish": "Granulated sugar (for serving)"
+    },
+    {
+      "name": "Spiked Coffee",
+      "ingredients": [
+        "4 ounces coffee",
+        "1 ounce Kahlua",
+        "1-2 ounces Cognac"
+      ],
+      "instruction": ["Pour the Kahlua and Cognac into your coffee", "Stir!"],
+      "garnish": ""
+    },
+    {
+      "name": "Cosmopolitan",
+      "ingredients": [
+        "1 1/2 ounces vodka",
+        "1 ounce Triple Sec",
+        "1/2 ounce fresh lime juice",
+        "1/4 ounce cranberry juice"
+      ],
+      "instruction": ["Combine all and fill shaker with ice.", "Shake!", "Strain into a chilled glass."],
+      "garnish": "Orange peel"
+    },
+    {
+      "name": "Between the Sheets",
+      "ingredients": [
+        "1 ounce Brandy",
+"1 ounce light Rum",
+"1 ounce Triple sec",
+"1/2 ounce Lemon juice"
+      ],
+      "instruction": ["Combine all and fill shaker with ice.", "Shake!", "Strain into a chilled glass."],
+      "garnish": "Lemon twist"
     }
   ]
 }
