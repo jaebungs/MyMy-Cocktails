@@ -26,7 +26,7 @@ const Auth = () => {
 
     try {
       dispatch(logIn({token, result})); //dispatch{type: 'AUTH', data: {result, token}} this format may show the flow clear. easier to debug.
-      history.push('/mybar');
+      history.push('/');
       console.log('Google login success');
     } catch (err) {
       console.log('login failed',err);
