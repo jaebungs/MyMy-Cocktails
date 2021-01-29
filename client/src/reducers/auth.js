@@ -10,7 +10,7 @@ const authReducer = (state=authDefault, action) => {
             localStorage.removeItem('user');
             return state = authDefault;
 
-        case 'SIGN':
+        case 'LOG_IN':
             localStorage.setItem('user', JSON.stringify({ ...action?.data }));
             return {...state, authData: action?.data};
 

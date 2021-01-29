@@ -19,7 +19,7 @@ export const signIn = (formData, history) => async (dispatch) => {
     })
     .then((res) => res.json())
     .then((data) => {
-        dispatch({type: 'SIGN', data})
+        dispatch({type: 'LOG_IN', data})
     })
     .catch(err=> console.log(err))
 
@@ -37,7 +37,7 @@ export const signUp = (formData, history) => async (dispatch) => {
     })
     .then((res) => res.json())
     .then((data) => {
-        dispatch({type: 'SIGN', data})
+        dispatch({type: 'LOG_IN', data})
     })
     .catch(err=> console.log(err))
 

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useHistory } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
 import {Container, Grid, Typography, Paper, Avatar, Button} from '@material-ui/core';
-import {GoogleLogin} from 'react-google-login';
+import {GoogleLogin, useGoogleLogin } from 'react-google-login';
 import LockRoundedIcon from '@material-ui/icons/LockRounded';
 import Input from './inputs/Input';
 import GoogleIcon from './icons/GoogleIcon';
@@ -45,9 +45,21 @@ const Auth = () => {
   const googleSuccess = async (res) => {
     const token = res?.tokenId;
     const result = res?.profileObj;
+    const googleProfile = {
+      email: result.email,
+      name: result.name,
+      password: result.googleId,
+      confirmPassword: result.googleId,
+      firstName: result.givenName,
+      lastName: result.familyName
+    }
 
     try {
-      dispatch(authLogIn({token, result})); //dispatch{type: 'AUTH', data: {result, token}} this format may show the flow clear. easier to debug.
+      isSignUp ? (
+        dispatch(signUp(googleProfile, history))
+      ):(
+        dispatch(signIn(googleProfile, history))
+      )
       history.push('/');
       console.log('Google login success');
     } catch (err) {
@@ -126,7 +138,7 @@ const Auth = () => {
                 varaiant="contained"
                 fullWidth
               >
-                Google Sign In
+                {isSignUp ? 'Google Sign Up' : 'Google Sign In'}
               </Button>
             )}
           />
