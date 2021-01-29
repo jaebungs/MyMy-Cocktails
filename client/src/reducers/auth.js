@@ -12,8 +12,9 @@ const authReducer = (state=authDefault, action) => {
 
         case 'LOG_IN':
             localStorage.setItem('user', JSON.stringify({ ...action?.data }));
-            return {...state, authData: action?.data};
-
+            return { ...state, ...action?.data};
+        case 'ERROR':
+            return {token: action?.token, result: action?.result, message: action?.message};
         default:
         return state;
     }

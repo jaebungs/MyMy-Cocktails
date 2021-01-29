@@ -19,11 +19,12 @@ export const signIn = (formData, history) => async (dispatch) => {
     })
     .then((res) => res.json())
     .then((data) => {
-        dispatch({type: 'LOG_IN', data})
+        dispatch({type: 'LOG_IN', data});
+        if (!data.message){
+            history.push('/');
+        }
     })
     .catch(err=> console.log(err))
-
-    history.push('/');
 }
 
 export const signUp = (formData, history) => async (dispatch) => {
@@ -37,9 +38,11 @@ export const signUp = (formData, history) => async (dispatch) => {
     })
     .then((res) => res.json())
     .then((data) => {
-        dispatch({type: 'LOG_IN', data})
+        dispatch({type: 'LOG_IN', data});
+        if (!data.message){
+            history.push('/');
+        }
     })
     .catch(err=> console.log(err))
 
-    history.push('/');
 }

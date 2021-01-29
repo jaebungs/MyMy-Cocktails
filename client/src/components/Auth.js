@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useHistory } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
-import {Container, Grid, Typography, Paper, Avatar, Button} from '@material-ui/core';
+import {Container, Grid, Typography, Paper, Avatar, Button, Box, Collapse } from '@material-ui/core';
+import { Alert, AlertTitle } from '@material-ui/lab';
 import {GoogleLogin, useGoogleLogin } from 'react-google-login';
 import LockRoundedIcon from '@material-ui/icons/LockRounded';
 import Input from './inputs/Input';
 import GoogleIcon from './icons/GoogleIcon';
-import {authLogIn, signUp, signIn} from '../actions/auth';
+import {signUp, signIn} from '../actions/auth';
 
 const initialFormData = {
   firstName: '',
@@ -19,6 +20,9 @@ const initialFormData = {
 const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [formData, setFormData] = useState(initialFormData);
+  const [googleError, setGoogleError] = useState();
+  const message = useSelector(state => state.auth?.message);
+  const result = useSelector(state => state.auth?.result);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -60,15 +64,15 @@ const Auth = () => {
       ):(
         dispatch(signIn(googleProfile, history))
       )
-      history.push('/');
       console.log('Google login success');
+      setGoogleError();
     } catch (err) {
       console.log('login failed',err);
     }
   };
 
   const googleFailure = (err) => {
-    console.log('Google login failure.', err);
+    setGoogleError('Something is wrong. Please check again.')
   };
 
   return (
@@ -78,6 +82,13 @@ const Auth = () => {
           <LockRoundedIcon />
         </Avatar>
         <Typography variant="h6">{isSignUp ? 'Sign Up' : 'Sign In'}</Typography>
+        <Collapse in={!!message || !!googleError}>
+          <Alert severity="error">
+            <AlertTitle>Error</AlertTitle>
+            {message && <strong>{message}</strong>}
+            {googleError && <strong>{googleError}</strong>}
+          </Alert>
+        </Collapse>
         <form onSubmit={handleSubmit}>
           <Grid container spacing={3}>
             {isSignUp && (
