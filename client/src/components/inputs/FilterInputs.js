@@ -2,14 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { liquorTypes } from '../../actions/cocktails';
 import { searchHomeByName, searchHomeByLiquor, searchMyByName, searchMYByLiquor } from '../../actions/filters';
-import { Box, FormGroup, FormControlLabel, Checkbox, Input, InputAdornment } from '@material-ui/core';
+import { Box, FormGroup, FormControlLabel, Checkbox, Input, InputAdornment, Switch, Collapse, Grid } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
+import DoneIcon from '@material-ui/icons/Done';
 import { chipStyle } from '../styles/chipColor';
 
-const FilterInputs = () => {
+const FilterInputs = ({filterClicked, setFilterClicked}) => {
     const classes = chipStyle();
     
     const [checkedTypes, setCheckedTypes] = useState([]);
+    const [show, setShow] = useState(false);
+
     const dispatch = useDispatch();
     const pathname = window.location.pathname;
 
@@ -21,6 +24,10 @@ const FilterInputs = () => {
             dispatch(searchMYByLiquor(checkedTypes))
         }
     }, [checkedTypes])
+
+    const showFilterBox = () => {
+        setShow(!show)
+    }
 
     // Handle checked liquor filters.
     const handleChange = (e) => {
@@ -46,39 +53,49 @@ const FilterInputs = () => {
     }
 
     return (
-        <FormGroup>
-            <Box display="flex" flexWrap="wrap" justifyContent="center" align-items="center">
-            {   
-                liquorTypes.map((liquor,index) => {
-                                        // convert liquor with no space
-                    return <FormControlLabel className={classes[liquor.replace(/\s/g, '')]} style={{paddingRight: '9px'}}
-                            control={
-                                    <Checkbox
-                                        
-                                        // I wanted to put onChange to parent's of Checkbox...
-                                        checked={checkedTypes.includes(liquor) ? true : false}
-                                        onChange={handleChange}
-                                        value={liquor}
-                                        name={liquor}
-                                        color="primary"
-                                    />
-                                }   
-                        label={liquor.charAt(0).toUpperCase() + liquor.slice(1)} // first latter Cap
-                        key={index}
-                    />
-                })
-            }
-            <Input
-                id="serach"
-                variant="outlined"
-                onChange={handleTextChange}
-                startAdornment={
-                <InputAdornment position="start">
-                    <SearchIcon />
-                </InputAdornment>
-                }
-            />
-            </Box>
+        <FormGroup style={{marginBottom: '1rem'}} >
+            <Grid container direction="row" justify="flex-end" alignItems="center" style={{marginBottom: '0.5rem'}}>
+                <FormControlLabel
+                    control={<Switch checked={show} color="primary" onChange={showFilterBox} position="right" />}
+                    label= 'Show Filters'
+                />
+                <Input
+                    id="serach"
+                    variant="outlined"
+                    onChange={handleTextChange}
+                    startAdornment={
+                    <InputAdornment position="start">
+                        <SearchIcon />
+                    </InputAdornment>
+                    }
+                />
+                
+            </Grid>
+            <Collapse in={show}> 
+                <Box display="flex" flexWrap="wrap" justifyContent="center" align-items="center">
+                {   
+                    liquorTypes.map((liquor,index) => {
+                                            // convert liquor with no space
+                        return <FormControlLabel className={classes[liquor.replace(/\s/g, '')]} style={{paddingRight: '9px'}}
+                                control={
+                                        <Checkbox
+                                            // I wanted to put onChange to parent's of Checkbox...
+                                            checked={checkedTypes.includes(liquor) ? true : false}
+                                            onChange={handleChange}
+                                            value={liquor}
+                                            name={liquor}
+                                            color="secondary"
+                                            icon={<DoneIcon />}
+                                            checkedIcon={<DoneIcon />}
+                                        />
+                                    }   
+                            label={liquor.charAt(0).toUpperCase() + liquor.slice(1)} // first latter Cap
+                            key={index}
+                        />
+                    })
+                }      
+                </Box>
+            </Collapse>
         </FormGroup>   
     )
 }

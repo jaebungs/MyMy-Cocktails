@@ -72,4 +72,7 @@ export const chipStyle = makeStyles({
         borderRadius: '15px',
         margin: '4px'
     },
+    filterContainer: {
+        float: 'right'
+    }
 });

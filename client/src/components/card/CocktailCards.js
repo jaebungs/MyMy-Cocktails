@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Card, CardActionArea, CardContent, Typography} from '@material-ui/core';
+import {Grid, Card, CardActionArea, CardContent, Typography } from '@material-ui/core';
 import {liquorTypes} from '../../actions/cocktails';
 import LiquorChip from './LiquorChip';
 import {cardStyles} from './cardStyles';

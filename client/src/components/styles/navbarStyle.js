@@ -4,7 +4,7 @@ export const navbarStyle = makeStyles({
     navbar: {
         background: '#F2E18D',
         padding: '2rem',
-        marginBottom: '2rem'
+        marginBottom: '1rem'
     },
     navTitle: {
         color: '#000',

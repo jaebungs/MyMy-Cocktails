@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { createSelector } from 'reselect';
 import CocktailCards from './card/CocktailCards';
-import { Grid, Container, Input } from '@material-ui/core';
+import { Grid, Container, Input, Grow } from '@material-ui/core';
 import FilterInputs from './inputs/FilterInputs';
 import filterLiquorHelper from './helpers/filterLiquorHelper';
 import RecipeModal from './modal/RecipeModal';
@@ -32,11 +32,14 @@ const HomePage = () => {
   return (
       <Container maxWidth="lg">
         <FilterInputs />
-        <h1>Cocktails</h1>
         <Grid container spacing={1}>
           {
             cocktailData().map((cocktail, index) => {
-              return <CocktailCards key={index} {...cocktail} setOpenRecipe={setOpenRecipe}/>
+              return (
+                <Grow key={index} in={!!cocktail} style={{ transformOrigin: '0 0 0' }} {...(!!cocktail ? { timeout: 1000 } : {})}>
+                  <CocktailCards {...cocktail} setOpenRecipe={setOpenRecipe}/>
+                </Grow>
+                )
             })
           }
           {
