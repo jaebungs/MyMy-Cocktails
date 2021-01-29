@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { createSelector } from 'reselect';
 import CocktailCards from './card/CocktailCards';
-import { Grid, Container, Input, Grow } from '@material-ui/core';
+import { Grid, Container, Grow } from '@material-ui/core';
 import FilterInputs from './inputs/FilterInputs';
 import filterLiquorHelper from './helpers/filterLiquorHelper';
 import RecipeModal from './modal/RecipeModal';

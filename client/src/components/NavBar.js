@@ -33,17 +33,17 @@ const Navbar = () => {
             My Bar
           </Typography>
         </Toolbar>
-        <div className={classes.loginContainer}>
+        
           {user?.result ? (
-            <div>
-              <Avatar alt={user.result.name} src={user.result.imageUrl}>
+            <Box display="flex" flexWrap="wrap" justifyContent="center" alignItems="center" className={classes.loginContainer}>
+              <Avatar alt={user.result.name} src={user.result.imageUrl}  >
                 {user.result.name.charAt(0)}
               </Avatar>
-              <Typography variant="h6">{user.result.name}</Typography>
-              <Button variant="contained" color="secondary" onClick={handleLogOut} >
+              <Typography color='textPrimary' variant="h6" className={classes.margin}>{user.result.name}</Typography>
+              <Button variant="contained" color="secondary" className={classes.margin} onClick={handleLogOut} >
                 Log out
               </Button>
-            </div>
+            </Box>
           ) : (
             <Button
               component={Link}
@@ -54,7 +54,7 @@ const Navbar = () => {
               Sign In
             </Button>
           )}
-        </div>
+        
       </Box>
     </AppBar>
   );
