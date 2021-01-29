@@ -34,7 +34,7 @@ const Navbar = () => {
           </Typography>
         </Toolbar>
         <div className={classes.loginContainer}>
-          {user ? (
+          {user?.result ? (
             <div>
               <Avatar alt={user.result.name} src={user.result.imageUrl}>
                 {user.result.name.charAt(0)}

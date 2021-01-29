@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
 const cocktailsRoutes = require('./routes/cocktails');
+const userRoutes = require('./routes/user');
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.use(express.json());
 
 // Routes
 app.use('/cocktails', cocktailsRoutes);
+app.use('/user', userRoutes);
 
 app.listen(PORT, ()=>{
     console.log(`Server running on http://localhost:${PORT}`)

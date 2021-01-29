@@ -6,7 +6,6 @@ const router = express.Router();
 
 // routes in this file starting with /cocktails
 router.get('/', (req, res) => {
-
     Cocktail.find()
     .then((cocktail)=> {
         res.json(cocktail);

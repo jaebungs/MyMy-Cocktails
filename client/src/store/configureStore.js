@@ -1,4 +1,5 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware, compose  } from "redux";
+import thunk from 'redux-thunk';
 import myBarReducer from "../reducers/myBar";
 import authReducer from '../reducers/auth';
 import cocktailsReducers from '../reducers/cocktails';
@@ -12,7 +13,10 @@ export default () => {
       auth: authReducer,
       filters: filtersReducer
     }),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    compose(
+      applyMiddleware(thunk),
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    )
   );
   return store;
 };

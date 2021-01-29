@@ -6,15 +6,37 @@ import {GoogleLogin} from 'react-google-login';
 import LockRoundedIcon from '@material-ui/icons/LockRounded';
 import Input from './inputs/Input';
 import GoogleIcon from './icons/GoogleIcon';
-import {logIn} from '../actions/auth';
+import {authLogIn, signUp, signIn} from '../actions/auth';
+
+const initialFormData = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  confirmPassword: ''
+}
 
 const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(false);
+  const [formData, setFormData] = useState(initialFormData);
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const handleSubmit = () => {};
-  const handleChange = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isSignUp) { 
+      dispatch(signUp(formData, history));
+    } else {
+      dispatch(signIn(formData, history));
+    }
+  };
+
+  const handleFromChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  };
 
   const switchSignMode = () => {
     setIsSignUp((prev) => !prev);
@@ -25,7 +47,7 @@ const Auth = () => {
     const result = res?.profileObj;
 
     try {
-      dispatch(logIn({token, result})); //dispatch{type: 'AUTH', data: {result, token}} this format may show the flow clear. easier to debug.
+      dispatch(authLogIn({token, result})); //dispatch{type: 'AUTH', data: {result, token}} this format may show the flow clear. easier to debug.
       history.push('/');
       console.log('Google login success');
     } catch (err) {
@@ -53,7 +75,7 @@ const Auth = () => {
                   size="6"
                   type="text"
                   placeholder="First Name"
-                  handleChange={handleChange}
+                  handleChange={handleFromChange}
                   autoFocus
                 />
                 <Input
@@ -61,7 +83,7 @@ const Auth = () => {
                   size="6"
                   type="text"
                   placeholder="Last Name"
-                  handleChange={handleChange}
+                  handleChange={handleFromChange}
                 />
               </div>
             )}
@@ -69,21 +91,21 @@ const Auth = () => {
               name="email"
               type="email"
               placeholder="Enter Email"
-              handleChange={handleChange}
+              handleChange={handleFromChange}
               autoFocus
             />
             <Input
               name="password"
               type="password"
               placeholder="Enter Passowrd"
-              handleChange={handleChange}
+              handleChange={handleFromChange}
             />
             {isSignUp && (
               <Input
                 name="confirmPassword"
                 type="password"
                 placeholder="Confirm Passowrd"
-                handleChange={handleChange}
+                handleChange={handleFromChange}
               />
             )}
           </Grid>
