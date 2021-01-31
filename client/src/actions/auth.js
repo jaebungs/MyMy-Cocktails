@@ -44,5 +44,4 @@ export const signUp = (formData, history) => async (dispatch) => {
         }
     })
     .catch(err=> console.log(err))
-
 }

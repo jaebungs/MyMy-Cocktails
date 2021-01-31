@@ -6,8 +6,6 @@ const cocktailsReducers = (state=cocktailsDefault, action) => {
         case 'STORE_ALL_COCKTAILS':
             return [...state, ...action.cocktails];
 
-        case 'Add_TO_MY_BAR':
-            return []
         default:
             return state;
     }

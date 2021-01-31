@@ -11,12 +11,11 @@ const MyBarPage = () => {
 
     const [openRecipe, setOpenRecipe] = useState();
 
-    // const cocktailsData = useSelector((state)=> state.cocktails);
-    const byLiquors = state=> state.filters.homeByLiquors;
-    const byName = state=>state.filters.homeByName;
+    const byLiquors = state=> state.filters.barByLiquors;
+    const byName = state=>state.filters.barByName;
   
     const filterLiquors = createSelector (
-      state => state.cocktails,
+      state => state.myBar,
       byName,
       byLiquors,
       filterLiquorHelper

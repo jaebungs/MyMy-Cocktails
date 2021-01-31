@@ -3,9 +3,4 @@ export const storeAllCocktails =(cocktails) => ({
     cocktails
 })
 
-export const addToMyBar = (cocktail) => ({
-    type: 'Add_TO_MY_BAR',
-    cocktail
-})
-
 export const liquorTypes = ['whiskey', 'rum', 'brandy', 'cognac', 'sweet vermouth', 'dry vermouth', 'gin', 'vodka', 'tequila', 'mezcal',  'wine', 'beer', 'campari', 'luxardo']
