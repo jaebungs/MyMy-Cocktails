@@ -1,21 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import {Route, Redirect, useLocation} from 'react-router-dom';
+import {useSelector} from 'react-redux';
+
 
 const PrivateRoute = ({component: Component, ...rest}) => {
-  const location = useLocation();
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
-
-  const isAuthorized = false;
-
-  useEffect(() => {
-    setUser(JSON.parse(localStorage.getItem('user')));
-    
-  }, [location]);
+    const token = useSelector(state => state.auth.token)
 
   return (
     <Route
       component={(props) =>
-        user?.result ? (
+        token ? (
           <div>
             <Component {...props} />
           </div>
