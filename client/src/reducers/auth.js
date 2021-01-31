@@ -11,8 +11,8 @@ const authReducer = (state=authDefault, action) => {
             return state = authDefault;
 
         case 'LOG_IN':
-            const upperCaseFirstName = action?.data.result.firstName.charAt(0) + action?.data.result.firstName.slice(1);
-            const upperCaseLastName = action?.data.result.lastName.charAt(0) + action?.data.result.lastName.slice(1);
+            const upperCaseFirstName = action?.data.result?.firstName.charAt(0) + action?.data.result?.firstName.slice(1);
+            const upperCaseLastName = action?.data.result?.lastName.charAt(0) + action?.data.result?.lastName.slice(1);
             const name = `${upperCaseFirstName} ${upperCaseLastName}`;
 
             localStorage.setItem('user', JSON.stringify({ ...action?.data }));
