@@ -4,6 +4,7 @@ import { createSelector } from 'reselect';
 import FilterInputs from './inputs/FilterInputs';
 import filterLiquorHelper from './helpers/filterLiquorHelper';
 import CocktailCards from './card/CocktailCards';
+import RecipeModal from './modal/RecipeModal';
 import { Grid, Container, Grow } from '@material-ui/core';
 
 const MyBarPage = () => {

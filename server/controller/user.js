@@ -30,9 +30,12 @@ const signin = async (req, res) => {
 
 const signup = async (req, res) => {
   const {firstName, lastName, email, password, confirmPassword} = req.body;
+
   try {
     const existingUser = await User.findOne({email});
-    
+    const oneLetterUppperFirstName = firstName.toLowerCase().charAt(0).toUpperCase() + firstName.slice(1);
+    const oneLetterUppperLastName = lastName.toLowerCase().charAt(0).toUpperCase() + lastName.slice(1);
+  
     if (existingUser) return res.status(400).json({message: 'User already exists'});
     if (password !== confirmPassword) return res.status(400).json({message: 'Password does not match.'});
 
@@ -40,11 +43,12 @@ const signup = async (req, res) => {
     const result = await User.create({
       email,
       password: hashedPassword,
-      name: `${firstName} ${lastName}`,
-      firstName,
-      lastName,
+      name: `${oneLetterUppperFirstName} ${oneLetterUppperLastName}`,
+      firstName: oneLetterUppperFirstName,
+      lastName: oneLetterUppperLastName,
       bar: [],
     });
+
     const token = jwt.sign({email: result.email, id: result._id}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRES_IN,});
     res.status(200).json({result, token});
   } catch (error) {
