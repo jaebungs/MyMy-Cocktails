@@ -1,3 +1,8 @@
+export const getAllFromMyBar = (cocktails) => ({
+    type: 'GET_ALL_FROM_MY_BAR',
+    cocktails
+})
+
 export const addToMyBar = (cocktail, id) => async (dispatch) => {
     const token = JSON.parse(localStorage?.getItem('user'))?.token;
     const combineObject = {
