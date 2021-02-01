@@ -6,11 +6,12 @@ const dotenv = require('dotenv');
 
 const cocktailsRoutes = require('./routes/cocktails');
 const userRoutes = require('./routes/user');
+const mybarRoutes = require('./routes/mybar')
 
 dotenv.config();
 
 mongoose.connect(process.env.DATABASE_URL, 
-{ useNewUrlParser: true, useUnifiedTopology: true } )
+{ useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true } )
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -25,6 +26,7 @@ app.use(express.json());
 // Routes
 app.use('/cocktails', cocktailsRoutes);
 app.use('/user', userRoutes);
+app.use('/mybar', mybarRoutes)
 
 app.listen(PORT, ()=>{
     console.log(`Server running on http://localhost:${PORT}`)

@@ -2,11 +2,15 @@ const myBarDefault = [];
 
 const myBarReducer = (state = myBarDefault, action) => {
   switch (action.type) {
-    case 'GET_ALL_MY_COCKTAILS':
-      return [...state];
+    case 'GET_ALL_FROM_MY_BAR':
+      return [...action?.data?.result.bar];
 
-    case 'ADD_TO_MY_COCKTAILS':
-      return [...state, ...action.data];
+    case 'ADD_TO_MY_BAR':
+      let newLocalStorate = {...JSON.parse(localStorage?.getItem('user')), result: {...action?.newData} };
+      
+      localStorage.setItem('user', JSON.stringify(newLocalStorate));
+      console.log(action?.newData)
+      return [...action?.newData?.bar];
 
     case 'REMOVE_FROM_MY_COCKTAILS':
       return [...state];

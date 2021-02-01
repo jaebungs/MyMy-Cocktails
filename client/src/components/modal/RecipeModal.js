@@ -1,10 +1,22 @@
-import React from 'react';
-import { Dialog, DialogTitle, DialogContentText, Button, Typography  } from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
+import {useLocation} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToMyBar } from '../../actions/myBar';
+import { Box, Dialog, DialogTitle, DialogContentText, Button, Typography  } from '@material-ui/core';
 import {recipeModalStyles} from './recipeModalStyles';
 
 
 const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecipe }) => {
     const classes = recipeModalStyles();
+    const location = useLocation();
+    const dispatch = useDispatch();
+
+    const [currentPage, setCurrentPage] = useState();
+    const id = JSON.parse(localStorage?.getItem('user'))?.result?._id;
+
+    useEffect(()=>{
+        setCurrentPage(location.pathname)
+    }, [location])
 
     const handleClose = () => {
         setOpenRecipe(null);
@@ -18,6 +30,15 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
         })
         
         return newSentence.join(' ').trim();
+    }
+
+    const handleAddtoMyBar = () => {
+        dispatch(addToMyBar({_id, name, ingredients, instruction, garnish, setOpenRecipe}, id));
+        console.log('addbutton active')
+    }
+
+    const handleRemoveFromMyBar = () => {
+
     }
 
     return (
@@ -35,10 +56,17 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
                         {instruction.map((step, index)=>{
                             return <li key={index}>{step}</li>
                         })}
-                    </ol>
+                    </ol>   
                     <Typography variant="h6">Garnish :</Typography>
                     <p>{garnish}</p>
-                <Button size="medium" variant="contained" color="secondary" onClick={handleClose}>Close</Button>
+                <Box display="flex" flexWrap="wrap" justifyContent="flex-start" alignItems="center" width="100%" >
+                    <Box flexGrow={1}>
+                        {currentPage === '/' && <Button size="medium" variant="contained" color="primary" onClick={handleAddtoMyBar}>Add to My Bar</Button>}
+                        {currentPage === '/mybar' && <Button size="medium" variant="contained" color="secondary" onClick={handleRemoveFromMyBar}>Remove from My Bar</Button>}
+                    </Box>
+                    
+                    <Button size="medium" variant="contained" color="secondary" onClick={handleClose}>Close</Button>
+                </Box>
             </div>
         </Dialog>
     )

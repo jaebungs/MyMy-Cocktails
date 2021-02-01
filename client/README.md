@@ -20,3 +20,4 @@ Made me think and learn more about normalize state shape. Although I didn't need
 For a property update of a deeply nested object to be rendered, the high-level reference needs to be changed.
 Use spread operator, but hard to read so nested reducer comes. However many reducers make hard to track.  
 Therefore, library like immer.js comes. It creates a new state object by mutating current 'immutable state', so changing new object also changes the original object.
+Learned about JSON web token and session token. This app uses JWT.

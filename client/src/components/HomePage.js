@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 import { createSelector } from 'reselect';
 import CocktailCards from './card/CocktailCards';
 import { Grid, Container, Grow } from '@material-ui/core';
@@ -13,7 +13,6 @@ const HomePage = () => {
 
   const [openRecipe, setOpenRecipe] = useState();
 
-  // const cocktailsData = useSelector((state)=> state.cocktails);
   const byLiquors = state=> state.filters.homeByLiquors;
   const byName = state=>state.filters.homeByName;
 
