@@ -2,14 +2,17 @@ import {makeStyles} from '@material-ui/core/styles';
 
 export const navbarStyle = makeStyles({
     navbar: {
-        background: '#F2E18D',
-        padding: '1rem 7rem',
+        background: 'none',
+        boxShadow: 'none',
+        padding: '0.6rem 7rem',
+        marginBottom: '1rem',
         "@media (max-width: 1300px)": {
             padding: '1rem 0'
         }
     },
     navTitle: {
         color: '#000',
+        display: 'inline-block',
         fontSize: '2rem',
         "@media (max-width: 350px)": {
             margin: '0 auto',
@@ -32,7 +35,7 @@ export const navbarStyle = makeStyles({
         color: '#000',
         textDecoration: 'none',
         fontSize: '1.2rem',
-        marginRight: '1rem',
+        margin: '1rem',
         "@media (max-width: 430px)": {
             margin: '1rem auto 0 auto',
             textAlign: 'center'
@@ -47,5 +50,9 @@ export const navbarStyle = makeStyles({
     },
     margin: {
         margin: '0 1rem'
+    },
+    signButton: {
+        backgroundColor: '#fff',
+        border: '2px solid #000'
     }
 });

@@ -16,56 +16,48 @@ const Navbar = () => {
 
   return (
     <AppBar className={classes.navbar} position="static">
-      <Box display="flex" flexWrap="wrap" width="100%" alignItems="center">
+      <Box display="flex" flexWrap="wrap" width="100%" >
         <Box flexGrow={1}>
           <Typography className={classes.navTitle} variant="h1">
             My My Cocktails
+          </Typography>
+
+          <Typography
+            className={classes.navItems}
+            component={Link}
+            variant="h3"
+            to="/"
+            exact="true"
+          >
+            Shake
+          </Typography>
+          <Typography
+            className={classes.navItems}
+            component={Link}
+            variant="h3"
+            to="/library"
+            exact="true"
+          >
+            Library
+          </Typography>
+          <Typography
+            className={classes.navItems}
+            component={Link}
+            variant="h3"
+            to="/mybar"
+            exact="true"
+          >
+            My Bar
           </Typography>
         </Box>
 
         {user?.result ? (
           <Profile name={user.result.name} setUser={setUser} />
         ) : (
-          <Button component={Link} to="/auth" variant="contained" color="primary">
+          <Button component={Link} to="/auth" variant="contained" className={classes.signButton}>
             Sign In
           </Button>
         )}
-      </Box>
-
-      <Box
-        display="flex"
-        flexWrap="wrap"
-        className={classes.navLinkContainer}
-        width="100%"
-        alignItems="center"
-      >
-        <Typography
-          className={classes.navItems}
-          component={Link}
-          variant="h3"
-          to="/"
-          exact="true"
-        >
-          Shake
-        </Typography>
-        <Typography
-          className={classes.navItems}
-          component={Link}
-          variant="h3"
-          to="/library"
-          exact="true"
-        >
-          Library
-        </Typography>
-        <Typography
-          className={classes.navItems}
-          component={Link}
-          variant="h3"
-          to="/mybar"
-          exact="true"
-        >
-          My Bar
-        </Typography>
       </Box>
     </AppBar>
   );

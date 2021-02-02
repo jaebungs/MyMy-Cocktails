@@ -6,10 +6,9 @@ import { Grid, Container, Grow } from '@material-ui/core';
 import FilterInputs from './inputs/FilterInputs';
 import filterLiquorHelper from './helpers/filterLiquorHelper';
 import RecipeModal from './modal/RecipeModal';
-import { bodyStyle } from './styles/homePageStyle';
+
 
 const LibraryPage = () => {
-  const classes = bodyStyle();
 
   const [openRecipe, setOpenRecipe] = useState();
 
