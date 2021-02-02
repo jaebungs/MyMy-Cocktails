@@ -63,7 +63,7 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
                     <ol className={classes.contentsContainer}>{garnish}</ol>
                 <Box display="flex" flexWrap="wrap" justifyContent="flex-start" alignItems="center" width="100%" mt={7}>
                     <Box mr={2}>
-                        {currentPage === '/' && <Button size="medium" variant="contained" color="primary" onClick={handleAddtoMyBar}>Add</Button>}
+                        {currentPage === '/library' && <Button size="medium" variant="contained" color="primary" onClick={handleAddtoMyBar}>Add</Button>}
                         {currentPage === '/mybar' && <Button size="medium" variant="contained" color="secondary" onClick={handleRemoveFromMyBar}>Remove</Button>}
                     </Box>
                     

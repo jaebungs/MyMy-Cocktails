@@ -35,7 +35,7 @@ const FilterInputs = ({filterClicked, setFilterClicked}) => {
 
   // When liquor filter clicked, dispatch to pathnamebyLiquor
   useEffect(() => {
-    if (pathname === '/') {
+    if (pathname === '/library') {
       dispatch(searchHomeByLiquor(checkedTypes));
     } else if (pathname === '/mybar') {
       dispatch(searchMYByLiquor(checkedTypes));
@@ -56,7 +56,7 @@ const FilterInputs = ({filterClicked, setFilterClicked}) => {
   // hanlde text typed in the search box
   const handleTextChange = (e) => {
     const text = e.target.value;
-    if (pathname === '/') {
+    if (pathname === '/library') {
       dispatch(searchHomeByName(text));
     } else if (pathname === '/mybar') {
       dispatch(searchMyByName(text));

@@ -8,7 +8,7 @@ import filterLiquorHelper from './helpers/filterLiquorHelper';
 import RecipeModal from './modal/RecipeModal';
 import { bodyStyle } from './styles/homePageStyle';
 
-const HomePage = () => {
+const LibraryPage = () => {
   const classes = bodyStyle();
 
   const [openRecipe, setOpenRecipe] = useState();
@@ -50,4 +50,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default LibraryPage;
