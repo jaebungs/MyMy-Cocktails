@@ -45,21 +45,21 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
     return (
         <Dialog open={!!name} fullWidth={true} maxWidth="xs" >
             <div className={classes.dialogContentContainer}>
-                <DialogTitle disableTypography variant="h2" className={classes.modalTitle}>{name}</DialogTitle>
-                    <Typography disableTypography variant="span" className={classes.subtitle}>INGREDIENTS</Typography>
+                <DialogTitle disabletypography="true" variant="h2" className={classes.modalTitle}>{name}</DialogTitle>
+                    <Typography disabletypography="true" variant="caption" className={classes.subtitle}>INGREDIENTS</Typography>
                     <ul className={classes.contentsContainer}>
                         {ingredients.map((ingredient, index) => {
                             return <li key={index} >{changeFirstCharToUpper(ingredient)}</li>
                         })}
                     </ul>
-                    <Typography disableTypography variant="span" className={classes.subtitle}>STEPS</Typography>
+                    <Typography disabletypography="true" variant="caption" className={classes.subtitle}>STEPS</Typography>
                     <ol className={classes.contentsContainer}>
                         {instruction.map((step, index)=>{
                             return <li key={index}>{step}</li>
                         })}
                     </ol>
                     
-                    { garnish !== '' && <Typography disableTypography variant="span" className={classes.subtitle}>GARNISH</Typography> }
+                    { garnish !== '' && <Typography disabletypography="true" variant="caption" className={classes.subtitle}>GARNISH</Typography> }
                     <ol className={classes.contentsContainer}>{garnish}</ol>
                 <Box display="flex" flexWrap="wrap" justifyContent="flex-start" alignItems="center" width="100%" mt={7}>
                     <Box mr={2}>

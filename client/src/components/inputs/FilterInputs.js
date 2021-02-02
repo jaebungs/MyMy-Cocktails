@@ -12,6 +12,7 @@ import {
   FormGroup,
   FormControlLabel,
   Checkbox,
+  Chip,
   Input,
   InputAdornment,
   Switch,
@@ -28,7 +29,6 @@ const FilterInputs = ({filterClicked, setFilterClicked}) => {
   const filterChip = filterChipStyle();
 
   const [checkedTypes, setCheckedTypes] = useState([]);
-  const [show, setShow] = useState(false);
 
   const dispatch = useDispatch();
   const pathname = window.location.pathname;
@@ -42,14 +42,8 @@ const FilterInputs = ({filterClicked, setFilterClicked}) => {
     }
   }, [checkedTypes]);
 
-  const showFilterBox = () => {
-    setShow(!show);
-  };
-
   // Handle checked liquor filters.
-  const handleChange = (e) => {
-    const liquor = e.target.value;
-
+  const handleChipClicked = (liquor) => {
     if (checkedTypes.includes(liquor)) {
       // remove from checkedTypes
       setCheckedTypes(checkedTypes?.filter((type) => type !== liquor));
@@ -78,12 +72,6 @@ const FilterInputs = ({filterClicked, setFilterClicked}) => {
         alignItems="center"
         style={{marginBottom: '0.5rem'}}
       >
-        <FormControlLabel
-          control={
-            <Switch checked={show} color="primary" onChange={showFilterBox} position="right" />
-          }
-          label="Show Filters"
-        />
         <Input
           id="serach"
           variant="outlined"
@@ -95,34 +83,27 @@ const FilterInputs = ({filterClicked, setFilterClicked}) => {
           }
         />
       </Grid>
-      <Collapse in={show}>
-        <Box display="flex" flexWrap="wrap" align-items="center" ml={5}>
-          {liquorTypes.map((liquor, index) => {
-            // convert liquor with no space
-            return (
-              <FormControlLabel
-                className={[classes[liquor.replace(/\s/g, '')], filterChip.filterChip].join(' ')}
-                size="small"
-                control={
-                  <Checkbox
-                    // I wanted to put onChange to parent's of Checkbox...
-                    checked={checkedTypes.includes(liquor) ? true : false}
-                    className={checkedTypes.includes(liquor) ? filterChip.checked : 'none'}
-                    onChange={handleChange}
-                    value={liquor}
-                    color="primary"
-                    name={liquor}
-                    icon={<DoneIcon />}
-                    checkedIcon={<DoneIcon />}
-                  />
-                }
-                label={liquor.charAt(0).toUpperCase() + liquor.slice(1)} // first latter Cap
-                key={index}
-              />
-            );
-          })}
-        </Box>
-      </Collapse>
+      <Box display="flex" flexWrap="wrap">
+        {liquorTypes.map((liquor, index) => {
+          // convert liquor with no space
+          return (
+            <Chip
+              key={index}
+              label={liquor.charAt(0).toUpperCase() + liquor.slice(1)} // first latter Cap
+              className={
+                checkedTypes.includes(liquor)
+                  ? [classes[liquor.replace(/\s/g, '')], filterChip.checked].join(' ')
+                  : filterChip.chip
+              }
+              onClick={() => handleChipClicked(liquor)}
+              clickable
+              disableRipple
+              disableFocusRipple
+              variant="outlined"
+            />
+          );
+        })}
+      </Box>
     </FormGroup>
   );
 };
