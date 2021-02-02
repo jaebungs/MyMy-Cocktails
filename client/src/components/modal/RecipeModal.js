@@ -43,24 +43,25 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
     }
 
     return (
-        <Dialog open={!!name} fullWidth={true} maxWidth="sm" >
-            <div className={classes.modalContainer}>
-                <DialogTitle disableTypography className={classes.modalTitle}>{name}</DialogTitle>
-                    <Typography variant="h6">Ingredients :</Typography>
-                    <ul>
+        <Dialog open={!!name} fullWidth={true} maxWidth="xs" >
+            <div className={classes.dialogContentContainer}>
+                <DialogTitle disableTypography variant="h2" className={classes.modalTitle}>{name}</DialogTitle>
+                    <Typography disableTypography variant="span" className={classes.subtitle}>INGREDIENTS</Typography>
+                    <ul className={classes.contentsContainer}>
                         {ingredients.map((ingredient, index) => {
                             return <li key={index} >{changeFirstCharToUpper(ingredient)}</li>
                         })}
                     </ul>
-                    <Typography variant="h6">Instructions :</Typography>
-                    <ol>
+                    <Typography disableTypography variant="span" className={classes.subtitle}>STEPS</Typography>
+                    <ol className={classes.contentsContainer}>
                         {instruction.map((step, index)=>{
                             return <li key={index}>{step}</li>
                         })}
-                    </ol>   
-                    <Typography variant="h6">Garnish :</Typography>
-                    <p>{garnish}</p>
-                <Box display="flex" flexWrap="wrap" justifyContent="flex-start" alignItems="center" width="100%" >
+                    </ol>
+                    
+                    { garnish !== '' && <Typography disableTypography variant="span" className={classes.subtitle}>GARNISH</Typography> }
+                    <ol className={classes.contentsContainer}>{garnish}</ol>
+                <Box display="flex" flexWrap="wrap" justifyContent="flex-start" alignItems="center" width="100%" mt={7}>
                     <Box mr={2}>
                         {currentPage === '/' && <Button size="medium" variant="contained" color="primary" onClick={handleAddtoMyBar}>Add</Button>}
                         {currentPage === '/mybar' && <Button size="medium" variant="contained" color="secondary" onClick={handleRemoveFromMyBar}>Remove</Button>}

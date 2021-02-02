@@ -3,16 +3,16 @@ import {makeStyles} from '@material-ui/core/styles';
 export const navbarStyle = makeStyles({
     navbar: {
         background: '#F2E18D',
-        padding: '2rem 6rem',
+        padding: '0 4rem',
         marginBottom: '1rem',
         "@media (max-width: 1300px)": {
-            padding: '2rem 0'
+            padding: '0'
         }
     },
     navTitle: {
         color: '#000',
         textDecoration: 'none',
-        fontSize: '2.4rem',
+        fontSize: '2rem',
         margin: '0 1rem',
         "@media (max-width: 350px)": {
             margin: '0 auto',
@@ -22,7 +22,7 @@ export const navbarStyle = makeStyles({
     navItems: {
         color: '#000',
         textDecoration: 'none',
-        fontSize: '1.4rem',
+        fontSize: '1.2rem',
         margin: '0 1rem',
         "@media (max-width: 430px)": {
             margin: '1rem auto 0 auto',
