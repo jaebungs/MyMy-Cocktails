@@ -25,8 +25,9 @@ export const addToMyBar = (cocktail, id) => async (dispatch) => {
     })
     .catch(err => console.log(err))
 }
-export const removeFromMyBar = () => ({
-    type: 'REMOVE_FROM_MY_MYBAR'
+export const removeFromMyBar = (_id) => ({
+    type: 'REMOVE_FROM_MY_BAR',
+    _id
 })
 
 export const rateCocktail = (id) => ({

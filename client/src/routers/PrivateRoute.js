@@ -4,12 +4,13 @@ import {useSelector} from 'react-redux';
 
 
 const PrivateRoute = ({component: Component, ...rest}) => {
-    const token = useSelector(state => state.auth.token)
+
+  const isLoggedIn = JSON.parse(localStorage.getItem('user'))?.token;
 
   return (
     <Route
       component={(props) =>
-        token ? (
+        isLoggedIn ? (
           <div>
             <Component {...props} />
           </div>

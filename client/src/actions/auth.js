@@ -20,7 +20,7 @@ export const signIn = (formData, history) => async (dispatch) => {
     .then((res) => res.json())
     .then((data) => {
         dispatch({type: 'LOG_IN', data}); // auth reducer
-        dispatch({type: 'GET_ALL_FROM_MY_BAR', data}); // myBar reducer
+        dispatch({type: 'GET_ALL_FROM_MY_BAR', cocktails: data?.result?.bar}); // myBar reducer
         if (!data.message){
             history.push('/');
         }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {useLocation} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addToMyBar } from '../../actions/myBar';
+import { addToMyBar, removeFromMyBar } from '../../actions/myBar';
 import { Box, Dialog, DialogTitle, DialogContentText, Button, Typography  } from '@material-ui/core';
 import {recipeModalStyles} from './recipeModalStyles';
 
@@ -34,11 +34,12 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
 
     const handleAddtoMyBar = () => {
         dispatch(addToMyBar({_id, name, ingredients, instruction, garnish, setOpenRecipe}, id));
-        console.log('addbutton active')
+        setOpenRecipe(null);
     }
 
     const handleRemoveFromMyBar = () => {
-
+        dispatch(removeFromMyBar({_id}))
+        setOpenRecipe(null);
     }
 
     return (
@@ -60,12 +61,12 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
                     <Typography variant="h6">Garnish :</Typography>
                     <p>{garnish}</p>
                 <Box display="flex" flexWrap="wrap" justifyContent="flex-start" alignItems="center" width="100%" >
-                    <Box flexGrow={1}>
-                        {currentPage === '/' && <Button size="medium" variant="contained" color="primary" onClick={handleAddtoMyBar}>Add to My Bar</Button>}
-                        {currentPage === '/mybar' && <Button size="medium" variant="contained" color="secondary" onClick={handleRemoveFromMyBar}>Remove from My Bar</Button>}
+                    <Box mr={2}>
+                        {currentPage === '/' && <Button size="medium" variant="contained" color="primary" onClick={handleAddtoMyBar}>Add</Button>}
+                        {currentPage === '/mybar' && <Button size="medium" variant="contained" color="secondary" onClick={handleRemoveFromMyBar}>Remove</Button>}
                     </Box>
                     
-                    <Button size="medium" variant="contained" color="secondary" onClick={handleClose}>Close</Button>
+                    <Button size="medium" variant="contained" onClick={handleClose}>Close</Button>
                 </Box>
             </div>
         </Dialog>

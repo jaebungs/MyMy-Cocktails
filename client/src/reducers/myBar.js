@@ -12,7 +12,7 @@ const myBarReducer = (state = myBarDefault, action) => {
       console.log(action?.newData)
       return [...action?.newData?.bar];
 
-    case 'REMOVE_FROM_MY_COCKTAILS':
+    case 'REMOVE_FROM_MY_BAR':
       return [...state];
     default:
       return state;
