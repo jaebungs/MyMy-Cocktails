@@ -27,4 +27,26 @@ const addToMyBar = async (req, res) => {
   }
 };
 
-module.exports = {getMyBar, addToMyBar};
+const removeFromMyBar = async (req, res) => {
+  const { _id, id } = req.body;
+
+  try {
+    const user = await User.findByIdAndUpdate(id, 
+      { $pull : {'bar': {_id}} },
+      {new: true},
+      (err, result) => {
+        if (err) {
+          res.status(400).json({message: 'Remove from my bar failed'});
+        }
+        if (result) {
+          res.status(200).json({...result});
+        }
+      })
+
+  } catch (err) {
+    console.log (err)
+  }
+
+}
+
+module.exports = {getMyBar, addToMyBar, removeFromMyBar};

@@ -1,4 +1,4 @@
-const getFromLocalStorage = JSON.parse(localStorage.getItem('user'));
+const getFromLocalStorage = JSON.parse(localStorage?.getItem('user'));
 const authDefault = {token: getFromLocalStorage?.token, result: getFromLocalStorage?.result};
 
 const authReducer = (state=authDefault, action) => {

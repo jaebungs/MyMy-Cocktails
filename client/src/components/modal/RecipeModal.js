@@ -38,7 +38,7 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
     }
 
     const handleRemoveFromMyBar = () => {
-        dispatch(removeFromMyBar({_id}))
+        dispatch(removeFromMyBar(_id, id));
         setOpenRecipe(null);
     }
 
