@@ -1,30 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import {liquorTypes} from '../../actions/cocktails';
-import {
-  searchHomeByName,
-  searchHomeByLiquor,
-  searchMyByName,
-  searchMYByLiquor,
-} from '../../actions/filters';
-import {
-  Box,
-  FormGroup,
-  FormControlLabel,
-  Checkbox,
-  Chip,
-  Input,
-  InputAdornment,
-  Switch,
-  Collapse,
-  Grid,
-} from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
-import DoneIcon from '@material-ui/icons/Done';
+import {searchHomeByLiquor, searchMYByLiquor} from '../../actions/filters';
+import {Box, FormGroup, Chip, Grid} from '@material-ui/core';
 import {chipStyle} from '../styles/chipColor';
 import {filterChipStyle} from './filterChipStyle';
 
-const FilterInputs = ({filterClicked, setFilterClicked}) => {
+const FilterChipInput = () => {
   const classes = chipStyle();
   const filterChip = filterChipStyle();
 
@@ -53,16 +35,6 @@ const FilterInputs = ({filterClicked, setFilterClicked}) => {
     }
   };
 
-  // hanlde text typed in the search box
-  const handleTextChange = (e) => {
-    const text = e.target.value;
-    if (pathname === '/library') {
-      dispatch(searchHomeByName(text));
-    } else if (pathname === '/mybar') {
-      dispatch(searchMyByName(text));
-    }
-  };
-
   return (
     <FormGroup style={{marginBottom: '1rem'}}>
       <Grid
@@ -71,18 +43,7 @@ const FilterInputs = ({filterClicked, setFilterClicked}) => {
         justify="flex-end"
         alignItems="center"
         style={{marginBottom: '0.5rem'}}
-      >
-        <Input
-          id="serach"
-          variant="outlined"
-          onChange={handleTextChange}
-          startAdornment={
-            <InputAdornment position="start">
-              <SearchIcon />
-            </InputAdornment>
-          }
-        />
-      </Grid>
+      ></Grid>
       <Box display="flex" flexWrap="wrap">
         {liquorTypes.map((liquor, index) => {
           // convert liquor with no space
@@ -108,4 +69,4 @@ const FilterInputs = ({filterClicked, setFilterClicked}) => {
   );
 };
 
-export default FilterInputs;
+export default FilterChipInput;

@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux';
 import { createSelector } from 'reselect';
 import CocktailCards from './card/CocktailCards';
 import { Grid, Container, Grow } from '@material-ui/core';
-import FilterInputs from './inputs/FilterInputs';
+import FilterChipInput from './inputs/FilterChipInput';
 import filterLiquorHelper from './helpers/filterLiquorHelper';
 import RecipeModal from './modal/RecipeModal';
 
@@ -29,7 +29,7 @@ const LibraryPage = () => {
 
   return (
       <Container maxWidth="lg">
-        <FilterInputs />
+        <FilterChipInput />
         <Grid container spacing={1}>
           {
             cocktailData().map((cocktail, index) => {

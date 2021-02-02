@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Link, useLocation} from 'react-router-dom';
 import Profile from './navbarComponents/Profile';
+import RecipeSearchInput from './inputs/RecipeSearchInput';
 import {AppBar, Box, Toolbar, Typography, Button} from '@material-ui/core';
 import {navbarStyle} from './navbarComponents/navbarStyle';
 
@@ -50,6 +51,8 @@ const Navbar = () => {
             My Bar
           </Typography>
         </Box>
+        {location.pathname === '/library' && <RecipeSearchInput />}
+        {location.pathname === '/mybar' && <RecipeSearchInput />}
 
         {user?.result ? (
           <Profile name={user.result.name} setUser={setUser} />

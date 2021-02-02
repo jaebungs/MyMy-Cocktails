@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createSelector } from 'reselect';
-import FilterInputs from './inputs/FilterInputs';
+import FilterChipInput from './inputs/FilterChipInput';
 import filterLiquorHelper from './helpers/filterLiquorHelper';
 import CocktailCards from './card/CocktailCards';
 import RecipeModal from './modal/RecipeModal';
@@ -28,7 +28,7 @@ const MyBarPage = () => {
 
     return (
         <Container maxWidth="lg">
-        <FilterInputs />
+        <FilterChipInput />
         <Grid container spacing={1}>
           {
             cocktailData().map((cocktail, index) => {
