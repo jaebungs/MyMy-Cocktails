@@ -8,7 +8,7 @@ export const recipeModalStyles = makeStyles({
     },
     modalTitle: {
         borderBottom: '3px solid #000',
-        fontSize: '1.5rem',
+        fontSize: '1.7rem',
         fontWeight: 'bold',
         padding: '0',
         marginTop: '0',

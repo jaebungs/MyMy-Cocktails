@@ -45,7 +45,7 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
     return (
         <Dialog open={!!name} fullWidth={true} maxWidth="xs" >
             <div className={classes.dialogContentContainer}>
-                <DialogTitle disabletypography="true" variant="h2" className={classes.modalTitle}>{name}</DialogTitle>
+                <DialogTitle disabletypography="true" variant="h1" className={classes.modalTitle}>{name}</DialogTitle>
                     <Typography disabletypography="true" variant="caption" className={classes.subtitle}>INGREDIENTS</Typography>
                     <ul className={classes.contentsContainer}>
                         {ingredients.map((ingredient, index) => {

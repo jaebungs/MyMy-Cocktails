@@ -98,7 +98,7 @@ const FilterInputs = ({filterClicked, setFilterClicked}) => {
               onClick={() => handleChipClicked(liquor)}
               clickable
               disableRipple
-              disableFocusRipple
+              disablefocusripple="true"
               variant="outlined"
             />
           );
