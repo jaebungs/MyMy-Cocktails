@@ -14,11 +14,11 @@ const ShakeSearchInput = ({openRecipe}) => {
 
   const inputReduxValue = useSelector((state) => state.filters.shakeInput)[0];
 
-  useEffect(()=>{
-    if (openRecipe){
-      setSearchSuggestion([])
+  useEffect(() => {
+    if (openRecipe) {
+      setSearchSuggestion([]);
     }
-  }, [openRecipe])
+  }, [openRecipe]);
 
   const handleTextChange = (e) => {
     let result = [];
@@ -78,6 +78,10 @@ const ShakeSearchInput = ({openRecipe}) => {
     dispatch(searchByShakeInput(e.target.id));
   };
 
+  const handleMouseEnter = (index) => {
+    setCursor(index);
+  };
+
   return (
     <div className={classes.container}>
       <TextField
@@ -95,25 +99,31 @@ const ShakeSearchInput = ({openRecipe}) => {
           ),
         }}
       />
-      <ul className={classes.dropdownContainer}>
-        {searchSuggestion.length > 0 &&
-          searchSuggestion.map((suggestion, index) => {
-            let multipleClassName;
-            if (cursor === index) {
-              multipleClassName = [classes.dropdownList, classes.active].join(' ');
-            }
-            return (
-              <ListItem
-                id={suggestion}
-                key={index}
-                className={multipleClassName}
-                onClick={handleClick}
-              >
-                {suggestion}
-              </ListItem>
-            );
-          })}
-      </ul>
+      <div>
+        <ul className={classes.dropdownContainer}>
+          {searchSuggestion.length > 0 &&
+            searchSuggestion.map((suggestion, index) => {
+              let multipleClassName;
+              if (cursor === index) {
+                multipleClassName = [classes.dropdownList, classes.active].join(' ');
+              } else {
+                multipleClassName = classes.li;
+              }
+              return (
+                <li
+                  id={suggestion}
+                  key={index}
+                  index={index}
+                  className={multipleClassName}
+                  onClick={handleClick}
+                  onMouseEnter={() => handleMouseEnter(index)}
+                >
+                  {suggestion}
+                </li>
+              );
+            })}
+        </ul>
+      </div>
     </div>
   );
 };

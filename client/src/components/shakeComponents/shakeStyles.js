@@ -35,6 +35,8 @@ export const shakeStyles = makeStyles({
     background: '#C4FC68',
     borderRadius: '4px',
     padding: '0.4rem 0.8rem',
+    margin: '0 0.5rem',
+    maxHeight: '44px',
     '&:hover': {
       backgroundColor: '#7AE653',
     },

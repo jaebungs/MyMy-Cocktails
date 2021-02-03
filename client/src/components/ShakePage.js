@@ -64,10 +64,12 @@ const ShakePage = () => {
           ? 'You give us an ingredient, we give you a recipe for cocktail'
           : 'Try different ingredent'}
       </Typography>
-      <ShakeSearchInput openRecipe={openRecipe} />
-      <Button size="small" className={classes.shakeButton} onClick={handleShowCocktail}>
-        SHAKE IT
-      </Button>
+      <Box display="flex" flexWrap="wrap" alignItems="center" mt={2}>
+        <ShakeSearchInput openRecipe={openRecipe} />
+        <Button className={classes.shakeButton} onClick={handleShowCocktail}>
+          SHAKE IT
+        </Button>
+      </Box>
       {openRecipe && <RecipeModal {...openRecipe} setOpenRecipe={setOpenRecipe} setError={setError} handleShowCocktail={handleShowCocktail} />}
     </div>
   );

@@ -6,8 +6,8 @@ export const searchStyles = makeStyles({
     flexDirection: 'column',
   },
   textfield: {
-    margin: '1rem 0 0 0',
-    width: '330px',
+    margin: '0',
+    width: '220px',
     '&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
       borderColor: '#7AE653',
     },
@@ -16,10 +16,13 @@ export const searchStyles = makeStyles({
     },
   },
   dropdownContainer: {
+    position: 'absolute',
+    backgroundColor: '#fff',
     border: 'none',
-    width: '330px',
+    width: '220px',
     padding: '0',
     margin: '0',
+    overflow: 'auto'
   },
   dropdownList: {
     backgroundColor: '#fff',
@@ -28,8 +31,6 @@ export const searchStyles = makeStyles({
     listStyle: 'none',
     marginTop: '0',
     maxHeight: '143px',
-    overflowY: 'auto',
-    padding: '0.3rem 0.5rem 0.5rem 0.5rem',
     '&:hover': {
       backgroundColor: '#C4FC68',
       cursor: 'pointer',
@@ -39,6 +40,10 @@ export const searchStyles = makeStyles({
   active: {
     backgroundColor: '#C4FC68',
     fontWeight: '700',
-
+    padding: '0.5rem'
+  },
+  li: {
+    padding: '0.5rem',
+    display: 'block',
   }
 });
