@@ -24,5 +24,9 @@ export const recipeModalStyles = makeStyles({
     contentsContainer: {
         marginTop: '0.6rem',
         marginBottom: '1.5rem'
+    },
+    shakeAgainButton: {
+        backgroundColor: '#C4FC68',
+        fontWeight: '500'
     }
 });

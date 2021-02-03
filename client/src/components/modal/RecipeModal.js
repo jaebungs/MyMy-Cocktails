@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import {useLocation} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import {searchByShakeInput} from '../../actions/filters';
 import { addToMyBar, removeFromMyBar } from '../../actions/myBar';
 import { Box, Dialog, DialogTitle, DialogContentText, Button, Typography  } from '@material-ui/core';
 import {recipeModalStyles} from './recipeModalStyles';
 
 
-const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecipe }) => {
+const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecipe, setError, handleShowCocktail }) => {
     const classes = recipeModalStyles();
     const location = useLocation();
     const dispatch = useDispatch();
@@ -20,7 +21,10 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
 
     const handleClose = () => {
         setOpenRecipe(null);
+        setError(false);
+        dispatch(searchByShakeInput(''));
     }
+
     const changeFirstCharToUpper = (sentence) => {
         let words = sentence.toLowerCase().split(' ');
         let newSentence = [];
@@ -63,11 +67,12 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
                     <ol className={classes.contentsContainer}>{garnish}</ol>
                 <Box display="flex" flexWrap="wrap" justifyContent="flex-start" alignItems="center" width="100%" mt={7}>
                     <Box mr={2}>
-                        {currentPage === '/library' && <Button size="medium" variant="contained" color="primary" onClick={handleAddtoMyBar}>Add</Button>}
-                        {currentPage === '/mybar' && <Button size="medium" variant="contained" color="secondary" onClick={handleRemoveFromMyBar}>Remove</Button>}
+                        {currentPage === '/' && <Button size="medium" variant="contained" className={classes.shakeAgainButton} onClick={handleShowCocktail}>SHAKE AGAIN</Button>}
+                        {currentPage === '/library' && <Button size="medium" variant="contained" color="primary" onClick={handleAddtoMyBar}>ADD</Button>}
+                        {currentPage === '/mybar' && <Button size="medium" variant="contained" color="secondary" onClick={handleRemoveFromMyBar}>REMOVE</Button>}
                     </Box>
                     
-                    <Button size="medium" variant="contained" onClick={handleClose}>Close</Button>
+                    <Button size="medium" variant="contained" onClick={handleClose}>CLOSE</Button>
                 </Box>
             </div>
         </Dialog>

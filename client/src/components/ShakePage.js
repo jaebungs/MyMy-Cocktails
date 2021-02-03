@@ -35,8 +35,6 @@ const ShakePage = () => {
       const randomNumber = Math.floor(Math.random() * cocktails.length);
       const randomCocktail = cocktails[randomNumber];
       setOpenRecipe({...randomCocktail});
-      setError(false);
-      dispatch(searchByShakeInput(''));
     }
     // when search bar is emprty
     if (inputReduxValue.length === 0 || cocktails.length === 0) {
@@ -70,7 +68,7 @@ const ShakePage = () => {
       <Button size="small" className={classes.shakeButton} onClick={handleShowCocktail}>
         SHAKE IT
       </Button>
-      {openRecipe && <RecipeModal {...openRecipe} setOpenRecipe={setOpenRecipe} />}
+      {openRecipe && <RecipeModal {...openRecipe} setOpenRecipe={setOpenRecipe} setError={setError} handleShowCocktail={handleShowCocktail} />}
     </div>
   );
 };
