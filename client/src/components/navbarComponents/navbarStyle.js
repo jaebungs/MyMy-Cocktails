@@ -4,7 +4,7 @@ export const navbarStyle = makeStyles({
     navbar: {
         background: 'none',
         boxShadow: 'none',
-        padding: '0.6rem 7rem',
+        padding: '1rem 7rem 0.5rem 7rem',
         marginBottom: '1rem',
         "@media (max-width: 1300px)": {
             padding: '1rem 0'
@@ -14,6 +14,7 @@ export const navbarStyle = makeStyles({
         color: '#000',
         display: 'inline-block',
         fontSize: '2rem',
+        marginRight: '1rem',
         "@media (max-width: 350px)": {
             margin: '0 auto',
             textAlign: 'center'

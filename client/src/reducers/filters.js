@@ -1,8 +1,9 @@
 const filtersDefault = {
+    shakeInput: [""],
     homeByName: '',
     homeByLiquors: [],
     barByName: '',
-    barByLiquors: [] 
+    barByLiquors: []
 }
 
 
@@ -29,6 +30,11 @@ const filtersReducer = (state=filtersDefault, action) => {
             return {
                 ...state,
                 barByLiquors: [...action.liquors]
+            }
+        case 'SEARCH_BY_SHAKE_INPUT':
+            return {
+                ...state,
+                shakeInput: [action.text]
             }
         default:
             return state;

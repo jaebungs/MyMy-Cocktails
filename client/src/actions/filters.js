@@ -17,3 +17,8 @@ export const searchMYByLiquor = (liquors) => ({
     type: 'SEARCH_MY_BY_LIQUOR',
     liquors: [...liquors]
 })
+
+export const searchByShakeInput = (text) => ({
+    type: 'SEARCH_BY_SHAKE_INPUT',
+    text
+})

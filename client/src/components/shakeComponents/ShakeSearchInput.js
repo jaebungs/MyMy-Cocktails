@@ -1,26 +1,120 @@
-import React from 'react';
-import {InputBase, TextField, InputAdornment} from '@material-ui/core';
+import React, {useState, useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {searchByShakeInput} from '../../actions/filters';
+import {TextField, InputAdornment, ListItem} from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
-import {shakeStyles} from './shakeStyles';
+import {liquorTypes} from '../../actions/cocktails';
+import {searchStyles} from './searchStyles';
 
-const ShakeSearchInput = () => {
-  const classes = shakeStyles();
+const ShakeSearchInput = ({openRecipe}) => {
+  const classes = searchStyles();
+  const dispatch = useDispatch();
+  const [searchSuggestion, setSearchSuggestion] = useState([]);
+  const [cursor, setCursor] = useState(-1);
 
-  const handleTextChange = () => {};
+  const inputReduxValue = useSelector((state) => state.filters.shakeInput)[0];
+
+  useEffect(()=>{
+    if (openRecipe){
+      setSearchSuggestion([])
+    }
+  }, [openRecipe])
+
+  const handleTextChange = (e) => {
+    let result = [];
+    const value = e.target.value.toLowerCase().trim(); //remove space .replace(/\s/g, '');
+
+    liquorTypes.forEach((liquor) => {
+      // Check if first letters are same as input typed.
+      const wordsSplit = liquor.toLowerCase().split(' ');
+      wordsSplit.forEach((word) => {
+        if ((word.charAt(0) === value.charAt(0)) & word.includes(value)) {
+          result.push(liquor);
+        }
+      });
+    });
+
+    setSearchSuggestion(result);
+    dispatch(searchByShakeInput(e.target.value));
+  };
+
+  const onKeyDown = (e) => {
+    if (e.keyCode === 13 || e.keyCode === 32) {
+      // Enter key or Space key
+
+      // if cursor is on the suggestion results, select focused suggestion.
+      if (cursor >= 0) {
+        e.preventDefault();
+        dispatch(searchByShakeInput(searchSuggestion[cursor]));
+        setCursor(-1);
+        setSearchSuggestion([]);
+      }
+    } else if (e.keyCode === 38) {
+      // up arrow key
+      e.preventDefault();
+
+      if (cursor > 0) {
+        setCursor(cursor - 1);
+      }
+      if (cursor === 0) {
+        setCursor(-1);
+      }
+      if (cursor === -1) {
+        setCursor(searchSuggestion.length - 1);
+      }
+    } else if (e.keyCode === 40) {
+      // down arrow key
+      e.preventDefault();
+      if (searchSuggestion.length > 0) {
+        setCursor(cursor + 1);
+        if (cursor >= searchSuggestion.length - 1) {
+          setCursor(0);
+        }
+      }
+    }
+  };
+
+  const handleClick = (e) => {
+    dispatch(searchByShakeInput(e.target.id));
+  };
 
   return (
-    <TextField
-      className={classes.textfield}
-      variant="outlined"
-      size='small'
-      InputProps={{
-        endAdornment: (
-          <InputAdornment >
-            <SearchIcon />
-          </InputAdornment>
-        )
-      }}
-    />
+    <div className={classes.container}>
+      <TextField
+        className={classes.textfield}
+        onChange={handleTextChange}
+        variant="outlined"
+        value={inputReduxValue}
+        size="small"
+        onKeyDown={onKeyDown}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment>
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
+      />
+      <ul className={classes.dropdownContainer}>
+        {searchSuggestion.length > 0 &&
+          searchSuggestion.map((suggestion, index) => {
+            let multipleClassName;
+            if (cursor === index) {
+              multipleClassName = [classes.dropdownList, classes.active].join(' ');
+            }
+            return (
+              <ListItem
+                id={suggestion}
+                key={index}
+                className={multipleClassName}
+                onClick={handleClick}
+              >
+                {suggestion}
+              </ListItem>
+            );
+          })}
+      </ul>
+    </div>
   );
 };
 

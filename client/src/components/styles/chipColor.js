@@ -41,7 +41,7 @@ export const chipStyle = makeStyles({
     campari: {
         border: '1px solid #ff5722'
     },
-    luxardo: {
+    maraschino: {
         border: '1px solid #ff1744'
     }
 });

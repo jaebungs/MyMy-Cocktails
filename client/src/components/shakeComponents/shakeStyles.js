@@ -14,10 +14,12 @@ export const shakeStyles = makeStyles({
     margin: 'auto',
   },
   shakeImage: {
-    marginBottom: '2rem',
+    position: 'relative',
+    bottom: '30px'
   },
   shakeTitle: {
     fontSize: '2rem',
+    margin: '0',
     fontWeight: '800',
   },
   shakeSubTitle: {
@@ -29,22 +31,12 @@ export const shakeStyles = makeStyles({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  textfield: {
-      margin: '1rem',
-      padding: '0.5rem',
-      width: '330px',
-    '&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
-      borderColor: '#7AE653',
-    },
-    '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-      borderColor: '#C4FC68',
-    },
-  },
   shakeButton: {
     background: '#C4FC68',
     borderRadius: '4px',
+    padding: '0.4rem 0.8rem',
     '&:hover': {
       backgroundColor: '#7AE653',
     },
-  },
+  }
 });
