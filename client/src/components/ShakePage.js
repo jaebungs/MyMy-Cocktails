@@ -26,7 +26,6 @@ const ShakePage = () => {
     filterLiquorHelper
   );
   const cocktails = useSelector(filterLiquors);
-  const input = useSelector(state => state.filters.shakeInput)[0];
   const inputReduxValue = useSelector((state) => state.filters.shakeInput)[0];
 
   const handleShowCocktail = () => {

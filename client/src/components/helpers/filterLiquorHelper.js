@@ -1,10 +1,10 @@
-// function for filtering cocktails that have all filterLiquors.
-// compare two array of strings(ingredients) & filterLiquors (Chips) and get all including cocktail object.
-const filterByLiquors = (cocktails, filterLiquors) => { 
+// function for filtering cocktails that have all liquorChips.
+// compare two array of strings(ingredients) & liquorChips (Chips) and get all including cocktail object.
+const filterByLiquors = (cocktails, liquorChips) => { 
   return cocktails.filter((cocktail)=>{
     let containAll = true;
-    for (let i=0; i < filterLiquors.length; i++){
-        if (!cocktail.ingredients.some(ingredient => ingredient.toLowerCase().includes(filterLiquors[i]))) {
+    for (let i=0; i < liquorChips.length; i++){
+        if (!cocktail.ingredients.some(ingredient => ingredient.toLowerCase().includes(liquorChips[i].toLowerCase().trim()))) {
             containAll = false;
         }
     }
@@ -12,21 +12,21 @@ const filterByLiquors = (cocktails, filterLiquors) => {
   })
 }
 
-const filterLiquorHelper = (cocktails, text, filterLiquors) => {
+const filterLiquorHelper = (cocktails, text, liquorChips) => {
   let filterResult = [];
-//   cocktails = array[{},{}].  filterLiquors=[types of liquor checked(strings)]
+//   cocktails = array[{},{}].  liquorChips=[types of liquor checked(strings)]
   // When no filter and search
-  if (filterLiquors.length === 0 && !text) {
+  if (liquorChips.length === 0 && !text) {
     filterResult = [...cocktails];
   }
 
 // find cocktails only liquor chip filter active.
-  if (filterLiquors.length > 0 && !text) {    
-    filterResult = filterByLiquors(cocktails, filterLiquors);
+  if (liquorChips.length > 0 && !text) {    
+    filterResult = filterByLiquors(cocktails, liquorChips);
   }
 
 // when only text filter is active. Not really a good search tho.
-  if (filterLiquors.length === 0 && text) {
+  if (liquorChips.length === 0 && text) {
     cocktails.forEach((cocktail)=>{
         if (cocktail.name.toLowerCase().includes(text.toLowerCase())){
             filterResult.push(cocktail)
@@ -35,14 +35,14 @@ const filterLiquorHelper = (cocktails, text, filterLiquors) => {
   }
 
 //   if liquor filter and search filter both are active.
-  if (filterLiquors.length > 0 && text) {
+  if (liquorChips.length > 0 && text) {
     let textFiltered = []
     cocktails.forEach((cocktail)=>{
         if (cocktail.name.toLowerCase().includes(text.toLowerCase())){
             textFiltered.push(cocktail)
         }
     })
-    filterResult = filterByLiquors(textFiltered, filterLiquors);
+    filterResult = filterByLiquors(textFiltered, liquorChips);
   }
 
   return filterResult;

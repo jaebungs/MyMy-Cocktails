@@ -42,7 +42,7 @@ const FilterChipInput = () => {
         direction="row"
         justify="flex-end"
         alignItems="center"
-        style={{marginBottom: '0.5rem'}}
+        mb={2}
       ></Grid>
       <Box display="flex" flexWrap="wrap">
         {liquorTypes.map((liquor, index) => {
