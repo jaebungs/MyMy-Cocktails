@@ -1,34 +1,47 @@
 import React, {useEffect, useState} from 'react';
-import { useHistory } from "react-router-dom";
+import {useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {Container, Grid, Typography, Paper, Avatar, Button, Box, Collapse } from '@material-ui/core';
-import { Alert, AlertTitle } from '@material-ui/lab';
-import {GoogleLogin, useGoogleLogin } from 'react-google-login';
+import {
+  Container,
+  Grid,
+  Typography,
+  Paper,
+  Avatar,
+  Button,
+  Box,
+  TextField,
+  Collapse,
+} from '@material-ui/core';
+import {Alert, AlertTitle} from '@material-ui/lab';
+import {GoogleLogin, useGoogleLogin} from 'react-google-login';
 import LockRoundedIcon from '@material-ui/icons/LockRounded';
-import Input from './inputs/Input';
 import GoogleIcon from './icons/GoogleIcon';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import {signUp, signIn} from '../actions/auth';
+import {authStyles} from './styles/authStyles';
 
 const initialFormData = {
   firstName: '',
   lastName: '',
   email: '',
   password: '',
-  confirmPassword: ''
-}
+  confirmPassword: '',
+};
 
 const Auth = () => {
-  const [isSignUp, setIsSignUp] = useState(false);
-  const [formData, setFormData] = useState(initialFormData);
-  const [googleError, setGoogleError] = useState();
-  const message = useSelector(state => state.auth?.message);
-  const result = useSelector(state => state.auth?.result);
+  const classes = authStyles();
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const [isSignUp, setIsSignUp] = useState(false);
+  const [formData, setFormData] = useState(initialFormData);
+  const [googleError, setGoogleError] = useState();
+
+  const message = useSelector((state) => state.auth?.message);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (isSignUp) { 
+    if (isSignUp) {
       dispatch(signUp(formData, history));
     } else {
       dispatch(signIn(formData, history));
@@ -38,8 +51,8 @@ const Auth = () => {
   const handleFromChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    })
+      [e.target.name]: e.target.value,
+    });
   };
 
   const switchSignMode = () => {
@@ -47,7 +60,6 @@ const Auth = () => {
   };
 
   const googleSuccess = async (res) => {
-    const token = res?.tokenId;
     const result = res?.profileObj;
     const googleProfile = {
       email: result.email,
@@ -55,33 +67,35 @@ const Auth = () => {
       password: result.googleId,
       confirmPassword: result.googleId,
       firstName: result.givenName,
-      lastName: result.familyName
-    }
+      lastName: result.familyName,
+    };
 
     try {
-      isSignUp ? (
-        dispatch(signUp(googleProfile, history))
-      ):(
-        dispatch(signIn(googleProfile, history))
-      )
+      isSignUp
+        ? dispatch(signUp(googleProfile, history))
+        : dispatch(signIn(googleProfile, history));
       console.log('Google login success');
       setGoogleError();
     } catch (err) {
-      console.log('login failed',err);
+      console.log('login failed', err);
     }
   };
 
   const googleFailure = (err) => {
-    setGoogleError('Something is wrong. Please check again.')
+    setGoogleError('Something is wrong. Please check again.');
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <Paper elevation={3}>
-        <Avatar>
-          <LockRoundedIcon />
-        </Avatar>
-        <Typography variant="h6">{isSignUp ? 'Sign Up' : 'Sign In'}</Typography>
+    <Container component="main" maxWidth="xs" className={classes.authPageContainer}>
+      <Paper elevation={3} className={classes.paperContainer}>
+        <Box display="flex" alignItems="center" justifyContent="center" mx="auto" p={4}>
+          <Avatar className={classes.avatar}>
+            <AccountCircleIcon />
+          </Avatar>
+          <Typography className={classes.title} variant="h6">
+            {isSignUp ? 'Sign Up' : 'Sign In'}
+          </Typography>
+        </Box>
         <Collapse in={!!message || !!googleError}>
           <Alert severity="error">
             <AlertTitle>Error</AlertTitle>
@@ -89,81 +103,99 @@ const Auth = () => {
             {googleError && <strong>{googleError}</strong>}
           </Alert>
         </Collapse>
-        <form onSubmit={handleSubmit}>
-          <Grid container spacing={3}>
-            {isSignUp && (
+          <form onSubmit={handleSubmit}>
+            <Grid container direction="column" spacing={1} alignItems="center" className={classes.inputContainer}>
+              {isSignUp && (
+                <div className={classes.nameContainer}>
+                  <Grid item sm={6} xs={12}>
+                    <TextField
+                      name="firstName"
+                      label="First Name"
+                      type="text"
+                      className={classes.firstNameInput}
+                      onChange={handleFromChange}
+                      variant="outlined"
+                    />
+                  </Grid>
+                  <Grid item sm={6} xs={12}>
+                    <TextField
+                      name="lastName"
+                      label="Last Name"
+                      type="text"
+                      className={classes.lastNameInput}
+                      onChange={handleFromChange}
+                      variant="outlined"
+                    />
+                  </Grid>
+                </div>
+              )}
               <div>
-                <Input
-                  name="firstName"
-                  size="6"
-                  type="text"
-                  placeholder="First Name"
-                  handleChange={handleFromChange}
-                  autoFocus
+                <TextField
+                  name="email"
+                  label="Email"
+                  type="email"
+                  className={classes.input}
+                  onChange={handleFromChange}
+                  variant="outlined"
                 />
-                <Input
-                  name="lastName"
-                  size="6"
-                  type="text"
-                  placeholder="Last Name"
-                  handleChange={handleFromChange}
+
+                <TextField
+                  name="password"
+                  label="password"
+                  type="password"
+                  className={classes.input}
+                  onChange={handleFromChange}
+                  variant="outlined"
                 />
+
+                {isSignUp && (
+                  <TextField
+                    name="confirmPassword"
+                    label="Confirm Password"
+                    type="password"
+                    className={classes.input}
+                    onChange={handleFromChange}
+                    variant="outlined"
+                  />
+                )}
               </div>
-            )}
-            <Input
-              name="email"
-              type="email"
-              placeholder="Enter Email"
-              handleChange={handleFromChange}
-              autoFocus
+            </Grid>
+            <Grid container direction="column" spacing={1} alignItems="center" className={classes.inputContainer}>
+            <Button type="Submit" color="primary" variant="contained" className={classes.signButton} fullWidth>
+              {isSignUp ? 'Sign Up' : 'Sign In'}
+            </Button>
+            <GoogleLogin
+              clientId="956177338567-9ihhch02mougfmc549q5t4tve3s675p0.apps.googleusercontent.com"
+              onSuccess={googleSuccess}
+              onFailure={googleFailure}
+              cookiePolicy="single_host_origin"
+              render={(props) => (
+                  <Button
+                    onClick={props.onClick}
+                    color="primary"
+                    className={classes.googleSignButton}
+                    startIcon={<GoogleIcon />}
+                    fullWidth
+                  >
+                    {isSignUp ? 'Google Sign Up' : 'Google Sign In'}
+                  </Button>
+              )}
             />
-            <Input
-              name="password"
-              type="password"
-              placeholder="Enter Passowrd"
-              handleChange={handleFromChange}
-            />
-            {isSignUp && (
-              <Input
-                name="confirmPassword"
-                type="password"
-                placeholder="Confirm Passowrd"
-                handleChange={handleFromChange}
-              />
-            )}
-          </Grid>
-          <Button type="Submit" color="primary" variant="contained" fullWidth>
-            {isSignUp ? 'Sign Up' : 'Sign In'}
-          </Button>
-          <GoogleLogin
-            clientId="956177338567-9ihhch02mougfmc549q5t4tve3s675p0.apps.googleusercontent.com"
-            onSuccess={googleSuccess}
-            onFailure={googleFailure}
-            cookiePolicy="single_host_origin"
-            render={(props) => (
-              <Button
-                onClick={props.onClick}
-                disabled={props.disabled}
-                color="primary"
-                startIcon={<GoogleIcon />}
-                varaiant="contained"
-                fullWidth
-              >
-                {isSignUp ? 'Google Sign Up' : 'Google Sign In'}
-              </Button>
-            )}
-          />
-        </form>
+            </Grid>
+            
+          </form>
+
+
         {!isSignUp ? (
           <div>
             <p>Don't have an account?</p>
-            <Button onClick={switchSignMode}>Create an account here</Button>
+            <Button className={classes.switchButton} onClick={switchSignMode}>Create account</Button>
           </div>
         ) : (
           <div>
             <p>I already have an account.</p>
 
-            <Button onClick={switchSignMode}>Go to Sign In</Button>
+            <Button className={classes.switchButton} onClick={switchSignMode}>Go Sign in</Button>
           </div>
         )}
       </Paper>

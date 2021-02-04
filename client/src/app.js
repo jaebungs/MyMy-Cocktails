@@ -13,7 +13,7 @@ const store = configureStore();
 fetch('http://localhost:5000/cocktails')
     .then((res) => res.json())
     .then((data) => {
-      const getFromLocalStorage = JSON.parse(localStorage?.getItem('user'))?.result.bar;
+      const getFromLocalStorage = JSON.parse(localStorage?.getItem('user'))?.result?.bar;
         if (getFromLocalStorage) {
             store.dispatch(getAllFromMyBar(getFromLocalStorage));
         }
