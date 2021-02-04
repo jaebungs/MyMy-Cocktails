@@ -11,7 +11,7 @@ export const recipeSearchInputStyle = makeStyles({
             padding:'0',
         },
         "@media (max-width: 550px)": {
-            width: '6rem'
+            width: '5rem'
         },
         "@media (max-width: 330px)": {
             width: '4rem',

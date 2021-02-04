@@ -40,14 +40,7 @@ export const navbarStyle = makeStyles({
         
 
     },
-    loginContainer: {
-        "@media (max-width: 490px)": {
-            justifyContent:'center',
-            position: 'absolute',
-            top: '75px',
-            right: '5px'
-        }
-    },
+
     signButton: {
         backgroundColor: '#fff',
         border: '2px solid #000',
@@ -62,23 +55,25 @@ export const navbarStyle = makeStyles({
         }
     },
     "@media (max-width: 300px)": {
-        navItems:{
-            
-        },
+
         loginContainer: {
             justifyContent:'center',
 
-             
         }
     },
     "@media (max-width: 490px)": {
-        navItemContainer: {
-            justifyContent:'center',
-            margin: '0 auto'
-        },
+
         navContainer: {
             justifyContent:'center',
             margin: '0 auto'
+        },   
+        loginContainer: {
+
+                justifyContent:'center',
+                position: 'absolute',
+                top: '75px',
+                right: '5px'
+            
         },
     }
 });
