@@ -2,9 +2,9 @@ import React from 'react';
 
 const CocktailSVG = () => (
   <svg
-    width="406"
-    height="306"
-    viewBox="0 0 406 306"
+    width="100%"
+    height="100%"
+    viewBox="0 0 386 286"
     margin="1rem"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

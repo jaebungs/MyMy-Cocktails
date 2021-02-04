@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux';
 import { createSelector } from 'reselect';
 import CocktailCards from './card/CocktailCards';
 import { Grid, Container, Grow } from '@material-ui/core';
-import FilterChipInput from './inputs/FilterChipInput';
+import FilterChipInput from './filterChip/FilterChipInput';
 import filterLiquorHelper from './helpers/filterLiquorHelper';
 import RecipeModal from './modal/RecipeModal';
 

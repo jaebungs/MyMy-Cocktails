@@ -56,14 +56,14 @@ const ShakePage = () => {
       )}
 
       <Typography variant="h2" className={classes.shakeTitle}>
-        {!error ? 'The Cocktail Shaker' : 'Ah oh, we coudln`t find anything.'}
+        {!error ? 'The Cocktail Shaker' : 'Ah oh, we coudln`t find anything'}
       </Typography>
       <Typography variant="subtitle1" className={classes.shakeSubTitle}>
         {!error
           ? 'You give us an ingredient, we give you a recipe for cocktail'
           : 'Try different ingredent'}
       </Typography>
-      <Box display="flex" flexWrap="wrap" alignItems="center" mt={2}>
+      <Box display="flex" flexWrap="wrap" alignItems="center" mt={2} className={classes.searchContainer}>
         <ShakeSearchInput openRecipe={openRecipe} />
         <Button className={classes.shakeButton} onClick={handleShowCocktail}>
           SHAKE IT

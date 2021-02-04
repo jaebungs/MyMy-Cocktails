@@ -44,7 +44,7 @@ const Profile = ({name, setUser}) => {
   }
 
   return (
-    <Box>
+    <Box className={classes.profileContainer}>
       <IconButton
         className={classes.profileButton}
         onClick={handleExpandClick}

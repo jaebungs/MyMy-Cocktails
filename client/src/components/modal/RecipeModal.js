@@ -72,7 +72,7 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
                         {currentPage === '/mybar' && <Button size="medium" variant="contained" color="secondary" onClick={handleRemoveFromMyBar}>REMOVE</Button>}
                     </Box>
                     
-                    <Button size="medium" variant="contained" onClick={handleClose}>CLOSE</Button>
+                    <Button size="medium" onClick={handleClose}>CLOSE</Button>
                 </Box>
             </div>
         </Dialog>

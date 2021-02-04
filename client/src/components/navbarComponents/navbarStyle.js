@@ -6,54 +6,79 @@ export const navbarStyle = makeStyles({
         boxShadow: 'none',
         padding: '1rem 7rem 0.5rem 7rem',
         marginBottom: '1rem',
-        "@media (max-width: 1300px)": {
-            padding: '1rem 0'
-        }
+        "@media (max-width: 1024px)": {
+            padding: '1rem 1rem 0 1rem'
+        },
     },
+   
     navTitle: {
         color: '#000',
         display: 'inline-block',
         fontSize: '2rem',
         marginRight: '1rem',
-        "@media (max-width: 350px)": {
-            margin: '0 auto',
+        "@media (max-width: 750px)": {
+            fontSize: '1.5rem',
+            margin: '0 0.3rem',
             textAlign: 'center'
-        }
-    },
-    navLinkContainer: {
-        flexGrow: 1,
-        marginTop: '1.2rem',
-        padding: 0,
+        },
         "@media (max-width: 500px)": {
-            display: 'flex',
-            marginBottom: '1rem',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            flexGrow: 0
+            width: '100%',
+            margin: '0.5rem auto 2rem auto',
         }
     },
+    
     navItems: {
         color: '#000',
         textDecoration: 'none',
         fontSize: '1.2rem',
         margin: '1rem',
-        "@media (max-width: 430px)": {
-            margin: '1rem auto 0 auto',
+        "@media (max-width: 650px)": {
+            margin: '1rem 0.4rem 0 0.4rem',
+            fontSize: '0.9rem',
             textAlign: 'center'
-        }
+        },
+        
+
     },
-    
     loginContainer: {
-        margin: '0 2rem',
-        "@media (max-width: 500px)": {
-            margin: '1rem auto',
+        "@media (max-width: 490px)": {
+            justifyContent:'center',
+            position: 'absolute',
+            top: '75px',
+            right: '5px'
         }
-    },
-    margin: {
-        margin: '0 1rem'
     },
     signButton: {
         backgroundColor: '#fff',
-        border: '2px solid #000'
+        border: '2px solid #000',
+        "@media (max-width: 1024px)": {
+            padding: '0.2rem 0.3rem',
+            fontSize: '0.7rem',
+            fontWeight: '600',
+
+        },
+        "@media (max-width: 780px)": {
+            marginLeft: '0.3rem'
+        }
+    },
+    "@media (max-width: 300px)": {
+        navItems:{
+            
+        },
+        loginContainer: {
+            justifyContent:'center',
+
+             
+        }
+    },
+    "@media (max-width: 490px)": {
+        navItemContainer: {
+            justifyContent:'center',
+            margin: '0 auto'
+        },
+        navContainer: {
+            justifyContent:'center',
+            margin: '0 auto'
+        },
     }
 });

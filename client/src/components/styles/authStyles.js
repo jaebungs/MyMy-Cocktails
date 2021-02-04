@@ -8,7 +8,7 @@ export const authStyles = makeStyles({
         padding: '1rem 2rem 2rem 2rem'
     },
     avatar: {
-        backgroundColor: '#3f51b5'
+        backgroundColor: '#000'
     },
     title: {
         margin: '0 0.5rem'
@@ -32,14 +32,26 @@ export const authStyles = makeStyles({
         margin: '0 0 0 0.4rem'
     },
     signButton: {
-        margin: '0.5rem auto'
+        border: '2px solid #000',
+        margin: '0.5rem auto',
+        color: '#000',
+        backgroundColor: '#fff',
+        '&:hover': {
+            backgroundColor: '#C4FC68',
+          }
     },
     googleSignButton: {
-        border: '2px solid #3f51b5',
-        backgroundColor: '#fff'
+        border: '2px solid #000',
+        backgroundColor: '#fff',
+        color: '#000',
+        '&:hover': {
+            backgroundColor: '#C4FC68',
+          }
+        
     },
     switchButton: {
         border: '2px solid #000',
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        
     }
 });

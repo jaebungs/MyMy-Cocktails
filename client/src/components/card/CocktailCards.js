@@ -30,7 +30,7 @@ const CocktailCards = ({_id, name, ingredients, instruction, garnish, setOpenRec
   };
 
   return (
-    <Grid item xs={12} sm={4} md={3}>
+    <Grid item xs={12} sm={6} md={4} lg={3}>
       <CardActionArea onClick={handleModal}>
         <Card className={classes.card} variant="outlined">
           <Typography className={classes.cardTitle} variant="h6">

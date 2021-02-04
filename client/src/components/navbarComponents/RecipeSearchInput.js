@@ -29,7 +29,7 @@ const RecipeSearchInput = () => {
       onChange={handleTextChange}
       startAdornment={
         <InputAdornment position="start">
-          <SearchIcon />
+          <SearchIcon className={classes.searchIcon}/>
         </InputAdornment>
       }
     />

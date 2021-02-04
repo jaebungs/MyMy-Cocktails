@@ -4,6 +4,13 @@ export const searchStyles = makeStyles({
   container: {
     display: 'flex',
     flexDirection: 'column',
+    '@media (max-width: 328px)': {
+      display: 'block',
+      margin: '2rem auto'
+    },
+    '@media (max-width: 290px)': {
+      margin: '3rem auto'
+    }
   },
   textfield: {
     margin: '0',
@@ -14,6 +21,9 @@ export const searchStyles = makeStyles({
     '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
       borderColor: '#C4FC68',
     },
+    '@media (max-width: 500px)': {
+      width: '200px',
+    }
   },
   dropdownContainer: {
     position: 'absolute',
@@ -22,7 +32,10 @@ export const searchStyles = makeStyles({
     width: '220px',
     padding: '0',
     margin: '0',
-    overflow: 'auto'
+    overflow: 'auto',
+    '@media (max-width: 500px)': {
+      width: '200px',
+    }
   },
   dropdownList: {
     backgroundColor: '#fff',

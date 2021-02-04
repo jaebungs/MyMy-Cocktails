@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Link, useLocation} from 'react-router-dom';
 import Profile from './navbarComponents/Profile';
-import RecipeSearchInput from './inputs/RecipeSearchInput';
+import RecipeSearchInput from './navbarComponents/RecipeSearchInput';
 import {AppBar, Box, Toolbar, Typography, Button} from '@material-ui/core';
 import {navbarStyle} from './navbarComponents/navbarStyle';
 
@@ -17,8 +17,8 @@ const Navbar = () => {
 
   return (
     <AppBar className={classes.navbar} position="static">
-      <Box display="flex" flexWrap="wrap" width="100%" >
-        <Box flexGrow={1}>
+      <Box display="flex" flexWrap="wrap" className={classes.navContainer} width="100%" >
+        <Box flexGrow={1} className={classes.navItemContainer}>
           <Typography className={classes.navTitle} variant="h1">
             My My Cocktails
           </Typography>
@@ -51,16 +51,17 @@ const Navbar = () => {
             My Bar
           </Typography>
         </Box>
+        <Box  display="flex" flexWrap="wrap" justifyContent="flex-end" className={classes.loginContainer}>
         {location.pathname === '/library' && <RecipeSearchInput />}
         {location.pathname === '/mybar' && <RecipeSearchInput />}
-
         {user?.result ? (
           <Profile name={user.result.name} setUser={setUser} />
         ) : (
-          <Button component={Link} to="/auth" variant="contained" className={classes.signButton}>
+          <Button component={Link} to="/auth" variant="contained" size='small' className={classes.signButton}>
             Sign In
           </Button>
         )}
+        </Box>
       </Box>
     </AppBar>
   );

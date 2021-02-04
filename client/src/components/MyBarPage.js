@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createSelector } from 'reselect';
-import FilterChipInput from './inputs/FilterChipInput';
+import FilterChipInput from './filterChip/FilterChipInput';
 import filterLiquorHelper from './helpers/filterLiquorHelper';
 import CocktailCards from './card/CocktailCards';
 import RecipeModal from './modal/RecipeModal';
