@@ -173,7 +173,6 @@ const Auth = () => {
               clientId="956177338567-9ihhch02mougfmc549q5t4tve3s675p0.apps.googleusercontent.com"
               onSuccess={googleSuccess}
               onFailure={googleFailure}
-              cookiePolicy="single_host_origin"
               render={(props) => (
                   <Button
                     onClick={props.onClick}
