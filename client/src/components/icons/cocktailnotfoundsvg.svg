@@ -1,6 +1,4 @@
-import React from 'react';
 
-const Cocktailnotfoundsvg = () => (
   <svg
     width="100%"
     height="100%"
@@ -209,6 +207,3 @@ const Cocktailnotfoundsvg = () => (
       fill="white"
     />
   </svg>
-);
-
-export default Cocktailnotfoundsvg;

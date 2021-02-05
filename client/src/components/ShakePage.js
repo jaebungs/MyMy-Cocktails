@@ -6,8 +6,8 @@ import ShakeSearchInput from './shakeComponents/ShakeSearchInput';
 import filterLiquorHelper from './helpers/filterLiquorHelper';
 import RecipeModal from './modal/RecipeModal';
 import {shakeStyles} from './shakeComponents/shakeStyles';
-import CocktailSVG from './icons/cocktailSVG';
-import Cocktailnotfoundsvg from './icons/cocktailnotfoundsvg';
+import CocktailSVG from './icons/cocktailsvg.svg';
+import Cocktailnotfoundsvg from './icons/cocktailnotfoundsvg.svg';
 
 const ShakePage = () => {
   const classes = shakeStyles();
