@@ -10,7 +10,9 @@ export const navbarStyle = makeStyles({
             padding: '1rem 1rem 0 1rem'
         },
     },
-   
+    menuIcon: {
+        display: 'none'
+    },
     navTitle: {
         color: '#000',
         display: 'inline-block',
@@ -21,26 +23,18 @@ export const navbarStyle = makeStyles({
             margin: '0 0.3rem',
             textAlign: 'center'
         },
-        "@media (max-width: 500px)": {
-            width: '100%',
-            margin: '0.5rem auto 2rem auto',
-        }
     },
-    
     navItems: {
         color: '#000',
         textDecoration: 'none',
         fontSize: '1.2rem',
         margin: '1rem',
-        "@media (max-width: 650px)": {
+        "@media (max-width: 700px)": {
             margin: '1rem 0.4rem 0 0.4rem',
             fontSize: '0.9rem',
             textAlign: 'center'
         },
-        
-
     },
-
     signButton: {
         backgroundColor: '#fff',
         border: '2px solid #000',
@@ -54,26 +48,38 @@ export const navbarStyle = makeStyles({
             marginLeft: '0.3rem'
         }
     },
-    "@media (max-width: 300px)": {
 
-        loginContainer: {
-            justifyContent:'center',
 
+    "@media (max-width: 600px)": {
+        navContainer: {
+            justifyContent: 'space-around',
+            alignItems:'center'
+        },
+        menuIcon: {
+            display: 'inline-block'
+        },
+        navItems: {
+            display: 'none'
         }
     },
-    "@media (max-width: 490px)": {
 
-        navContainer: {
-            justifyContent:'center',
-            margin: '0 auto'
-        },   
-        loginContainer: {
-
-                justifyContent:'center',
-                position: 'absolute',
-                top: '75px',
-                right: '5px'
-            
+    "@media (max-width: 410px)": {
+        navTitle:{
+            width: '100%',
+            marginTop: '1rem',
+            marginBottom: '3.5rem'
         },
-    }
+        loginContainer: {
+            position: 'absolute',
+            top: '75px',
+            right: '20px'
+        },
+        menuIcon: {
+            position: 'absolute',
+            top: '70px',
+            left: '20px',
+            zIndex: '10'
+        }
+    },
+    
 });

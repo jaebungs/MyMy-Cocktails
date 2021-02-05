@@ -21,15 +21,24 @@ export const authStyles = makeStyles({
     },
     input: {
         width: '100%',
-        margin: '0.4rem auto'
+        margin: '0.4rem auto',
+        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#000',
+          }
     },
     firstNameInput: {
         width: '96%',
-        margin: '0 0.4rem 0 0'
+        margin: '0 0.4rem 0 0',
+        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#000',
+          }
     },
     lastNameInput: {
         width: '96%',
-        margin: '0 0 0 0.4rem'
+        margin: '0 0 0 0.4rem',
+        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#000',
+          }
     },
     signButton: {
         border: '2px solid #000',
@@ -52,6 +61,6 @@ export const authStyles = makeStyles({
     switchButton: {
         border: '2px solid #000',
         backgroundColor: '#fff',
-        
+
     }
 });

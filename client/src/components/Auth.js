@@ -14,7 +14,6 @@ import {
 } from '@material-ui/core';
 import {Alert, AlertTitle} from '@material-ui/lab';
 import {GoogleLogin, useGoogleLogin} from 'react-google-login';
-import LockRoundedIcon from '@material-ui/icons/LockRounded';
 import GoogleIcon from './icons/GoogleIcon';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import {signUp, signIn} from '../actions/auth';

@@ -1,17 +1,7 @@
 import {makeStyles} from '@material-ui/core/styles';
 
 export const searchStyles = makeStyles({
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    '@media (max-width: 328px)': {
-      display: 'block',
-      margin: '2rem auto'
-    },
-    '@media (max-width: 290px)': {
-      margin: '3rem auto'
-    }
-  },
+
   textfield: {
     margin: '0',
     width: '220px',
@@ -21,9 +11,6 @@ export const searchStyles = makeStyles({
     '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
       borderColor: '#C4FC68',
     },
-    '@media (max-width: 500px)': {
-      width: '200px',
-    }
   },
   dropdownContainer: {
     position: 'absolute',
@@ -33,9 +20,6 @@ export const searchStyles = makeStyles({
     padding: '0',
     margin: '0',
     overflow: 'auto',
-    '@media (max-width: 500px)': {
-      width: '200px',
-    }
   },
   dropdownList: {
     backgroundColor: '#fff',
@@ -58,5 +42,28 @@ export const searchStyles = makeStyles({
   li: {
     padding: '0.5rem',
     display: 'block',
-  }
+  },
+
+  '@media (max-width: 500px)': {
+    dropdownContainer: {
+      width: '200px'
+    },
+    textfield: {
+      width: '200px'
+    }
+  },
+
+  '@media (max-width: 425px)': {
+    container:{
+      width: '150px'
+    },
+    dropdownContainer: {
+      width: '150px'
+    },
+    textfield: {
+      width: '150px'
+    }
+  },
+
+
 });

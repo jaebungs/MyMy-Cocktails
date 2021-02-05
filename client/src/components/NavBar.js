@@ -1,28 +1,48 @@
 import React, {useState, useEffect} from 'react';
 import {Link, useLocation} from 'react-router-dom';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import Profile from './navbarComponents/Profile';
+import HamburgerMenu from './navbarComponents/HamburgerMenu';
 import RecipeSearchInput from './navbarComponents/RecipeSearchInput';
-import {AppBar, Box, Toolbar, Typography, Button} from '@material-ui/core';
+import {AppBar, Box, Grow, IconButton, Toolbar, Typography, Button} from '@material-ui/core';
 import {navbarStyle} from './navbarComponents/navbarStyle';
+import MenuIcon from '@material-ui/icons/Menu';
+import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 
 const Navbar = () => {
   const classes = navbarStyle();
   const location = useLocation();
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
+  const [openMenu, setOpenMenu] = useState(false);
 
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem('user')));
   }, [location]);
 
+  const handleMenuIconClick = () => {
+    setOpenMenu(!openMenu);
+  };
+
   return (
     <AppBar className={classes.navbar} position="static">
-      <Box display="flex" flexWrap="wrap" className={classes.navContainer} width="100%" >
+      <Box display="flex" flexWrap="wrap" className={classes.navContainer} width="100%">
+        {!openMenu ? (
+          <IconButton className={classes.menuIcon} onClick={handleMenuIconClick}>
+            <MenuIcon />
+          </IconButton>
+        ) : (
+          <IconButton className={classes.menuIcon} onClick={handleMenuIconClick}>
+            <MenuOpenIcon />
+          </IconButton>
+        )}
+
+        <HamburgerMenu openMenu={openMenu} setOpenMenu={setOpenMenu} className={classes.menuIcon} />
+
         <Box flexGrow={1} className={classes.navItemContainer}>
           <Typography className={classes.navTitle} variant="h1">
             My My Cocktails
           </Typography>
-
           <Typography
             className={classes.navItems}
             component={Link}
@@ -51,16 +71,27 @@ const Navbar = () => {
             My Bar
           </Typography>
         </Box>
-        <Box  display="flex" flexWrap="wrap" justifyContent="flex-end" className={classes.loginContainer}>
-        {location.pathname === '/library' && <RecipeSearchInput />}
-        {location.pathname === '/mybar' && <RecipeSearchInput />}
-        {user?.result ? (
-          <Profile name={user.result.name} setUser={setUser} />
-        ) : (
-          <Button component={Link} to="/auth" variant="contained" size='small' className={classes.signButton}>
-            Sign In
-          </Button>
-        )}
+        <Box
+          display="flex"
+          flexWrap="wrap"
+          justifyContent="flex-end"
+          className={classes.loginContainer}
+        >
+          {location.pathname === '/library' && <RecipeSearchInput />}
+          {location.pathname === '/mybar' && <RecipeSearchInput />}
+          {user?.result ? (
+            <Profile name={user.result.name} setUser={setUser} />
+          ) : (
+            <Button
+              component={Link}
+              to="/auth"
+              variant="contained"
+              size="small"
+              className={classes.signButton}
+            >
+              Sign In
+            </Button>
+          )}
         </Box>
       </Box>
     </AppBar>

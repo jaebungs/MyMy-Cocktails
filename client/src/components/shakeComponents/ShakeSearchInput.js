@@ -21,7 +21,7 @@ const ShakeSearchInput = ({openRecipe}) => {
   }, [openRecipe]);
 
   const handleTextChange = (e) => {
-    let result = [];
+    const result = [];
     const value = e.target.value.toLowerCase().trim(); //remove space .replace(/\s/g, '');
 
     liquorTypes.forEach((liquor) => {

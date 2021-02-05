@@ -19,8 +19,8 @@ export const profileStyles = makeStyles({
       width: '25px',
     },
     '@media (max-width: 330px)': {
-      height: '21px',
-      width: '21px',
+      height: '22px',
+      width: '22px',
     },
   },
   accountPaper: {
