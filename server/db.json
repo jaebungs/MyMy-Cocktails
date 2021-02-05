@@ -24,6 +24,35 @@
       "garnish": "Lime and mint sprigs"
     },
     {
+      "name": "The Last Word",
+      "ingredients": [
+        "1oz Gin",
+        "2/3oz Green Chartreuse",
+        "2/3oz Luxardo Maraschino liquor",
+        "2/3oz lime juice",
+        "1/3oz cold water"
+      ],
+      "instruction": [
+        "Shake all with ice.",
+        "Fine strain into coupe glass with ice."
+      ],
+      "garnish": "Lime twist"
+    },
+    {
+      "name": "Wine Spritzer",
+      "ingredients": [
+        "4oz Ice",
+        "3oz Wine (Any kind)",
+        "3oz Soda",
+        "1oz lime or lemmon"
+      ],
+      "instruction": [
+        "Add all into a iced cup.",
+        "Stir!"
+      ],
+      "garnish": "Lime twist"
+    },
+    {
       "id": 3,
       "name": "Bee's Knees",
       "ingredients": ["2 ounces Gin", ".75 ounces Lemon Juice", ".75 ounces Honey Syrup"],

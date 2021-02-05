@@ -8,6 +8,7 @@ import {
   Paper,
   Avatar,
   Button,
+  IconButton,
   Box,
   TextField,
   Collapse,
@@ -16,6 +17,7 @@ import {Alert, AlertTitle} from '@material-ui/lab';
 import {GoogleLogin, useGoogleLogin} from 'react-google-login';
 import GoogleIcon from './icons/GoogleIcon';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import {signUp, signIn} from '../actions/auth';
 import {authStyles} from './styles/authStyles';
 
@@ -198,6 +200,11 @@ const Auth = () => {
           </div>
         )}
       </Paper>
+      <Box display="flex" m='auto' mt={2} justifyContent="center">
+        <IconButton aria-label="go to github page" href="https://github.com/jaebungs/MyMy-Cocktails">
+          <GitHubIcon />
+        </IconButton>
+      </Box>
     </Container>
   );
 };
