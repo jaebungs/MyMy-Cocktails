@@ -28,6 +28,10 @@ app.use('/cocktails', cocktailsRoutes);
 app.use('/user', userRoutes);
 app.use('/mybar', mybarRoutes)
 
+app.get('/', (req, res) =>{
+    res.send('Hi, this is MyMyCocktais API')
+})
+
 app.listen(PORT, ()=>{
     console.log(`Server running on http://localhost:${PORT}`)
 })
