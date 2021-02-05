@@ -1,10 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import React, {useState} from 'react';
+import {useSelector} from 'react-redux';
 import {createSelector} from 'reselect';
-import {Container, Grid, Box, Typography, Button} from '@material-ui/core';
+import {Box, Typography, Button} from '@material-ui/core';
 import ShakeSearchInput from './shakeComponents/ShakeSearchInput';
 import filterLiquorHelper from './helpers/filterLiquorHelper';
-import {searchByShakeInput} from '../actions/filters';
 import RecipeModal from './modal/RecipeModal';
 import {shakeStyles} from './shakeComponents/shakeStyles';
 import CocktailSVG from './icons/CocktailSVG';
@@ -12,7 +11,6 @@ import CocktailNotfoundSVG from './icons/CocktailNotfoundSVG';
 
 const ShakePage = () => {
   const classes = shakeStyles();
-  const dispatch = useDispatch();
 
   const [openRecipe, setOpenRecipe] = useState();
   const [error, setError] = useState(false);
