@@ -36,7 +36,7 @@ const Auth = () => {
 
   const [isSignUp, setIsSignUp] = useState(false);
   const [formData, setFormData] = useState(initialFormData);
-  const [googleError, setGoogleError] = useState();
+  const [googleError, setGoogleError] = useState(false);
 
   const message = useSelector((state) => state.auth?.message);
 
@@ -76,14 +76,18 @@ const Auth = () => {
         ? dispatch(signUp(googleProfile, history))
         : dispatch(signIn(googleProfile, history));
       console.log('Google login success');
-      setGoogleError();
+      setGoogleError(false);
     } catch (err) {
-      console.log('login failed', err);
+      setGoogleError('Something is wrong. Please check again.');
     }
   };
 
-  const googleFailure = (err) => {
-    setGoogleError('Something is wrong. Please check again.');
+  const googleFailure = async (res) => {
+    try {
+      setGoogleError('Something is wrong. Please check again.');
+    } catch (err){
+      console.log(err)
+    }
   };
 
   return (
