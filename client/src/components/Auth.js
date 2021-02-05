@@ -172,7 +172,11 @@ const Auth = () => {
             <GoogleLogin
               clientId="956177338567-9ihhch02mougfmc549q5t4tve3s675p0.apps.googleusercontent.com"
               onSuccess={googleSuccess}
-              onFailure={googleFailure}
+              onFailure={err => {
+                googleFailure
+                console.log('login failed', err)
+              }}
+
               render={(props) => (
                   <Button
                     onClick={props.onClick}
