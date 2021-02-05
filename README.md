@@ -18,3 +18,4 @@ Use spread operator, but hard to read so nested reducer comes. However many redu
 Therefore, library like immer.js comes. It creates a new state object by mutating current 'immutable state', so changing new object also changes the original object.
 Learned about JSON web token and session token. This app uses JWT.  
 Need to learn more about security, XSS(Cross site Scripting) and CSRF(Cross site Request Forgery).  
+Faced many problems during deployment. - learned dealing svg file as react component. deploy only server on heroku etc. I just didn't know.
