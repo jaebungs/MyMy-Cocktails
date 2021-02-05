@@ -40,7 +40,6 @@ const ShakePage = () => {
       setError(true);
       setOpenRecipe(null);
     }
-
   };
 
   return (
@@ -64,7 +63,7 @@ const ShakePage = () => {
           : 'Try different ingredent'}
       </Typography>
       <Box display="flex" flexWrap="wrap" alignItems="center" mt={2} className={classes.searchContainer}>
-        <ShakeSearchInput openRecipe={openRecipe} />
+        <ShakeSearchInput openRecipe={openRecipe} handleShowCocktail={handleShowCocktail} />
         <Button className={classes.shakeButton} onClick={handleShowCocktail}>
           SHAKE IT
         </Button>

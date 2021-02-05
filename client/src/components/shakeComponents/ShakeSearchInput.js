@@ -6,7 +6,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import {liquorTypes} from '../../actions/cocktails';
 import {searchStyles} from './searchStyles';
 
-const ShakeSearchInput = ({openRecipe}) => {
+const ShakeSearchInput = ({openRecipe, handleShowCocktail}) => {
   const classes = searchStyles();
   const dispatch = useDispatch();
   const [searchSuggestion, setSearchSuggestion] = useState([]);
@@ -41,7 +41,7 @@ const ShakeSearchInput = ({openRecipe}) => {
   const onKeyDown = (e) => {
     if (e.keyCode === 13 || e.keyCode === 32) {
       // Enter key or Space key
-
+      e.keyCode === 13 & cursor === -1 && handleShowCocktail();
       // if cursor is on the suggestion results, select focused suggestion.
       if (cursor >= 0) {
         e.preventDefault();
