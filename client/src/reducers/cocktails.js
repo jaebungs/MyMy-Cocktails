@@ -4,7 +4,7 @@ const cocktailsReducers = (state=cocktailsDefault, action) => {
 
     switch (action.type){
         case 'STORE_ALL_COCKTAILS':
-            return [...state, ...action.cocktails];
+            return [...action?.cocktails];
 
         default:
             return state;

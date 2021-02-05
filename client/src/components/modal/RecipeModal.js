@@ -7,7 +7,7 @@ import { Box, Dialog, DialogTitle, DialogContentText, Button, Typography  } from
 import {recipeModalStyles} from './recipeModalStyles';
 
 
-const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecipe, setError, handleShowCocktail }) => {
+const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecipe, handleShowCocktail }) => {
     const classes = recipeModalStyles();
     const location = useLocation();
     const dispatch = useDispatch();
@@ -21,7 +21,6 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
 
     const handleClose = () => {
         setOpenRecipe(null);
-        setError(false);
         dispatch(searchByShakeInput(''));
     }
 

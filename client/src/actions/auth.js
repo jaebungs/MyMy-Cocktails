@@ -3,7 +3,7 @@ export const logOut = () => ({
 })
 
 export const signIn = (formData, history) => async (dispatch) => {
-    await fetch('http://localhost:5000/user/signin', {
+    await fetch('https://mymycocktails-backend876.herokuapp.com/user/signin', {
         method: 'post',
         headers: {
             'Accept': 'application/json',
@@ -23,7 +23,7 @@ export const signIn = (formData, history) => async (dispatch) => {
 }
 
 export const signUp = (formData, history) => async (dispatch) => {
-    await fetch('http://localhost:5000/user/signup', {
+    await fetch('https://mymycocktails-backend876.herokuapp.com/signup', {
         method: 'post',
         headers: {
             'Accept': 'application/json',

@@ -1,14 +1,9 @@
-const express = require('express');
 const User = require('../models/user');
-
-const getMyBar = async (req, res) => {
-
-};
 
 const addToMyBar = async (req, res) => {
   const {id, _id, name, ingredients, instruction, garnish} = req.body;
   try { 
-    const user = await User.findByIdAndUpdate(
+    await User.findByIdAndUpdate(
       id,
       { $addToSet: { 'bar': {_id, name, ingredients, instruction, garnish}} },
       {new: true},
@@ -31,7 +26,7 @@ const removeFromMyBar = async (req, res) => {
   const { _id, id } = req.body;
 
   try {
-    const user = await User.findByIdAndUpdate(id, 
+     await User.findByIdAndUpdate(id, 
       { $pull : {'bar': {_id}} },
       {new: true},
       (err, result) => {
@@ -49,4 +44,4 @@ const removeFromMyBar = async (req, res) => {
 
 }
 
-module.exports = {getMyBar, addToMyBar, removeFromMyBar};
+module.exports = {addToMyBar, removeFromMyBar};

@@ -9,7 +9,7 @@ export const addToMyBar = (cocktail, id) => async (dispatch) => {
         ...cocktail,
         id
     }
-    await fetch('http://localhost:5000/mybar', {
+    await fetch('https://mymycocktails-backend876.herokuapp.com/mybar', {
         method: 'post',
         headers: {
             'Accept': 'application/json',
@@ -33,7 +33,7 @@ export const removeFromMyBar = (_id, id) => async (dispatch) => {
         id
     };
 
-    await fetch('http://localhost:5000/mybar', {
+    await fetch('https://mymycocktails-backend876.herokuapp.com/mybar', {
         method: 'delete',
         headers: {
             'Accept': 'application/json',

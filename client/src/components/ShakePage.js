@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {createSelector} from 'reselect';
 import {Container, Grid, Box, Typography, Button} from '@material-ui/core';
@@ -39,6 +39,8 @@ const ShakePage = () => {
     if (inputReduxValue.length === 0 || cocktails.length === 0) {
       setError(true);
       setOpenRecipe(null);
+    } else {
+      setError(false)
     }
   };
 
@@ -68,7 +70,7 @@ const ShakePage = () => {
           SHAKE IT
         </Button>
       </Box>
-      {openRecipe && <RecipeModal {...openRecipe} setOpenRecipe={setOpenRecipe} setError={setError} handleShowCocktail={handleShowCocktail} />}
+      {openRecipe && <RecipeModal {...openRecipe} setOpenRecipe={setOpenRecipe} handleShowCocktail={handleShowCocktail} />}
     </div>
   );
 };
