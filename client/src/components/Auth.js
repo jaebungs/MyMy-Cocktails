@@ -14,12 +14,12 @@ import {
   Collapse,
 } from '@material-ui/core';
 import {Alert, AlertTitle} from '@material-ui/lab';
-import {GoogleLogin, useGoogleLogin} from 'react-google-login';
+import {GoogleLogin} from 'react-google-login';
 import GoogleIcon from './icons/GoogleIcon';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import {signUp, signIn} from '../actions/auth';
-import {authStyles} from './styles/authStyles';
+import {authStyles} from './authComponents/authStyles';
 
 const initialFormData = {
   firstName: '',
@@ -82,14 +82,6 @@ const Auth = () => {
     }
   };
 
-  const googleFailure = async (res) => {
-    try {
-      setGoogleError('Something is wrong. Please check again.');
-    } catch (err){
-      console.log(err)
-    }
-  };
-
   return (
     <Container component="main" maxWidth="xs" className={classes.authPageContainer}>
       <Paper elevation={3} className={classes.paperContainer}>
@@ -108,107 +100,129 @@ const Auth = () => {
             {googleError && <strong>{googleError}</strong>}
           </Alert>
         </Collapse>
-          <form onSubmit={handleSubmit}>
-            <Grid container direction="column" spacing={1} alignItems="center" className={classes.inputContainer}>
-              {isSignUp && (
-                <div className={classes.nameContainer}>
-                  <Grid item sm={6} xs={12}>
-                    <TextField
-                      name="firstName"
-                      label="First Name"
-                      type="text"
-                      className={classes.firstNameInput}
-                      onChange={handleFromChange}
-                      variant="outlined"
-                    />
-                  </Grid>
-                  <Grid item sm={6} xs={12}>
-                    <TextField
-                      name="lastName"
-                      label="Last Name"
-                      type="text"
-                      className={classes.lastNameInput}
-                      onChange={handleFromChange}
-                      variant="outlined"
-                    />
-                  </Grid>
-                </div>
-              )}
-              <div>
-                <TextField
-                  name="email"
-                  label="Email"
-                  type="email"
-                  className={classes.input}
-                  onChange={handleFromChange}
-                  variant="outlined"
-                />
+        <form onSubmit={handleSubmit}>
+          <Grid
+            container
+            direction="column"
+            spacing={1}
+            alignItems="center"
+            className={classes.inputContainer}
+          >
+            {isSignUp && (
+              <div className={classes.nameContainer}>
+                <Grid item sm={6} xs={12}>
+                  <TextField
+                    name="firstName"
+                    label="First Name"
+                    type="text"
+                    className={classes.firstNameInput}
+                    onChange={handleFromChange}
+                    variant="outlined"
+                  />
+                </Grid>
+                <Grid item sm={6} xs={12}>
+                  <TextField
+                    name="lastName"
+                    label="Last Name"
+                    type="text"
+                    className={classes.lastNameInput}
+                    onChange={handleFromChange}
+                    variant="outlined"
+                  />
+                </Grid>
+              </div>
+            )}
+            <div>
+              <TextField
+                name="email"
+                label="Email"
+                type="email"
+                className={classes.input}
+                onChange={handleFromChange}
+                variant="outlined"
+              />
 
+              <TextField
+                name="password"
+                label="password"
+                type="password"
+                className={classes.input}
+                onChange={handleFromChange}
+                variant="outlined"
+              />
+
+              {isSignUp && (
                 <TextField
-                  name="password"
-                  label="password"
+                  name="confirmPassword"
+                  label="Confirm Password"
                   type="password"
                   className={classes.input}
                   onChange={handleFromChange}
                   variant="outlined"
                 />
-
-                {isSignUp && (
-                  <TextField
-                    name="confirmPassword"
-                    label="Confirm Password"
-                    type="password"
-                    className={classes.input}
-                    onChange={handleFromChange}
-                    variant="outlined"
-                  />
-                )}
-              </div>
-            </Grid>
-            <Grid container direction="column" spacing={1} alignItems="center" className={classes.inputContainer}>
-            <Button type="Submit" color="primary" variant="contained" className={classes.signButton} fullWidth>
+              )}
+            </div>
+          </Grid>
+          <Grid
+            container
+            direction="column"
+            spacing={1}
+            alignItems="center"
+            className={classes.inputContainer}
+          >
+            <Button
+              type="Submit"
+              color="primary"
+              variant="contained"
+              className={classes.signButton}
+              fullWidth
+            >
               {isSignUp ? 'Sign Up' : 'Sign In'}
             </Button>
             <GoogleLogin
               clientId="956177338567-9ihhch02mougfmc549q5t4tve3s675p0.apps.googleusercontent.com"
               onSuccess={googleSuccess}
-              onFailure={err => {
-                googleFailure
-                console.log('login failed', err)
-              }}
-
+              onFailure={googleSuccess}
+              cookiePolicy={'single_host_origin'}
+              buttonText='login'
               render={(props) => (
-                  <Button
-                    onClick={props.onClick}
-                    color="primary"
-                    className={classes.googleSignButton}
-                    startIcon={<GoogleIcon />}
-                    fullWidth
-                  >
-                    {isSignUp ? 'Google Sign Up' : 'Google Sign In'}
-                  </Button>
+                <Button
+                  onClick={props.onClick}
+                  color="primary"
+                  className={classes.googleSignButton}
+                  disabled={props.disabled}
+                  startIcon={<GoogleIcon />}
+                  fullWidth
+                >
+                  {isSignUp ? 'Google Sign Up' : 'Google Sign In'}
+                </Button>
               )}
             />
-            </Grid>
-            
-          </form>
-
+          </Grid>
+        </form>
 
         {!isSignUp ? (
           <div>
             <p>Don't have an account?</p>
-            <Button className={classes.switchButton} onClick={switchSignMode}>Create account</Button>
+            <Button className={classes.switchButton} onClick={switchSignMode}>
+              Create account
+            </Button>
           </div>
         ) : (
           <div>
             <p>I already have an account.</p>
 
-            <Button className={classes.switchButton} onClick={switchSignMode}>Go Sign in</Button>
+            <Button className={classes.switchButton} onClick={switchSignMode}>
+              Go Sign in
+            </Button>
           </div>
         )}
       </Paper>
-      <Box display="flex" m='auto' mt={2} justifyContent="center">
-        <IconButton aria-label="go to github page" href="https://github.com/jaebungs/MyMy-Cocktails">
+      <Box display="flex" m="auto" mt={2} justifyContent="center">
+        <IconButton
+          aria-label="go to github page"
+          href="https://github.com/jaebungs/MyMy-Cocktails"
+        >
           <GitHubIcon />
         </IconButton>
       </Box>
