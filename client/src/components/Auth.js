@@ -143,6 +143,7 @@ const Auth = () => {
                 name="email"
                 label="Email"
                 type="email"
+                autoComplete="username"
                 className={classes.input}
                 onChange={handleFromChange}
                 variant="outlined"
@@ -153,6 +154,7 @@ const Auth = () => {
                 name="password"
                 label="password"
                 type="password"
+                autoComplete="current-password"
                 className={classes.input}
                 onChange={handleFromChange}
                 variant="outlined"

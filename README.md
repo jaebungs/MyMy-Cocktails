@@ -3,6 +3,8 @@ Put one kind of liquor that you have. This app will show you a cocktail recipe t
 You can search by name, liquor type or both.  
 For signed user, you can add the recipe to your bar.  
 Built with React, Material-ui, Redux, Express.  
+I know it's a big mass... I'm going to refactor the code.  
+Any feedback is welcome. I am still learning.
 
 
 ### Learning outcome  

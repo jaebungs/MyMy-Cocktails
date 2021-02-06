@@ -3,10 +3,6 @@ const authDefault = {token: getFromLocalStorage?.token, result: getFromLocalStor
 
 const authReducer = (state=authDefault, action) => {
     switch (action.type){
-        case 'AUTH_LOG_IN':
-            localStorage.setItem('user', JSON.stringify({token: action?.token, result: action?.result}));
-            return {...state, token: action?.token, result: action?.result};
-
         case 'LOG_OUT':
             localStorage.removeItem('user');
             return state = authDefault;
