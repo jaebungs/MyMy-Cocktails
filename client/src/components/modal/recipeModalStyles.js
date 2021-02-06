@@ -27,6 +27,9 @@ export const recipeModalStyles = makeStyles({
     },
     shakeAgainButton: {
         backgroundColor: '#C4FC68',
-        fontWeight: '500'
+        fontWeight: '500',
+        '&:hover': {
+            backgroundColor: '#7AE653',
+        }
     }
 });

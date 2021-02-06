@@ -62,11 +62,7 @@ const Auth = () => {
 
   const googleResponse = (res) => {
     const result = res?.profileObj;
-    let googleProfile = undefined;
-
-    console.log(res)
-    if (!res) {
-      googleProfile = {
+    const googleProfile = {
         email: result.email,
         name: result.name,
         password: result.googleId,
@@ -74,7 +70,6 @@ const Auth = () => {
         firstName: result.givenName,
         lastName: result.familyName,
       }
-    }
     
     try {
       
@@ -120,6 +115,7 @@ const Auth = () => {
               <div className={classes.nameContainer}>
                 <Grid item sm={6} xs={12}>
                   <TextField
+                    required={true}
                     name="firstName"
                     label="First Name"
                     type="text"
@@ -130,6 +126,7 @@ const Auth = () => {
                 </Grid>
                 <Grid item sm={6} xs={12}>
                   <TextField
+                    required={true}
                     name="lastName"
                     label="Last Name"
                     type="text"
@@ -142,6 +139,7 @@ const Auth = () => {
             )}
             <div>
               <TextField
+                required={true}
                 name="email"
                 label="Email"
                 type="email"
@@ -151,6 +149,7 @@ const Auth = () => {
               />
 
               <TextField
+                required={true}
                 name="password"
                 label="password"
                 type="password"
@@ -161,6 +160,7 @@ const Auth = () => {
 
               {isSignUp && (
                 <TextField
+                  required={true}
                   name="confirmPassword"
                   label="Confirm Password"
                   type="password"
@@ -193,8 +193,8 @@ const Auth = () => {
               onFailure={googleResponse}
               cookiePolicy={'single_host_origin'}
               render={(props) => (
-                <button
-                  onClick={()=>props.onClick()}
+                <Button
+                  onClick={props.onClick}
                   color="primary"
                   className={classes.googleSignButton}
                   disabled={props.disabled}
@@ -202,7 +202,7 @@ const Auth = () => {
                   fullWidth
                 >
                   {isSignUp ? 'Google Sign Up' : 'Google Sign In'}
-                </button>
+                </Button>
               )}
             />
           </Grid>
