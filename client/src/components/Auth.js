@@ -62,17 +62,20 @@ const Auth = () => {
 
   const googleSuccess = async (res) => {
     const result = res?.profileObj;
-    const googleProfile = {
-      email: result.email,
-      name: result.name,
-      password: result.googleId,
-      confirmPassword: result.googleId,
-      firstName: result.givenName,
-      lastName: result.familyName,
-    };
-
+    console.log(result)
+    if (!res) {
+      const googleProfile = {
+        email: result.email,
+        name: result.name,
+        password: result.googleId,
+        confirmPassword: result.googleId,
+        firstName: result.givenName,
+        lastName: result.familyName,
+      }
+    }
+    
     try {
-      isSignUp
+      isSignUp & result
         ? dispatch(signUp(googleProfile, history))
         : dispatch(signIn(googleProfile, history));
       console.log('Google login success');
@@ -107,6 +110,7 @@ const Auth = () => {
             spacing={1}
             alignItems="center"
             className={classes.inputContainer}
+            
           >
             {isSignUp && (
               <div className={classes.nameContainer}>
@@ -184,7 +188,6 @@ const Auth = () => {
               onSuccess={googleSuccess}
               onFailure={googleSuccess}
               cookiePolicy={'single_host_origin'}
-              buttonText='login'
               render={(props) => (
                 <Button
                   onClick={()=>props.onClick()}
