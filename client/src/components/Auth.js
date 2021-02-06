@@ -14,7 +14,7 @@ import {
   Collapse,
 } from '@material-ui/core';
 import {Alert, AlertTitle} from '@material-ui/lab';
-import {GoogleLogin} from 'react-google-login';
+import {GoogleLogin, GoogleLogout } from 'react-google-login';
 import GoogleIcon from './icons/GoogleIcon';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import GitHubIcon from '@material-ui/icons/GitHub';
@@ -187,7 +187,7 @@ const Auth = () => {
               buttonText='login'
               render={(props) => (
                 <Button
-                  onClick={props.onClick}
+                  onClick={()=>props.onClick()}
                   color="primary"
                   className={classes.googleSignButton}
                   disabled={props.disabled}
