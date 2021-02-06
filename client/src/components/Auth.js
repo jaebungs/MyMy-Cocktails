@@ -60,11 +60,13 @@ const Auth = () => {
     setIsSignUp((prev) => !prev);
   };
 
-  const googleSuccess = async (res) => {
+  const googleResponse = (res) => {
     const result = res?.profileObj;
-    console.log(result)
+    let googleProfile = undefined;
+
+    console.log(res)
     if (!res) {
-      const googleProfile = {
+      googleProfile = {
         email: result.email,
         name: result.name,
         password: result.googleId,
@@ -75,13 +77,15 @@ const Auth = () => {
     }
     
     try {
-      isSignUp & result
+      
+      isSignUp & googleProfile
         ? dispatch(signUp(googleProfile, history))
         : dispatch(signIn(googleProfile, history));
       console.log('Google login success');
       setGoogleError(false);
     } catch (err) {
       setGoogleError('Something is wrong. Please check again.');
+      console.log('err', err)
     }
   };
 
@@ -185,11 +189,11 @@ const Auth = () => {
             </Button>
             <GoogleLogin
               clientId="956177338567-9ihhch02mougfmc549q5t4tve3s675p0.apps.googleusercontent.com"
-              onSuccess={googleSuccess}
-              onFailure={googleSuccess}
+              onSuccess={googleResponse}
+              onFailure={googleResponse}
               cookiePolicy={'single_host_origin'}
               render={(props) => (
-                <Button
+                <button
                   onClick={()=>props.onClick()}
                   color="primary"
                   className={classes.googleSignButton}
@@ -198,7 +202,7 @@ const Auth = () => {
                   fullWidth
                 >
                   {isSignUp ? 'Google Sign Up' : 'Google Sign In'}
-                </Button>
+                </button>
               )}
             />
           </Grid>
