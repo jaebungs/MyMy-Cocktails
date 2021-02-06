@@ -1,9 +1,10 @@
-import { createStore, combineReducers, applyMiddleware, compose  } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from 'redux-thunk';
 import myBarReducer from "../reducers/myBar";
 import authReducer from '../reducers/auth';
 import cocktailsReducers from '../reducers/cocktails';
 import filtersReducer from '../reducers/filters';
+import {composeWithDevTools} from 'redux-devtools-extension/developmentOnly';
 
 export default () => {
   const store = createStore(
@@ -13,9 +14,8 @@ export default () => {
       auth: authReducer,
       filters: filtersReducer
     }),
-    compose(
-      applyMiddleware(thunk),
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    composeWithDevTools(
+      applyMiddleware(thunk)
     )
   );
   return store;
