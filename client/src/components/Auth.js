@@ -60,7 +60,7 @@ const Auth = () => {
     setIsSignUp((prev) => !prev);
   };
 
-  const googleResponse = (res) => {
+  const googleResponse = async (res) => {
     const result = res?.profileObj;
     const googleProfile = {
         email: result.email,
@@ -72,11 +72,10 @@ const Auth = () => {
       }
     
     try {
-      
-      isSignUp & googleProfile
-        ? dispatch(signUp(googleProfile, history))
-        : dispatch(signIn(googleProfile, history));
-      console.log('Google login success');
+      {(isSignUp && result) && dispatch(signUp(googleProfile, history))}
+      {(!isSignUp && result) && dispatch(signIn(googleProfile, history))}
+
+      console.log(googleProfile);
       setGoogleError(false);
     } catch (err) {
       setGoogleError('Something is wrong. Please check again.');

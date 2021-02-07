@@ -32,7 +32,7 @@ const signup = async (req, res) => {
 
   try {
     const existingUser = await User.findOne({email});
-    const oneLetterUppperFirstName = firstName.toLowerCase().charAt(0).toUpperCase() + firstName.slice(1);
+    const oneLetterUppperFirstName = firstName.toLowerCase().charAt(0).toUpperCase() + firstName.slice(1); //Make first letter capital
     const oneLetterUppperLastName = lastName.toLowerCase().charAt(0).toUpperCase() + lastName.slice(1);
   
     if (existingUser) return res.status(400).json({message: 'User already exists'});

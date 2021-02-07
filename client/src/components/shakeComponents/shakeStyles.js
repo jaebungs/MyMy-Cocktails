@@ -49,10 +49,6 @@ export const shakeStyles = makeStyles({
     shakeContainer: {
       width: '570px',
       height: '570px',
-    },
-    shakeImage: {
-      width: '22rem',
-      top:'0.5rem'
     }
   },
   '@media (max-width: 600px)': {
@@ -63,15 +59,21 @@ export const shakeStyles = makeStyles({
     },
     shakeImage: {
       width: '14rem',
+      top:'0.4rem',
+      marginBottom: '1rem',
     },
     shakeTitle: {
       fontSize: '1.3rem',
-      textAlign: 'center'
+      textAlign: 'center',
+      margin: '0.4rem 0'
+
     },
     shakeSubTitle: {
       fontSize: '0.9rem',
       width: '80%',
       textAlign: 'center',
+      lineHeight: '1rem',
+      marginTop: '0.1rem'
     },
     searchContainer: {
       position: 'relative',
