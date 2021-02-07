@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {Link, useLocation} from 'react-router-dom';
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import {useLocation} from 'react-router-dom';
 import Profile from './navbarComponents/Profile';
 import HamburgerMenu from './navbarComponents/HamburgerMenu';
 import RecipeSearchInput from './navbarComponents/RecipeSearchInput';
-import {AppBar, Box, Grow, IconButton, Toolbar, Typography, Button} from '@material-ui/core';
+import {AppBar, Box, Grow, IconButton, Link, Typography, Button} from '@material-ui/core';
 import {navbarStyle} from './navbarComponents/navbarStyle';
 import MenuIcon from '@material-ui/icons/Menu';
 import MenuOpenIcon from '@material-ui/icons/MenuOpen';
@@ -43,33 +42,30 @@ const Navbar = () => {
           <Typography className={classes.navTitle} variant="h1">
             My My Cocktails
           </Typography>
-          <Typography
+          <Link
             className={classes.navItems}
-            component={Link}
             variant="h3"
-            to="/"
+            href="/"
             exact="true"
           >
             Shake
-          </Typography>
-          <Typography
+          </Link>
+          <Link
             className={classes.navItems}
-            component={Link}
             variant="h3"
-            to="/library"
+            href="/library"
             exact="true"
           >
             Library
-          </Typography>
-          <Typography
+          </Link>
+          <Link
             className={classes.navItems}
-            component={Link}
             variant="h3"
-            to="/mybar"
+            href="/mybar"
             exact="true"
           >
             My Bar
-          </Typography>
+          </Link>
         </Box>
         <Box
           display="flex"
@@ -84,7 +80,7 @@ const Navbar = () => {
           ) : (
             <Button
               component={Link}
-              to="/auth"
+              href="/auth"
               variant="contained"
               size="small"
               className={classes.signButton}

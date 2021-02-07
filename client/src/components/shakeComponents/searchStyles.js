@@ -16,6 +16,7 @@ export const searchStyles = makeStyles({
     position: 'absolute',
     backgroundColor: '#fff',
     border: 'none',
+    boxShadow: '1px 1px 3px rgba(0, 0, 0, 0.6);',
     width: '220px',
     padding: '0',
     margin: '0',
