@@ -5,7 +5,7 @@ const authReducer = (state=authDefault, action) => {
     switch (action.type){
         case 'LOG_OUT':
             localStorage.removeItem('user');
-            return state = authDefault;
+            return {};
 
         case 'LOG_IN':
             const upperCaseFirstName = action?.data.result?.firstName.charAt(0) + action?.data.result?.firstName.slice(1);

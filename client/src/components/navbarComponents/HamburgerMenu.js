@@ -11,7 +11,8 @@ const HamburgerMenu = ({openMenu, setOpenMenu}) => {
 
   return (
     <Collapse in={openMenu} className={classes.collapseContainer} >
-      <Box className={classes.hamburgerMenuContainer} onClick={() => setOpenMenu(false)}>
+      <Box className={classes.dummyBackground} onClick={() => setOpenMenu(false)} >
+      <Box className={classes.hamburgerMenuContainer} >
         <Typography className={classes.navItems} component={Link} variant="h3" to="/" exact="true">
           Shake
         </Typography>
@@ -36,6 +37,8 @@ const HamburgerMenu = ({openMenu, setOpenMenu}) => {
           My Bar
         </Typography>
       </Box>
+      </Box>
+      
     </Collapse >
   );
 };

@@ -11,7 +11,7 @@ Any feedback is welcome. I am still learning.
 
 wow. mapStateToProps and connect can be replaced by redux with hooks such as useSelector and useDispatch. Code got simpler.  
 First time using many different hooks.  
-I am never going to use material ui again...  
+I kinda got the hang of material ui, I need to use theme to reduce css code.
 Made me think and learn more about normalize state shape. Although I didn't needed for this proejct.  
 Refreshing express and mongodb.  
 Need to learn more about animation on state change or learn react-spring.  

@@ -23,7 +23,9 @@ export const addToMyBar = (cocktail, id) => async (dispatch) => {
         const newData = data._doc;
         dispatch({type: 'ADD_TO_MY_BAR', newData});
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+        console.log(err)
+    })
 }
 
 export const removeFromMyBar = (_id, id) => async (dispatch) => {

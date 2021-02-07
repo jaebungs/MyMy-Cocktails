@@ -55,7 +55,7 @@ const ShakePage = () => {
       )}
 
       <Typography variant="h2" className={classes.shakeTitle}>
-        {!error ? 'The Cocktail Shaker' : 'Ah oh, we coudln`t find anything'}
+        {!error ? 'The Cocktail Shaker' : `Ah oh, we coudln't find anything`}
       </Typography>
       <Typography variant="subtitle1" className={classes.shakeSubTitle}>
         {!error

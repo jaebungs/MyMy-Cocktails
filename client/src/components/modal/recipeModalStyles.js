@@ -31,5 +31,14 @@ export const recipeModalStyles = makeStyles({
         '&:hover': {
             backgroundColor: '#7AE653',
         }
+    },
+    '@media (max-width: 1024px)': {
+        shakeAgainButton: {
+            '&:hover': {
+                backgroundColor: '#C4FC68',
+            }
+        }
     }
+    
+
 });

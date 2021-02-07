@@ -53,7 +53,7 @@ export const searchStyles = makeStyles({
     }
   },
 
-  '@media (max-width: 425px)': {
+  '@media (max-width: 300px)': {
     container:{
       width: '150px'
     },

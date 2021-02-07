@@ -38,7 +38,7 @@ const Profile = ({name, setUser}) => {
   };
 
   const handleLogOut = () => {
-    dispatch(logOut());
+    dispatch(logOut({type: 'LOG_OUT'}));
     history.push('/');
     setUser(null);
   }

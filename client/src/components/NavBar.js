@@ -37,7 +37,7 @@ const Navbar = () => {
           </IconButton>
         )}
 
-        <HamburgerMenu openMenu={openMenu} setOpenMenu={setOpenMenu} className={classes.menuIcon} />
+        <HamburgerMenu openMenu={openMenu} setOpenMenu={setOpenMenu} />
 
         <Box flexGrow={1} className={classes.navItemContainer}>
           <Typography className={classes.navTitle} variant="h1">

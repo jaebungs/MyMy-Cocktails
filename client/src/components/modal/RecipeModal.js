@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {useLocation} from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {searchByShakeInput} from '../../actions/filters';
 import { addToMyBar, removeFromMyBar } from '../../actions/myBar';
 import { Box, Dialog, DialogTitle, DialogContentText, Button, Typography  } from '@material-ui/core';
@@ -11,6 +11,7 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
     const classes = recipeModalStyles();
     const location = useLocation();
     const dispatch = useDispatch();
+    const auth = useSelector(state => state.auth);
 
     const [currentPage, setCurrentPage] = useState();
     const id = JSON.parse(localStorage?.getItem('user'))?.result?._id;
@@ -67,7 +68,7 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
                 <Box display="flex" flexWrap="wrap" justifyContent="flex-start" alignItems="center" width="100%" mt={7}>
                     <Box mr={2}>
                         {currentPage === '/' && <Button size="medium" variant="contained" className={classes.shakeAgainButton} onClick={handleShowCocktail}>SHAKE AGAIN</Button>}
-                        {currentPage === '/library' && <Button size="medium" variant="contained" color="primary" onClick={handleAddtoMyBar}>ADD</Button>}
+                        {currentPage === '/library' && <Button size="medium" variant="contained" color="primary" disabled={!auth.result && !auth.token} onClick={handleAddtoMyBar}>ADD</Button>}
                         {currentPage === '/mybar' && <Button size="medium" variant="contained" color="secondary" onClick={handleRemoveFromMyBar}>REMOVE</Button>}
                     </Box>
                     

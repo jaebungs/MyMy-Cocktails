@@ -14,6 +14,11 @@ export const hamburgerMenuStyle = makeStyles({
       top: '70px',
       zIndex: '10',
     },
+    dummyBackground: {
+      width: '100%',
+      height: '100vh',
+      backgroundColor: 'transparent'
+    },
     hamburgerMenuContainer: {
       backgroundColor: '#fafafa',
       margin: '0',

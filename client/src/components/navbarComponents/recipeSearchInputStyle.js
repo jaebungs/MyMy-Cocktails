@@ -23,7 +23,7 @@ export const recipeSearchInputStyle = makeStyles({
     }
   },
 
-  '@media (max-width: 410px)': {
+  '@media (max-width: 430px)': {
     recipeSearchInput: {
       width: '7rem'
     },

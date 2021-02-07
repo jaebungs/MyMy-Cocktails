@@ -15,7 +15,7 @@ export const signIn = (formData, history) => async (dispatch) => {
     .then((data) => {
         if (!data.message){
             dispatch({type: 'GET_ALL_FROM_MY_BAR', cocktails: data?.result?.bar}); // myBar reducer
-            history.push('/'); // if login success, move to direct to home
+            history.push('/');
         }
         dispatch({type: 'LOG_IN', data}); // auth reducer
         

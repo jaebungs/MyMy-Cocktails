@@ -12,29 +12,16 @@ export const shakeStyles = makeStyles({
     justifyContent: 'center',
     alignItems: 'center',
     margin: 'auto',
-    '@media (max-width: 1024px)': {
-      width: '570px',
-      height: '570px',
-    },
-    '@media (max-width: 600px)': {
-      width: '500px',
-      height: '500px',
-    },
   },
   shakeImage: {
     position: 'relative',
     bottom: '30px',
     width: '25rem',
-    '@media (max-width: 1024px)': {
-      width: '22rem',
-    },
-    '@media (max-width: 600px)': {
-      width: '17rem',
-    },
+
   },
   shakeTitle: {
     fontSize: '2rem',
-    margin: '0',
+    marginBottom: '0.3rem',
     fontWeight: '800',
   },
   shakeSubTitle: {
@@ -51,7 +38,25 @@ export const shakeStyles = makeStyles({
       backgroundColor: '#7AE653',
     },
   },
-  '@media (max-width: 539px)': {
+  '@media (max-width: 1024px)': {
+
+    shakeButton: {
+      '&:hover': {
+        backgroundColor: '#C4FC68',
+      },
+    }
+  },
+  '@media (max-width: 900px)': {
+    shakeContainer: {
+      width: '570px',
+      height: '570px',
+    },
+    shakeImage: {
+      width: '22rem'
+    }
+  },
+  '@media (max-width: 600px)': {
+
     shakeContainer: {
       width: '350px',
       height: '350px',
@@ -61,6 +66,8 @@ export const shakeStyles = makeStyles({
     },
     shakeTitle: {
       fontSize: '1.3rem',
+      textAlign: 'center',
+
     },
     shakeSubTitle: {
       fontSize: '0.9rem',

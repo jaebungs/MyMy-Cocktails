@@ -63,7 +63,7 @@ export const navbarStyle = makeStyles({
         }
     },
 
-    "@media (max-width: 410px)": {
+    "@media (max-width: 430px)": {
         navTitle:{
             width: '100%',
             marginTop: '1rem',
@@ -78,7 +78,7 @@ export const navbarStyle = makeStyles({
             position: 'absolute',
             top: '70px',
             left: '20px',
-            zIndex: '10'
+            zIndex: '11'
         }
     },
     
