@@ -11,13 +11,12 @@ export const shakeStyles = makeStyles({
     borderRadius: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 'auto',
+    margin: 'auto'
   },
   shakeImage: {
     position: 'relative',
     bottom: '30px',
-    width: '25rem',
-
+    width: '25rem'
   },
   shakeTitle: {
     fontSize: '2rem',
@@ -52,7 +51,8 @@ export const shakeStyles = makeStyles({
       height: '570px',
     },
     shakeImage: {
-      width: '22rem'
+      width: '22rem',
+      top:'0.5rem'
     }
   },
   '@media (max-width: 600px)': {
@@ -66,8 +66,7 @@ export const shakeStyles = makeStyles({
     },
     shakeTitle: {
       fontSize: '1.3rem',
-      textAlign: 'center',
-
+      textAlign: 'center'
     },
     shakeSubTitle: {
       fontSize: '0.9rem',
