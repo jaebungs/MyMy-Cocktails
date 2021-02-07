@@ -47,7 +47,7 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
     }
 
     return (
-        <Dialog open={!!name} fullWidth={true} maxWidth="xs" >
+        <Dialog open={!!name} fullWidth={true} maxWidth="xs" onBackdropClick={handleClose}>
             <div className={classes.dialogContentContainer}>
                 <DialogTitle disabletypography="true" variant="h1" className={classes.modalTitle}>{name}</DialogTitle>
                     <Typography disabletypography="true" variant="caption" className={classes.subtitle}>INGREDIENTS</Typography>
@@ -68,7 +68,7 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
                 <Box display="flex" flexWrap="wrap" justifyContent="flex-start" alignItems="center" width="100%" mt={7}>
                     <Box mr={2}>
                         {currentPage === '/' && <Button size="medium" variant="contained" className={classes.shakeAgainButton} onClick={handleShowCocktail}>SHAKE AGAIN</Button>}
-                        {currentPage === '/library' && <Button size="medium" variant="contained" color="primary" disabled={!auth.result && !auth.token} onClick={handleAddtoMyBar}>ADD</Button>}
+                        {(currentPage === '/library' || currentPage === '/') && <Button size="medium" className={classes.addButton} variant="contained" disabled={!auth.result && !auth.token} onClick={handleAddtoMyBar}>ADD</Button>}
                         {currentPage === '/mybar' && <Button size="medium" variant="contained" color="secondary" onClick={handleRemoveFromMyBar}>REMOVE</Button>}
                     </Box>
                     

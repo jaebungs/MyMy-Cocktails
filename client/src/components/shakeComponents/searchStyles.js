@@ -5,22 +5,27 @@ export const searchStyles = makeStyles({
   textfield: {
     margin: '0',
     width: '220px',
+    borderBottomLeftRadius: '0',
+    borderBottomRightRadius: '0',
     '&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
       borderColor: '#7AE653',
     },
     '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
       borderColor: '#C4FC68',
+      borderBottomLeftRadius: '0',
+      borderBottomRightRadius: '0'
     },
   },
   dropdownContainer: {
     position: 'absolute',
     backgroundColor: '#fff',
     border: 'none',
-    boxShadow: '1px 1px 3px rgba(0, 0, 0, 0.6);',
+    boxSizing: 'border-box',
+    boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.1), -1px 1px 3px rgba(0, 0, 0, 0.1), 1px 1px 3px rgba(0, 0, 0, 0.1)',
     width: '220px',
     padding: '0',
     margin: '0',
-    overflow: 'auto',
+    overflow: 'auto'
   },
   dropdownList: {
     backgroundColor: '#fff',

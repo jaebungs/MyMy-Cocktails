@@ -32,10 +32,23 @@ export const recipeModalStyles = makeStyles({
             backgroundColor: '#7AE653',
         }
     },
+    addButton: {
+        margin: '0.9rem',
+        fontWeight: '500',
+        backgroundColor: '#C4FC68',
+        '&:hover': {
+            backgroundColor: '#7AE653'
+        }
+    },
     '@media (max-width: 1024px)': {
         shakeAgainButton: {
             '&:hover': {
                 backgroundColor: '#C4FC68',
+            }
+        },
+        addButton: {
+            '&:hover': {
+                backgroundColor: '#C4FC68'
             }
         }
     }
