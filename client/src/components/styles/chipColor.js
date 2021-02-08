@@ -44,7 +44,7 @@ export const chipStyle = makeStyles({
     maraschino: {
         border: '1px solid #ff1744'
     },
-    coffeeliquor: {
+    coffeeliqueur: {
         border: '1px solid #B06325'
     },
     triplesec: {

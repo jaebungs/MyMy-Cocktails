@@ -1,51 +1,40 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector} from 'react-redux';
-import { createSelector } from 'reselect';
+import {createSelector} from 'reselect';
 import CocktailCards from './card/CocktailCards';
-import { Grid, Container, Grow } from '@material-ui/core';
+import {Grid, Container, Typography} from '@material-ui/core';
 import FilterChipInput from './filterChip/FilterChipInput';
 import filterLiquorHelper from './helpers/filterLiquorHelper';
+import NothingFound from './NothingFound';
 import RecipeModal from './modal/RecipeModal';
-
+import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
 
 const LibraryPage = () => {
-
   const [openRecipe, setOpenRecipe] = useState();
 
-  const byLiquors = state=> state.filters.homeByLiquors;
-  const byName = state=>state.filters.homeByName;
 
-  const filterLiquors = createSelector (
-    state => state.cocktails,
+  const byLiquors = (state) => state.filters.homeByLiquors;
+  const byName = (state) => state.filters.homeByName;
+
+  const filterLiquors = createSelector(
+    (state) => state.cocktails,
     byName,
     byLiquors,
     filterLiquorHelper
-  )
-
-  const cocktailData = () => {
-    const cocktails = useSelector(filterLiquors);
-    return cocktails
-  }
+  );
+  const cocktails = useSelector(filterLiquors);
 
   return (
-      <Container maxWidth="lg">
-        <FilterChipInput />
-        <Grid container spacing={1}>
-          {
-            cocktailData().map((cocktail, index) => {
-              return (
-                <Grow key={index} in={!!cocktail} style={{ transformOrigin: '0 0 0' }} {...(!!cocktail ? { timeout: 1000 } : {})}>
-                  <CocktailCards {...cocktail} setOpenRecipe={setOpenRecipe}/>
-                </Grow>
-                )
-            })
-          }
-          {
-            openRecipe && <RecipeModal {...openRecipe} setOpenRecipe={setOpenRecipe} />
-          }
-        </Grid>
-      </Container>
-
+    <Container maxWidth="lg">
+      <FilterChipInput />
+      <Grid container spacing={1}>
+        {cocktails.map((cocktail, index) => {
+          return <CocktailCards key={index} {...cocktail} setOpenRecipe={setOpenRecipe} />;
+        })}
+        {cocktails.length === 0 && <NothingFound />}
+        {openRecipe && <RecipeModal {...openRecipe} setOpenRecipe={setOpenRecipe} />}
+      </Grid>
+    </Container>
   );
 };
 

@@ -23,7 +23,7 @@ export const hamburgerMenuStyle = makeStyles({
       backgroundColor: '#fafafa',
       margin: '0',
       width: '100%',
-      minHeight: '250px',
+      minHeight: '280px',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
@@ -37,9 +37,12 @@ export const hamburgerMenuStyle = makeStyles({
       color: '#000',
       fontSize: '1.4rem',
       margin: '0.2rem',
-      padding: '0.8rem 3rem',
+      padding: '0.8rem 5rem',
+      border: '1px solid rgba(0, 0, 0, 0.1)',
       '&:hover': {
         backgroundColor: '#fff',
+      boxSizing:'border-box',
+
         border: '2px solid #000',
       },
     },

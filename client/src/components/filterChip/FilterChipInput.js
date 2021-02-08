@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { useHistory } from "react-router-dom";
 import {useDispatch} from 'react-redux';
 import {liquorTypes} from '../../actions/cocktails';
 import {searchHomeByLiquor, searchMYByLiquor} from '../../actions/filters';
@@ -13,6 +14,7 @@ const FilterChipInput = () => {
   const [checkedTypes, setCheckedTypes] = useState([]);
 
   const dispatch = useDispatch();
+  const history = useHistory();
   const pathname = window.location.pathname;
 
   // When liquor filter clicked, dispatch to pathnamebyLiquor
@@ -35,15 +37,12 @@ const FilterChipInput = () => {
     }
   };
 
+  const handleClearAllCliecked = () => {
+    setCheckedTypes([]);
+  }
+
   return (
     <FormGroup style={{marginBottom: '1rem'}}>
-      <Grid
-        container
-        direction="row"
-        justify="flex-end"
-        alignItems="center"
-        mb={2}
-      ></Grid>
       <Box display="flex" flexWrap="wrap">
         {liquorTypes.map((liquor, index) => {
           // convert liquor with no space
@@ -64,6 +63,12 @@ const FilterChipInput = () => {
             />
           );
         })}
+        <Chip 
+          label='Clear All'
+          onClick={handleClearAllCliecked}
+          className={filterChip.clear}
+          clickable={false}
+        />
       </Box>
     </FormGroup>
   );

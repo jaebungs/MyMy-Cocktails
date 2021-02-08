@@ -1,19 +1,17 @@
 {
   "cocktail": [
     {
-      "id": 0,
       "name": "Negroni",
       "ingredients": ["1oz Dry Gin", "1oz Red Bitter Liqueur", "1oz Martini Rosso Sweet Vermouth"],
-      "instruction": ["Pour all into ice-filled glass", "Stir!"],
+      "instruction": ["Pour all into ice-filled shaker", "Stir!"],
       "garnish": "Orange wedge or orange zest twist"
     },
     {
-      "id": 2,
       "name": "Southside Rickey",
       "ingredients": [
         "2oz Dry Gin",
         "1oz Lime Juice",
-        "3/4oz Suger syrub (2 sugar to 1 water)",
+        "3/4oz Suger syrup (2 sugar to 1 water)",
         "5 Mint leaves",
         "1 1/3oz Soda Water"
       ],
@@ -26,34 +24,39 @@
     {
       "name": "The Last Word",
       "ingredients": [
-        "1oz Gin",
+        "2/3oz Gin",
         "2/3oz Green Chartreuse",
         "2/3oz Luxardo Maraschino liquor",
-        "2/3oz lime juice",
-        "1/3oz cold water"
+        "2/3oz lime juice"
       ],
       "instruction": [
         "Shake all with ice.",
-        "Fine strain into coupe glass with ice."
+        "Strain into coupe glass with ice."
       ],
       "garnish": "Lime twist"
     },
     {
-      "name": "Wine Spritzer",
+      "name": "Red Sangria",
       "ingredients": [
-        "4oz Ice",
-        "3oz Wine (Any kind)",
-        "3oz Soda",
-        "1oz lime or lemmon"
+        "1 bottle of red wine (chilled)",
+        "1 orange",
+        "1 cup Sliced fruits. (Tinner is better) - apple, pear, strawberry etc.",
+        "1 lemon. (slice)",
+        "1 cup Brandy (You can put less)",
+        "1 tablespoon maple syrup or sugar(white or brown)",
+        "ice"
       ],
       "instruction": [
-        "Add all into a iced cup.",
-        "Stir!"
+        "Slice half of orange. Squeeze the other half into a pitcher.",
+        "Slice any fruit you have. Slice thin!",
+        "Slice lemmon",
+        "Add all including wine, brandy, syrup (or sugar).",
+        "Stir!",
+        "Serve with ice."
       ],
-      "garnish": "Lime twist"
+      "garnish": ""
     },
     {
-      "id": 3,
       "name": "Bee's Knees",
       "ingredients": ["2 ounces Gin", ".75 ounces Lemon Juice", ".75 ounces Honey Syrup"],
       "instruction": ["Shake for 10 seconds.", "Strain and Fine mesh strainer into glass."],
@@ -143,7 +146,6 @@
       "garnish": "Lemon Twist, Olive"
     },
     {
-      "id": 9,
       "name": "Income Tax",
       "ingredients": [
         "1 1/2 OZ. GIN",
@@ -202,7 +204,6 @@
       "garnish": "Lemon zest twist"
     },
     {
-      "id": 14,
       "name": "Bourbon Skin",
       "ingredients": [
         "2oz Bourbon Whiskey",
@@ -213,7 +214,7 @@
       "garnish": "Large orange zest twist"
     },
     {
-      "id": 15,
+
       "name": "Fancy Free",
       "ingredients": [
         "2oz Bourbon Whiskey",
@@ -228,7 +229,6 @@
       "garnish": "Orange zest twist"
     },
     {
-      "id": 16,
       "name": "Inside Job",
       "ingredients": [
         "2oz Bourbon Whiskey",
@@ -240,7 +240,6 @@
       "garnish": "Orange wheel"
     },
     {
-      "id": 17,
       "name": "Mountain",
       "ingredients": [
         "2oz Bourbon Whiskey",
@@ -252,7 +251,6 @@
       "garnish": "Luxardo cherry"
     },
     {
-      "id": 18,
       "name": "Classic Whiskey Sour",
       "ingredients": [
         "2oz Bourbon Whiskey",
@@ -265,7 +263,6 @@
       "garnish": "Lime slice, Luxardo cherry on stick."
     },
     {
-      "id": 19,
       "name": "Scofflaw",
       "ingredients": [
         "1 1/2oz Bourbon Whiskey",
@@ -288,12 +285,12 @@
       "garnish": "Orange wedge, Maraschino cherry"
     },
     {
-      "name": "Scofflaw",
+      "name": "Vodka Esspresso",
       "ingredients": [
-        "1 ounce vodka", 
-"3/4 ounce coffee liqueur", 
-"1 1/4 ounces fresh espresso",
-"1/2 ounce simple syrup, (1:1, sugar:water)"
+        "1 ounce Vodka", 
+"3/4 ounce Coffee liqueur", 
+"1 1/4 ounces Fresh espresso",
+"1/2 ounce Simple syrup, (1:1, sugar:water)"
       ],
       "instruction": ["Shake all with ice.", "Strain into a coupette glass."],
       "garnish": "3 coffee beans"
@@ -332,7 +329,7 @@
       "name": "Spiked Coffee",
       "ingredients": [
         "4 ounces coffee",
-        "1 ounce Kahlua",
+        "1 ounce Kahlua (Coffee liqueur)",
         "1-2 ounces Cognac"
       ],
       "instruction": ["Pour the Kahlua and Cognac into your coffee", "Stir!"],
@@ -359,6 +356,16 @@
       ],
       "instruction": ["Combine all and fill shaker with ice.", "Shake!", "Strain into a chilled glass."],
       "garnish": "Lemon twist"
+    },
+    {
+      "name": "Tequila Sunrise",
+      "ingredients": [
+        "2 ounce Tequila",
+"4 ounce Orange juice",
+"1/2 ounce Grenadine (or cherry juice, Raspberry syrup)"
+      ],
+      "instruction": ["Combine all and fill shaker with ice.", "Stir!", "Pour Grenadine slowly on the edge.","Strain into a chilled glass."],
+      "garnish": "Orange slice"
     }
   ]
 }
