@@ -8,13 +8,12 @@ import configureStore from './store/configureStore';
 import { CssBaseline } from '@material-ui/core';
   
 const store = configureStore();
-// http://localhost:5000/
-// https://mymycocktails.netlify.app/
-// https://mymycocktails-backend876.herokuapp.com/cocktails
-// initial data for main cocktail page.
+
+//Get all cocktail recipes
 fetch('https://mymycocktails-backend876.herokuapp.com/cocktails')
     .then((res) => res.json())
     .then((data) => {
+    // if user logged before, get mybar
       const getFromLocalStorage = JSON.parse(localStorage?.getItem('user'))?.result?.bar;
         if (getFromLocalStorage) {
             store.dispatch(getAllFromMyBar(getFromLocalStorage));

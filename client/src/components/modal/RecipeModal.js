@@ -3,7 +3,8 @@ import {useLocation} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {searchByShakeInput} from '../../actions/filters';
 import { addToMyBar, removeFromMyBar } from '../../actions/myBar';
-import { Box, Dialog, DialogTitle, DialogContentText, Button, Typography  } from '@material-ui/core';
+import { formatSentence } from '../helpers/formatSentence';
+import { Box, Dialog, DialogTitle, Button, Typography  } from '@material-ui/core';
 import {recipeModalStyles} from './recipeModalStyles';
 
 
@@ -25,17 +26,6 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
         dispatch(searchByShakeInput(''));
     }
 
-    const changeFirstCharToUpper = (sentence) => {
-        let words = sentence.toLowerCase().split(' ');
-        let newSentence = [];
-        words.forEach((word) => {
-            let newWord = word.charAt(0).toUpperCase() + word.slice(1);
-            newSentence.push(newWord);
-        })
-        
-        return newSentence.join(' ').trim();
-    }
-
     const handleAddtoMyBar = () => {
         dispatch(addToMyBar({_id, name, ingredients, instruction, garnish, setOpenRecipe}, id));
         setOpenRecipe(null);
@@ -53,7 +43,7 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
                     <Typography disabletypography="true" variant="caption" className={classes.subtitle}>INGREDIENTS</Typography>
                     <ul className={classes.contentsContainer}>
                         {ingredients.map((ingredient, index) => {
-                            return <li key={index} >{changeFirstCharToUpper(ingredient)}</li>
+                            return <li key={index} >{formatSentence(ingredient)}</li>
                         })}
                     </ul>
                     <Typography disabletypography="true" variant="caption" className={classes.subtitle}>STEPS</Typography>
@@ -66,7 +56,7 @@ const RecipeModal = ({_id, name, ingredients, instruction, garnish, setOpenRecip
                     { garnish !== '' && <Typography disabletypography="true" variant="caption" className={classes.subtitle}>GARNISH</Typography> }
                     <ol className={classes.contentsContainer}>{garnish}</ol>
                 <Box display="flex" flexWrap="wrap" justifyContent="flex-start" alignItems="center" width="100%" mt={7}>
-                    <Box mr={2}>
+                    <Box>
                         {currentPage === '/' && <Button size="medium" variant="contained" className={classes.shakeAgainButton} onClick={handleShowCocktail}>SHAKE AGAIN</Button>}
                         {(currentPage === '/library' || currentPage === '/') && <Button size="medium" className={classes.addButton} variant="contained" disabled={!auth.result && !auth.token} onClick={handleAddtoMyBar}>ADD</Button>}
                         {currentPage === '/mybar' && <Button size="medium" variant="contained" color="secondary" onClick={handleRemoveFromMyBar}>REMOVE</Button>}

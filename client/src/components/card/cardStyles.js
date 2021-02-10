@@ -8,10 +8,12 @@ export const cardStyles = makeStyles({
   },
   cardTitle: {
     fontWeight: 'bold',
-    marginBottom: '5px',
-    userSelect: 'text',
+    userSelect: 'text'
+  },
+  chipsContainer: {
+    margin: '0.4rem 0'
   },
   chip: {
-    marginRight: '3px'
+    margin: '3px 5px 0 0'
   },
 });

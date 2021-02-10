@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Card, CardActionArea, CardContent, Typography } from '@material-ui/core';
+import {Grid, Card, CardActionArea, Box, CardContent, Typography } from '@material-ui/core';
 import {liquorTypes} from '../../actions/cocktails';
 import LiquorChip from './LiquorChip';
 import {cardStyles} from './cardStyles';
@@ -31,14 +31,16 @@ const CocktailCards = ({_id, name, ingredients, instruction, garnish, setOpenRec
 
   return (
     <Grid item xs={12} sm={6} md={4} lg={3}>
-      <CardActionArea onClick={handleModal}>
+      <CardActionArea  onClick={handleModal}>
         <Card className={classes.card} variant="outlined">
           <Typography className={classes.cardTitle} variant="h6">
             {name}
           </Typography>
-          {createLiquorChips(ingredients).map((liquor, index) => {
-            return <LiquorChip key={index} liquor={liquor} />;
-          })}
+          <Box className={classes.chipsContainer} display="flex">
+            {createLiquorChips(ingredients).map((liquor, index) => {
+              return <LiquorChip key={index} liquor={liquor} />;
+            })}
+          </Box>
         </Card>
       </CardActionArea>
     </Grid>
