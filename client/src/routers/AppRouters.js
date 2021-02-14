@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {BrowserRouter, Route, Switch, useLocation} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import PrivateRoute from './PrivateRoute';
 import ShakePage from '../components/ShakePage';
@@ -12,12 +12,17 @@ import LoadingPage from '../components/LoadingPage';
 const AppRouters = () => {
   const [loading, setLoading] = useState(true);
   const cocktails = useSelector((state) => state.cocktails);
+  const myBar = useSelector((state) => state.myBar);
 
   useEffect(() => {
-      setTimeout(() => {
+
+      if (cocktails.length > 0) {
         setLoading(false);
-      }, 250);
-  }, [useLocation]);
+      }
+      if (myBar.length > 0) {
+        setLoading(false);
+      }
+  }, [cocktails, myBar]);
 
   return (
     <BrowserRouter>
