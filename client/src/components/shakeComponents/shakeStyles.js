@@ -38,7 +38,9 @@ export const shakeStyles = makeStyles({
     },
   },
   '@media (max-width: 1024px)': {
-
+    shakeContainer: {
+      marginTop: '6rem'
+    },
     shakeButton: {
       '&:hover': {
         backgroundColor: '#C4FC68',
@@ -48,7 +50,7 @@ export const shakeStyles = makeStyles({
   '@media (max-width: 900px)': {
     shakeContainer: {
       width: '570px',
-      height: '570px',
+      height: '570px'
     }
   },
   '@media (max-width: 600px)': {
@@ -56,6 +58,7 @@ export const shakeStyles = makeStyles({
     shakeContainer: {
       width: '350px',
       height: '350px',
+      marginTop: '3rem'
     },
     shakeImage: {
       width: '14rem',

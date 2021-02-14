@@ -1,13 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import React, {useState} from 'react';
+import {useSelector} from 'react-redux';
 import {createSelector} from 'reselect';
 import FilterChipInput from './filterChip/FilterChipInput';
 import filterLiquorHelper from './helpers/filterLiquorHelper';
 import CocktailCards from './card/CocktailCards';
 import RecipeModal from './modal/RecipeModal';
 import NothingFound from './NothingFound';
-import {Grid, Container, Grow, Box, Typography} from '@material-ui/core';
-import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
+import {Grid, Container, Grow} from '@material-ui/core';
 
 const MyBarPage = () => {
   const [openRecipe, setOpenRecipe] = useState();

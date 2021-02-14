@@ -1,17 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {useSelector} from 'react-redux';
 import {createSelector} from 'reselect';
 import CocktailCards from './card/CocktailCards';
-import {Grid, Container, Typography} from '@material-ui/core';
+import {Grid, Container} from '@material-ui/core';
 import FilterChipInput from './filterChip/FilterChipInput';
 import filterLiquorHelper from './helpers/filterLiquorHelper';
 import NothingFound from './NothingFound';
 import RecipeModal from './modal/RecipeModal';
-import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
 
 const LibraryPage = () => {
   const [openRecipe, setOpenRecipe] = useState();
-
 
   const byLiquors = (state) => state.filters.homeByLiquors;
   const byName = (state) => state.filters.homeByName;

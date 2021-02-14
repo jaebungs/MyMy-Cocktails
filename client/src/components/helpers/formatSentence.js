@@ -5,6 +5,7 @@ export const formatSentence = (sentence) => {
     let newSentence = [];
     let notInParenth;
 
+    // if word is not in excludes or not in (), make first character uppercase.
     words.forEach((word) => {
 
         if (word.includes('(')){

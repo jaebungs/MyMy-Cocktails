@@ -19,6 +19,7 @@ fetch('https://mymycocktails-backend876.herokuapp.com/cocktails')
             store.dispatch(getAllFromMyBar(getFromLocalStorage));
         }
         store.dispatch(storeAllCocktails(data));
+        
     })
     .catch((err) => console.log('fetch error', err));
 
