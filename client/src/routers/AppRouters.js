@@ -14,9 +14,9 @@ const AppRouters = () => {
   const cocktails = useSelector((state) => state.cocktails);
 
   useEffect(() => {
-    setTimeout(()=>{
+      setTimeout(() => {
         setLoading(false);
-    }, 400)
+      }, 250);
   }, [useLocation]);
 
   return (
