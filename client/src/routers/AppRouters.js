@@ -14,15 +14,15 @@ const AppRouters = () => {
   const cocktails = useSelector((state) => state.cocktails);
   const myBar = useSelector((state) => state.myBar);
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //     if (cocktails.length > 0) {
-  //       setLoading(false);
-  //     }
-  //     if (myBar.length > 0) {
-  //       setLoading(false);
-  //     }
-  // }, [cocktails, myBar]);
+      if (cocktails.length > 0) {
+        setLoading(false);
+      }
+      if (myBar.length > 0) {
+        setLoading(false);
+      }
+  }, [cocktails, myBar]);
 
   return (
     <BrowserRouter>
