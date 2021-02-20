@@ -77,6 +77,11 @@ export const authStyles = makeStyles({
             width: '100%',
             margin: '0',
         }
+    },
+    '@media (min-width: 1600px)': {
+        authPageContainer: {
+            marginTop: '5%'
+        }
     }
 
 });

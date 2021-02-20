@@ -11,7 +11,7 @@ export const shakeStyles = makeStyles({
     borderRadius: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 'auto'
+    margin: '1rem auto'
   },
   shakeImage: {
     position: 'relative',
@@ -21,11 +21,11 @@ export const shakeStyles = makeStyles({
   shakeTitle: {
     fontSize: '2rem',
     marginBottom: '0.3rem',
-    fontWeight: '800',
+    fontWeight: '800'
   },
   shakeSubTitle: {
     fontSize: '1rem',
-    fontWeight: '300',
+    fontWeight: '300'
   },
   shakeButton: {
     background: '#C4FC68',
@@ -34,8 +34,8 @@ export const shakeStyles = makeStyles({
     margin: '0 0.5rem',
     maxHeight: '44px',
     '&:hover': {
-      backgroundColor: '#7AE653',
-    },
+      backgroundColor: '#7AE653'
+    }
   },
   '@media (max-width: 1024px)': {
     shakeContainer: {
@@ -43,7 +43,7 @@ export const shakeStyles = makeStyles({
     },
     shakeButton: {
       '&:hover': {
-        backgroundColor: '#C4FC68',
+        backgroundColor: '#C4FC68'
       },
     }
   },
@@ -51,10 +51,9 @@ export const shakeStyles = makeStyles({
     shakeContainer: {
       width: '570px',
       height: '570px'
-    }
+    },
   },
   '@media (max-width: 600px)': {
-
     shakeContainer: {
       width: '350px',
       height: '350px',
@@ -62,14 +61,13 @@ export const shakeStyles = makeStyles({
     },
     shakeImage: {
       width: '14rem',
-      top:'0.4rem',
-      marginBottom: '1rem',
+      top: '0.4rem',
+      marginBottom: '1rem'
     },
     shakeTitle: {
       fontSize: '1.3rem',
       textAlign: 'center',
       margin: '0.4rem 0'
-
     },
     shakeSubTitle: {
       fontSize: '0.9rem',
@@ -81,8 +79,15 @@ export const shakeStyles = makeStyles({
     searchContainer: {
       position: 'relative',
       margin: '0 auto',
-      top: '5.5rem',
+      top: '5.5rem'
+    },
+  },
+  '@media (min-width: 1600px)': {
+    shakeContainer: {
+      width: '737px',
+      height: '737px',
+      top: '50%',
+      left: '50%',
     }
   },
-
 });
