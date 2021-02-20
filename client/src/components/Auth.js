@@ -11,14 +11,12 @@ import {
   IconButton,
   Box,
   TextField,
-  Collapse,
 } from '@material-ui/core';
-import {Alert, AlertTitle} from '@material-ui/lab';
-import {GoogleLogin, GoogleLogout } from 'react-google-login';
-import GoogleIcon from './icons/GoogleIcon';
+import GoogleLoginComponent from './authComponents/GoogleLoginComponent';
+import PopUp from './authComponents/PopUp';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import {signUp, signIn} from '../actions/auth';
+import {signUp, signIn, resetMessage} from '../actions/auth';
 import {authStyles} from './authComponents/authStyles';
 
 const initialFormData = {
@@ -37,8 +35,16 @@ const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [formData, setFormData] = useState(initialFormData);
   const [googleError, setGoogleError] = useState(false);
+  const [googleLogin, setGoogleLogin] = useState(false);
+  const [popUp, setPopUp] = useState(false);
 
   const message = useSelector((state) => state.auth?.message);
+
+  const handleResetMessage = () => {
+    //when login fail due to wrong password etc, get meessage in auth store.
+    //this is to reset auth, so each login attempt shows proper PopUp message.
+    dispatch(resetMessage());
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,6 +53,7 @@ const Auth = () => {
     } else {
       dispatch(signIn(formData, history));
     }
+    setPopUp(true);
   };
 
   const handleFromChange = (e) => {
@@ -58,35 +65,14 @@ const Auth = () => {
 
   const switchSignMode = () => {
     setIsSignUp((prev) => !prev);
-  };
-
-  const googleResponse = async (res) => {
-    const result = res?.profileObj;
-    const googleProfile = {
-        email: result.email,
-        name: result.name,
-        password: result.googleId,
-        confirmPassword: result.googleId,
-        firstName: result.givenName,
-        lastName: result.familyName,
-      }
-    
-    try {
-      {(isSignUp && result) && dispatch(signUp(googleProfile, history))}
-      {(!isSignUp && result) && dispatch(signIn(googleProfile, history))}
-
-      console.log(googleProfile);
-      setGoogleError(false);
-    } catch (err) {
-      setGoogleError('Something is wrong. Please check again.');
-      console.log('err', err)
-    }
+    handleResetMessage();
+    setPopUp(false);
   };
 
   return (
     <Container component="main" maxWidth="xs" className={classes.authPageContainer}>
       <Paper elevation={3} className={classes.paperContainer}>
-        <Box display="flex" alignItems="center" justifyContent="center" mx="auto" p={4}>
+        <Box display="flex" alignItems="center" justifyContent="center" mx="auto" pt={4} pb={1}>
           <Avatar className={classes.avatar}>
             <AccountCircleIcon />
           </Avatar>
@@ -94,13 +80,16 @@ const Auth = () => {
             {isSignUp ? 'Sign Up' : 'Sign In'}
           </Typography>
         </Box>
-        <Collapse in={!!message || !!googleError}>
-          <Alert severity="error">
-            <AlertTitle>Error</AlertTitle>
-            {message && <strong>{message}</strong>}
-            {googleError && <strong>{googleError}</strong>}
-          </Alert>
-        </Collapse>
+
+        <div className={classes.collapseContainer}>
+          <PopUp
+            googleLogin={googleLogin}
+            googleError={googleError}
+            popUp={popUp}
+            setPopUp={setPopUp}
+          />
+        </div>
+
         <form onSubmit={handleSubmit}>
           <Grid
             container
@@ -108,7 +97,6 @@ const Auth = () => {
             spacing={1}
             alignItems="center"
             className={classes.inputContainer}
-            
           >
             {isSignUp && (
               <div className={classes.nameContainer}>
@@ -184,27 +172,16 @@ const Auth = () => {
               color="primary"
               variant="contained"
               className={classes.signButton}
+              onClick={handleResetMessage}
               fullWidth
             >
               {isSignUp ? 'Sign Up' : 'Sign In'}
             </Button>
-            <GoogleLogin
-              clientId="956177338567-9ihhch02mougfmc549q5t4tve3s675p0.apps.googleusercontent.com"
-              onSuccess={googleResponse}
-              onFailure={googleResponse}
-              cookiePolicy={'single_host_origin'}
-              render={(props) => (
-                <Button
-                  onClick={props.onClick}
-                  color="primary"
-                  className={classes.googleSignButton}
-                  disabled={props.disabled}
-                  startIcon={<GoogleIcon />}
-                  fullWidth
-                >
-                  {isSignUp ? 'Google Sign Up' : 'Google Sign In'}
-                </Button>
-              )}
+            <GoogleLoginComponent
+              isSignUp={isSignUp}
+              setGoogleLogin={setGoogleLogin}
+              setGoogleError={setGoogleError}
+              setPopUp={setPopUp}
             />
           </Grid>
         </form>

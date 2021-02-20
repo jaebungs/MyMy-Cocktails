@@ -17,27 +17,27 @@ export const authStyles = makeStyles({
         margin: '1rem 0'
     },
     nameContainer: {
-        display: 'flex',
+        display: 'flex'
     },
     input: {
         width: '100%',
         margin: '0.4rem auto',
         '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderColor: '#000',
+            borderColor: '#000'
           }
     },
     firstNameInput: {
         width: '96%',
         margin: '0 0.4rem 0 0',
         '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderColor: '#000',
+            borderColor: '#000'
           }
     },
     lastNameInput: {
         width: '96%',
         margin: '0 0 0 0.4rem',
         '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderColor: '#000',
+            borderColor: '#000'
           }
     },
     signButton: {
@@ -46,7 +46,7 @@ export const authStyles = makeStyles({
         color: '#000',
         backgroundColor: '#fff',
         '&:hover': {
-            backgroundColor: '#C4FC68',
+            backgroundColor: '#C4FC68'
           }
     },
     googleSignButton: {
@@ -54,13 +54,14 @@ export const authStyles = makeStyles({
         backgroundColor: '#fff',
         color: '#000',
         '&:hover': {
-            backgroundColor: '#C4FC68',
+            backgroundColor: '#C4FC68'
           }
-        
     },
     switchButton: {
         border: '2px solid #000',
-        backgroundColor: '#fff',
-
+        backgroundColor: '#fff'
+    },
+    collapseContainer: {
+        height: '70px'
     }
 });

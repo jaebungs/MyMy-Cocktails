@@ -3,7 +3,7 @@ import {useLocation} from 'react-router-dom';
 import Profile from './navbarComponents/Profile';
 import HamburgerMenu from './navbarComponents/HamburgerMenu';
 import RecipeSearchInput from './navbarComponents/RecipeSearchInput';
-import {AppBar, Box, Grow, IconButton, Link, Typography, Button} from '@material-ui/core';
+import {AppBar, Box, Toolbar, IconButton, Link, Typography, Button} from '@material-ui/core';
 import {navbarStyle} from './navbarComponents/navbarStyle';
 import MenuIcon from '@material-ui/icons/Menu';
 import MenuOpenIcon from '@material-ui/icons/MenuOpen';
@@ -25,6 +25,7 @@ const Navbar = () => {
 
   return (
     <AppBar className={classes.navbar} position="static">
+      <Toolbar>
       <Box display="flex" flexWrap="wrap" className={classes.navContainer} width="100%">
         {!openMenu ? (
           <IconButton className={classes.menuIcon} onClick={handleMenuIconClick}>
@@ -90,6 +91,7 @@ const Navbar = () => {
           )}
         </Box>
       </Box>
+      </Toolbar>
     </AppBar>
   );
 };

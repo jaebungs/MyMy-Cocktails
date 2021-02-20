@@ -43,7 +43,7 @@ const ShakePage = () => {
   };
 
   return (
-      <div className={classes.shakeContainer}>
+      <main className={classes.shakeContainer}>
         {!error ? (
           <div className={classes.shakeImage}>
             <CocktailSVG />
@@ -81,7 +81,7 @@ const ShakePage = () => {
             handleShowCocktail={handleShowCocktail}
           />
         )}
-      </div>
+      </main>
   );
 };
 
