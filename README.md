@@ -2,13 +2,13 @@
 Put one kind of liquor that you have. This app will show you a cocktail recipe that requires what you have.  
 You can search by name, liquor type or both.  
 For signed user, you can add the recipe to your bar.  
-Built with React, Material-ui, Redux, Express.  
-I know it's a big mass... I'm going to refactor the code.  
+  
+Built with React, Material-ui, Redux, Express, MongoDB.  
 Any feedback is welcome. I am still learning.
 
 
 ### Learning outcome  
-
+I will organize this soon.  
 wow. mapStateToProps and connect can be replaced by redux with hooks such as useSelector and useDispatch. Code got simpler.  
 First time using many different hooks.  
 I kinda got the hang of material ui, I need to use theme to reduce css code.
@@ -20,4 +20,5 @@ Use spread operator, but hard to read so nested reducer comes. However many redu
 Therefore, library like immer.js comes. It creates a new state object by mutating current 'immutable state', so changing new object also changes the original object.
 Learned about JSON web token and session token. This app uses JWT.  
 Need to learn more about security, XSS(Cross site Scripting) and CSRF(Cross site Request Forgery).  
-Faced many problems during deployment. - learned dealing svg file as react component. deploy only server on heroku etc. I just didn't know.
+Faced many problems during deployment. - learned dealing svg file as react component. deploy only server on heroku etc. I just didn't know.  
+Code spliting. bundle.js was around 463KB. After code spliting with lazy and Suspense, bundle.js is 246KB.
