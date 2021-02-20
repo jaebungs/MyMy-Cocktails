@@ -1,44 +1,27 @@
-import React, {useState, useEffect} from 'react';
+import React, { lazy, Suspense } from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import {useSelector} from 'react-redux';
 import PrivateRoute from './PrivateRoute';
-import ShakePage from '../components/ShakePage';
-import LibraryPage from '../components/LibraryPage';
-import MyBarPage from '../components/MyBarPage';
-import Auth from '../components/Auth';
-import Navbar from '../components/NavBar';
 import LoadingPage from '../components/LoadingPage';
 
+const ShakePage = lazy(() => import('../components/ShakePage'));
+const LibraryPage = lazy(()=> import('../components/LibraryPage'));
+const MyBarPage = lazy(()=>import('../components/MyBarPage'));
+const Auth = lazy(()=>import('../components/Auth'));
+const Navbar = lazy(()=> import('../components/Navbar'));
+
 const AppRouters = () => {
-  const [loading, setLoading] = useState(true);
-  const cocktails = useSelector((state) => state.cocktails);
-  const myBar = useSelector((state) => state.myBar);
-
-  useEffect(() => {
-
-      if (cocktails.length > 0) {
-        setLoading(false);
-      }
-      if (myBar.length > 0) {
-        setLoading(false);
-      }
-  }, [cocktails, myBar]);
 
   return (
     <BrowserRouter>
-      <div>
-        <Navbar />
-        {loading ? (
-          <LoadingPage />
-        ) : (
+        <Suspense fallback={<LoadingPage />}>
+          <Navbar />
           <Switch>
             <Route exact path="/" component={ShakePage} />
             <Route exact path="/library" component={LibraryPage} />
             <PrivateRoute exact path="/mybar" component={MyBarPage} />
             <Route path="/auth" component={Auth} />
           </Switch>
-        )}
-      </div>
+        </Suspense>
     </BrowserRouter>
   );
 };
