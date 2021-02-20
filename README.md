@@ -1,7 +1,10 @@
 # Cocktail App  
-Put one kind of liquor that you have. This app will show you a cocktail recipe that requires what you have.  
+Demo: https://mymycocktails.netlify.app/  
+<img src="https://github.com/jaebungs/demoGIF/blob/main/cocktilDemo.gif" width="750" height="400"/>
+
+Put one kind of liquor in the cocktail shaker that you have in your house. This app will show you a cocktail recipe.  
 You can search by name, liquor type or both.  
-For signed user, you can add the recipe to your bar.  
+For signed user, you can add the recipes to your bar.  
   
 Built with React, Material-ui, Redux, Express, MongoDB.  
 Any feedback is welcome. I am still learning.
