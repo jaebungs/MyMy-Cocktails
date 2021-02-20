@@ -67,6 +67,7 @@ const Auth = () => {
     setIsSignUp((prev) => !prev);
     handleResetMessage();
     setPopUp(false);
+    setGoogleLogin(false);
   };
 
   return (
@@ -100,7 +101,6 @@ const Auth = () => {
           >
             {isSignUp && (
               <div className={classes.nameContainer}>
-                <Grid item sm={6} xs={12}>
                   <TextField
                     required={true}
                     name="firstName"
@@ -110,8 +110,6 @@ const Auth = () => {
                     onChange={handleFromChange}
                     variant="outlined"
                   />
-                </Grid>
-                <Grid item sm={6} xs={12}>
                   <TextField
                     required={true}
                     name="lastName"
@@ -121,7 +119,6 @@ const Auth = () => {
                     onChange={handleFromChange}
                     variant="outlined"
                   />
-                </Grid>
               </div>
             )}
             <div>

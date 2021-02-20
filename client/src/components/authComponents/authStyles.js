@@ -63,5 +63,20 @@ export const authStyles = makeStyles({
     },
     collapseContainer: {
         height: '70px'
+    },
+    '@media (max-width: 420px)': {
+        nameContainer: {
+            display: 'block'
+        },
+        firstNameInput: {
+            width: '100%',
+        margin: '0',
+        marginBottom:'0.4rem'
+        }, 
+        lastNameInput: {
+            width: '100%',
+            margin: '0',
+        }
     }
+
 });

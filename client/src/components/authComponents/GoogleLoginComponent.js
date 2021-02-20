@@ -22,7 +22,7 @@ const GoogleLoginComponent = ({isSignUp, setGoogleLogin, setGoogleError, setPopU
       firstName: result.givenName,
       lastName: result.familyName,
     };
-    setGoogleLogin(true); // this is for 
+    
     try {
       {
         // sign up new user with googleAuth.
@@ -32,7 +32,7 @@ const GoogleLoginComponent = ({isSignUp, setGoogleLogin, setGoogleError, setPopU
         !isSignUp && result && dispatch(signIn(googleProfile, history, true));
       }
         setPopUp(true);
-
+        setGoogleLogin(true);
     } catch (err) {
       setGoogleError('Something is wrong. Please try again.');
       console.log('err', err);
