@@ -8,7 +8,7 @@ import {navbarStyle} from './navbarComponents/navbarStyle';
 import MenuIcon from '@material-ui/icons/Menu';
 import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 
-const Navbar = () => {
+const NavBar = () => {
   const classes = navbarStyle();
   const location = useLocation();
 
@@ -96,4 +96,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavBar;

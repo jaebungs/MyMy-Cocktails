@@ -7,7 +7,7 @@ const ShakePage = lazy(() => import('../components/ShakePage'));
 const LibraryPage = lazy(()=> import('../components/LibraryPage'));
 const MyBarPage = lazy(()=>import('../components/MyBarPage'));
 const Auth = lazy(()=>import('../components/Auth'));
-const Navbar = lazy(()=> import('../components/Navbar'));
+const Navbar = lazy(()=> import('../components/NavBar'));
 
 const AppRouters = () => {
 
