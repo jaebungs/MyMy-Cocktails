@@ -21,4 +21,7 @@ Therefore, library like immer.js comes. It creates a new state object by mutatin
 Learned about JSON web token and session token. This app uses JWT.  
 Need to learn more about security, XSS(Cross site Scripting) and CSRF(Cross site Request Forgery).  
 Faced many problems during deployment. - learned dealing svg file as react component. deploy only server on heroku etc. I just didn't know.  
-Code spliting. bundle.js was around 463KB. After code spliting with lazy and Suspense, bundle.js is 246KB.
+Code spliting. bundle.js was around 463KB. After code spliting with lazy and Suspense, bundle.js is 246KB.  
+aria-describedby="(id of an element)", than make the element display="none". - suggestion autocomplete  
+Learned chrome lighthouse and fixed many problems according to the warning.
+
