@@ -23,16 +23,18 @@ const LibraryPage = () => {
   const cocktails = useSelector(filterLiquors);
 
   return (
+    <main>
     <Container maxWidth="lg">
       <FilterChipInput />
       <Grid container spacing={1}>
-        {cocktails.map((cocktail, index) => {
-          return <CocktailCards key={index} {...cocktail} setOpenRecipe={setOpenRecipe} />;
+        {cocktails.map((cocktail) => {
+          return <CocktailCards key={cocktail._id} {...cocktail} setOpenRecipe={setOpenRecipe} />;
         })}
         {cocktails.length === 0 && <NothingFound />}
         {openRecipe && <RecipeModal {...openRecipe} setOpenRecipe={setOpenRecipe} />}
       </Grid>
     </Container>
+    </main>
   );
 };
 

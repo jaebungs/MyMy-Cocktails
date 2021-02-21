@@ -10,7 +10,7 @@ import {
   Button,
   IconButton,
   Box,
-  TextField,
+  TextField
 } from '@material-ui/core';
 import GoogleLoginComponent from './authComponents/GoogleLoginComponent';
 import PopUp from './authComponents/PopUp';
@@ -77,7 +77,7 @@ const Auth = () => {
           <Avatar className={classes.avatar}>
             <AccountCircleIcon />
           </Avatar>
-          <Typography className={classes.title} variant="h6">
+          <Typography className={classes.title} variant="h2">
             {isSignUp ? 'Sign Up' : 'Sign In'}
           </Typography>
         </Box>
@@ -101,19 +101,24 @@ const Auth = () => {
           >
             {isSignUp && (
               <div className={classes.nameContainer}>
+                <label>
                   <TextField
                     required={true}
                     name="firstName"
                     label="First Name"
+                    id="first-name"
                     type="text"
                     className={classes.firstNameInput}
                     onChange={handleFromChange}
                     variant="outlined"
                   />
+                </label>
+
                   <TextField
                     required={true}
                     name="lastName"
                     label="Last Name"
+                    id="last-name"
                     type="text"
                     className={classes.lastNameInput}
                     onChange={handleFromChange}
@@ -126,6 +131,7 @@ const Auth = () => {
                 required={true}
                 name="email"
                 label="Email"
+                id="email-address"
                 type="email"
                 autoComplete="username"
                 className={classes.input}
@@ -137,6 +143,7 @@ const Auth = () => {
                 required={true}
                 name="password"
                 label="password"
+                id="password"
                 type="password"
                 autoComplete="current-password"
                 className={classes.input}
@@ -149,6 +156,7 @@ const Auth = () => {
                   required={true}
                   name="confirmPassword"
                   label="Confirm Password"
+                  id="confirm-password"
                   type="password"
                   className={classes.input}
                   onChange={handleFromChange}

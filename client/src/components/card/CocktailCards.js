@@ -31,9 +31,10 @@ const CocktailCards = ({_id, name, ingredients, instruction, garnish, setOpenRec
 
   return (
     <Grid item xs={12} sm={6} md={4} lg={3}>
+      <article>
       <CardActionArea  onClick={handleModal}>
         <Card className={classes.card} variant="outlined">
-          <Typography className={classes.cardTitle} variant="h6">
+          <Typography className={classes.cardTitle} variant="h2">
             {name}
           </Typography>
           <Box className={classes.chipsContainer} display="flex">
@@ -43,6 +44,7 @@ const CocktailCards = ({_id, name, ingredients, instruction, garnish, setOpenRec
           </Box>
         </Card>
       </CardActionArea>
+      </article>
     </Grid>
   );
 };

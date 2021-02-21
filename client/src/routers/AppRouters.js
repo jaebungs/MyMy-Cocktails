@@ -7,14 +7,14 @@ const ShakePage = lazy(() => import('../components/ShakePage'));
 const LibraryPage = lazy(()=> import('../components/LibraryPage'));
 const MyBarPage = lazy(()=>import('../components/MyBarPage'));
 const Auth = lazy(()=>import('../components/Auth'));
-const Navbar = lazy(()=> import('../components/NavBar'));
+const NavBar = lazy(()=> import('../components/NavBar'));
 
 const AppRouters = () => {
 
   return (
     <BrowserRouter>
         <Suspense fallback={<LoadingPage />}>
-          <Navbar />
+          <NavBar />
           <Switch>
             <Route exact path="/" component={ShakePage} />
             <Route exact path="/library" component={LibraryPage} />

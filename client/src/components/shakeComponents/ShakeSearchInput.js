@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {searchByShakeInput} from '../../actions/filters';
-import {TextField, InputAdornment, ListItem} from '@material-ui/core';
+import {TextField, InputAdornment} from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import {liquorTypes} from '../../actions/cocktails';
 import {searchStyles} from './searchStyles';
@@ -84,10 +84,14 @@ const ShakeSearchInput = ({openRecipe, handleShowCocktail}) => {
 
   return (
     <div className={classes.container}>
+
       <TextField
         className={classes.textfield}
         onChange={handleTextChange}
+        autoComplete="off"
         variant="outlined"
+        id="cocktail-shaker-search-input"
+        aria-label="cocktail-shaker-search-input"
         value={inputReduxValue}
         size="small"
         onKeyDown={onKeyDown}
@@ -99,8 +103,9 @@ const ShakeSearchInput = ({openRecipe, handleShowCocktail}) => {
           ),
         }}
       />
+      <div id="number-of-suggestions" className={classes.suggestion}>Suggestion list. total of {searchSuggestion.length} suggestions.</div>
       <div>
-        <ul className={classes.dropdownContainer}>
+        <ul className={classes.dropdownContainer} aria-label="autoComplete" aria-describedby="number-of-suggestions" aria-expanded="true" role="listbox">
           {searchSuggestion.length > 0 &&
             searchSuggestion.map((suggestion, index) => {
               let multipleClassName;
@@ -111,6 +116,7 @@ const ShakeSearchInput = ({openRecipe, handleShowCocktail}) => {
               }
               return (
                 <li
+                  role="option"
                   id={suggestion}
                   key={index}
                   index={index}

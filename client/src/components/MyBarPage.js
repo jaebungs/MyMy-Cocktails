@@ -23,12 +23,13 @@ const MyBarPage = () => {
   const cocktails = useSelector(filterLiquors);
 
   return (
+    <main>
     <Container maxWidth="lg">
       <FilterChipInput />
       <Grid container spacing={1}>
         {cocktails.map((cocktail, index) => {
           return (
-            <Grow key={index}>
+            <Grow key={cocktail._id}>
               <CocktailCards {...cocktail} setOpenRecipe={setOpenRecipe} />
             </Grow>
           );
@@ -37,6 +38,7 @@ const MyBarPage = () => {
         {openRecipe && <RecipeModal {...openRecipe} setOpenRecipe={setOpenRecipe} />}
       </Grid>
     </Container>
+    </main>
   );
 };
 

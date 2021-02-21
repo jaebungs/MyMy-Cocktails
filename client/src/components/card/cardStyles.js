@@ -8,6 +8,7 @@ export const cardStyles = makeStyles({
   },
   cardTitle: {
     fontWeight: 'bold',
+    fontSize: '1.3rem',
     userSelect: 'text'
   },
   chipsContainer: {

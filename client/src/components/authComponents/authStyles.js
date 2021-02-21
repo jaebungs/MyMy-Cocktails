@@ -11,7 +11,8 @@ export const authStyles = makeStyles({
         backgroundColor: '#000'
     },
     title: {
-        margin: '0 0.5rem'
+        margin: '0 0.5rem',
+        fontSize: '1.4rem'
     },
     inputContainer: {
         margin: '1rem 0'

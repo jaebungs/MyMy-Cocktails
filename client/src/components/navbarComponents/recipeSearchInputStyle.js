@@ -5,6 +5,9 @@ export const recipeSearchInputStyle = makeStyles({
     width: '10rem',
     margin: '0 1rem'
   },
+  helperText: {
+    display: 'none'
+  },
 
   '@media (max-width: 780px)': {
     searchIcon: {

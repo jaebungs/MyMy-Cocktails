@@ -70,6 +70,8 @@ export const searchStyles = makeStyles({
       width: '150px'
     }
   },
-
+  suggestion: {
+    display:'none'
+  }
 
 });

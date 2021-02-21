@@ -1,7 +1,7 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
 import {searchHomeByName, searchMyByName} from '../../actions/filters';
-import {Input, InputAdornment} from '@material-ui/core';
+import {FormControl, Input, InputAdornment, FormHelperText  } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import {recipeSearchInputStyle} from './recipeSearchInputStyle';
 
@@ -22,9 +22,12 @@ const RecipeSearchInput = () => {
   };
 
   return (
+    <FormControl>
     <Input
-      id="serach"
+      id="cocktails-serach-by-name-input"
       variant="outlined"
+      aria-label="recipe-search-input"
+      aria-describedby="cocktails-serach-by-name-input-text"
       className={classes.recipeSearchInput}
       onChange={handleTextChange}
       startAdornment={
@@ -33,6 +36,9 @@ const RecipeSearchInput = () => {
         </InputAdornment>
       }
     />
+    <FormHelperText className={classes.helperText} id="cocktails-serach-by-name-input-text">Search cocktail by name here.</FormHelperText>
+    </FormControl>
+
   );
 };
 
