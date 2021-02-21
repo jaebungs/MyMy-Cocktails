@@ -23,6 +23,7 @@ const RecipeSearchInput = () => {
 
   return (
     <FormControl>
+      <label>
     <Input
       id="cocktails-serach-by-name-input"
       variant="outlined"
@@ -36,6 +37,7 @@ const RecipeSearchInput = () => {
         </InputAdornment>
       }
     />
+    </label>
     <FormHelperText className={classes.helperText} id="cocktails-serach-by-name-input-text">Search cocktail by name here.</FormHelperText>
     </FormControl>
 

@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { useHistory } from "react-router-dom";
 import {useDispatch} from 'react-redux';
 import {liquorTypes} from '../../actions/cocktails';
 import {searchHomeByLiquor, searchMYByLiquor} from '../../actions/filters';
-import {Box, FormGroup, Chip, Grid} from '@material-ui/core';
+import {Box, FormGroup, Chip} from '@material-ui/core';
 import {chipStyle} from '../styles/chipColor';
 import {filterChipStyle} from './filterChipStyle';
 
@@ -14,7 +13,6 @@ const FilterChipInput = () => {
   const [checkedTypes, setCheckedTypes] = useState([]);
 
   const dispatch = useDispatch();
-  const history = useHistory();
   const pathname = window.location.pathname;
 
   // When liquor filter clicked, dispatch to pathnamebyLiquor

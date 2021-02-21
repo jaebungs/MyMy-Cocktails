@@ -84,7 +84,7 @@ const ShakeSearchInput = ({openRecipe, handleShowCocktail}) => {
 
   return (
     <div className={classes.container}>
-
+      <label>
       <TextField
         className={classes.textfield}
         onChange={handleTextChange}
@@ -97,12 +97,13 @@ const ShakeSearchInput = ({openRecipe, handleShowCocktail}) => {
         onKeyDown={onKeyDown}
         InputProps={{
           endAdornment: (
-            <InputAdornment>
+            <InputAdornment aria-label="icon">
               <SearchIcon />
             </InputAdornment>
           ),
         }}
       />
+      </label>
       <div id="number-of-suggestions" className={classes.suggestion}>Suggestion list. total of {searchSuggestion.length} suggestions.</div>
       <div>
         <ul className={classes.dropdownContainer} aria-label="autoComplete" aria-describedby="number-of-suggestions" aria-expanded="true" role="listbox">

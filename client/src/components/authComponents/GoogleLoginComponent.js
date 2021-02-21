@@ -1,7 +1,7 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import {GoogleLogin, GoogleLogout} from 'react-google-login';
+import {GoogleLogin} from 'react-google-login';
 import GoogleIcon from '../icons/GoogleIcon';
 import {signUp, signIn} from '../../actions/auth';
 import {Button} from '@material-ui/core';
