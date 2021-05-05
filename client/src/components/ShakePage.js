@@ -15,12 +15,10 @@ const ShakePage = () => {
   const [openRecipe, setOpenRecipe] = useState();
   const [error, setError] = useState(false);
 
-  const byInput = (state) => state.filters.shakeInput;
-
   const filterLiquors = createSelector(
     (state) => state.cocktails,
     () => {},
-    byInput,
+    (state) => state.filters.shakeInput,
     filterLiquorHelper
   );
   const cocktails = useSelector(filterLiquors);

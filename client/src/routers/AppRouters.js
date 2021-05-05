@@ -17,8 +17,8 @@ const AppRouters = () => {
           <NavBar />
           <Switch>
             <Route exact path="/" component={ShakePage} />
-            <Route exact path="/library" component={LibraryPage} />
-            <PrivateRoute exact path="/mybar" component={MyBarPage} />
+            <Route path="/library" component={LibraryPage} />
+            <PrivateRoute path="/mybar" component={MyBarPage} />
             <Route path="/auth" component={Auth} />
           </Switch>
         </Suspense>

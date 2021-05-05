@@ -20,6 +20,7 @@ const MyBarPage = () => {
     byLiquors,
     filterLiquorHelper
   );
+  
   const cocktails = useSelector(filterLiquors);
 
   return (

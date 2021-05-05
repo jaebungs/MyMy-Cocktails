@@ -2,43 +2,38 @@
 Demo: https://mymycocktails.netlify.app/  
 <img src="https://github.com/jaebungs/demoGIF/blob/main/cocktilDemo.gif" width="750" height="400"/>
 
-Put one kind of liquor you have into the cocktail shaker. This app will show you a cocktail recipe.  
-You can search by name, liquor type or both.  
-For signed user, you can add recipes to your bar.  
-  
-Built with React, Material-ui, Redux, Express, MongoDB.  
-### Features  
-Built from scratch.
-Autocomplete function for cocktail shaker.  
-Search by name, type or both function.  
-Google Auth, Sign In, Sign up using JWT.  
-Liquor chips on cards and filter chips under navbar are created by reading and comparing between its ingredients and liquor list in action/cocktails.js.  
-Add to my bar (only for sign in user).
+### Introduction
 
-Any feedback is welcome.  
+I enjoy and appreciate good drinks. However, my girlfriend and I found that searching for an easy cocktail recipe takes time.
+Often recipes are filled with useless information. I scroll down and once reach the ingredient section, I find that I don’t have all the ingredients and need to repeat them. I just didn’t like to repeat the process.
 
+The goal
+Create an app that can provide relatively easy recipes with simple search functions. Even if the user does not have all the ingredients, this app should be able to suggest other options.
 
-### Learning outcome  
-1. Redux hook (useSelector, useDispatch) can replace mapStateToProps and connect. Code got simpler and intuitive.  
-2. First time using many different react hooks. ex) useHistory, useLocation, lazy, Suspense etc.  
-It made me curious about other hooks and how react rendering actually works.  
-https://blog.isquaredsoftware.com/2020/05/blogged-answers-a-mostly-complete-guide-to-react-rendering-behavior/  
-This Mark's blog is a great article that explain how React render works and when happens.  
-3. First time using material ui.  
-4. I looked up normalize state shape. Although I didn't use it for this proejct.  
-I am not sure, but it looks somewhat similar to mongodb indexs structure.  
-5. For a property update of a deeply nested object to be rendered, the high-level reference needs to be changed.
-Use spread operator, but hard to read so nested reducer comes. However many reducers make hard to track.  
-Therefore, library like immer.js comes. It creates a new state object by mutating current state.  
-6. Learned about JSON web token and session token. This app uses JWT. This was one of the most interesting part.  
-7. Need to learn more about security, XSS(Cross site Scripting) and CSRF(Cross site Request Forgery).  
-8. Faced many problems during deployment. - learned dealing svg file as react component. Deploy server on heroku etc. I just didn't know many stuff on how to deploy full app.  
-9. Code spliting! After code spliting with lazy and Suspense, bundle.js became around 463KB -> 246KB. Rendering speed was more than 7 sconds, but it is now less than 1 second.  
-10. Optimized website with chrome lighthouse. 100 100 100 90 scored. (It is not perfect, may need some work on data fetch and duplicated code removal)  
-11. Learned how to use arial. aria-describedby="(id ex-cup)", than make element cup display="none".  
-12. Learned about Private Route.  
-  
+### Development process
 
-   
+1. Brainstorm app features.
+- Search Function(by name, by ingredients, auto-complete).
+- Oauth and custom login.
+- Bookmark function.
+- Build a simple REST API.
+- Chip ingredients indicator.
 
+2. Choose tools.
+- React and Redux. I feel comfortable using React and feel much faster to build something with it.
+- Material UI. I have been using (S)CSS and used Bootstrap before. I wanted to try a new framework.
+- Node.js and MongoDB for the back-end.
 
+3. Browse other cocktail recipe apps. Add or remove features.
+- To differentiate from other apps already on the web/store, I had to know their design and features.
+
+4. Brainstorm design.
+Clean and minimalistic design can allow users to focus on the contents.
+Same layout for Library and My bar page.
+
+5. Start coding!
+Build basic structure (to test backend).
+Build API and make sample data in mongodb.
+Build front-end. Test if data retrieves are working fine.
+Start styling and deploy.
+Small touch-ups.

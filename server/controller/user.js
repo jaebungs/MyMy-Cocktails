@@ -45,7 +45,7 @@ const signup = async (req, res) => {
       name: `${oneLetterUppperFirstName} ${oneLetterUppperLastName}`,
       firstName: oneLetterUppperFirstName,
       lastName: oneLetterUppperLastName,
-      bar: [],
+      bar: []
     });
 
     const token = jwt.sign({email: result.email, id: result._id}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRES_IN,});

@@ -18,8 +18,7 @@ fetch('https://mymycocktails-backend876.herokuapp.com/cocktails')
         if (getFromLocalStorage) {
             store.dispatch(getAllFromMyBar(getFromLocalStorage));
         }
-        store.dispatch(storeAllCocktails(data));
-        
+        store.dispatch(storeAllCocktails(data));    
     })
     .catch((err) => console.log('fetch error', err));
 

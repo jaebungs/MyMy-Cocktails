@@ -24,75 +24,77 @@ const NavBar = () => {
   };
 
   return (
-    <AppBar className={classes.navbar} position="static">
-      <Toolbar>
-      <Box display="flex" flexWrap="wrap" className={classes.navContainer} width="100%">
-        {!openMenu ? (
-          <IconButton className={classes.menuIcon} onClick={handleMenuIconClick}>
-            <MenuIcon />
-          </IconButton>
-        ) : (
-          <IconButton className={classes.menuIcon} onClick={handleMenuIconClick}>
-            <MenuOpenIcon />
-          </IconButton>
-        )}
-
-        <HamburgerMenu openMenu={openMenu} setOpenMenu={setOpenMenu} />
-
-        <Box flexGrow={1} className={classes.navItemContainer}>
-          <Typography className={classes.navTitle} variant="h1">
-            My My Cocktails
-          </Typography>
-          <Link
-            className={classes.navItems}
-            variant="h3"
-            href="/"
-            exact="true"
-          >
-            Shake
-          </Link>
-          <Link
-            className={classes.navItems}
-            variant="h3"
-            href="/library"
-            exact="true"
-          >
-            Library
-          </Link>
-          <Link
-            className={classes.navItems}
-            variant="h3"
-            href="/mybar"
-            exact="true"
-          >
-            My Bar
-          </Link>
-        </Box>
-        <Box
-          display="flex"
-          flexWrap="wrap"
-          justifyContent="flex-end"
-          className={classes.loginContainer}
-        >
-          {location.pathname === '/library' && <RecipeSearchInput />}
-          {location.pathname === '/mybar' && <RecipeSearchInput />}
-          {user?.result ? (
-            <Profile name={user.result.name} setUser={setUser} />
+    <section>
+      <AppBar className={classes.navbar} position="static">
+        <Toolbar>
+        <Box display="flex" flexWrap="wrap" className={classes.navContainer} width="100%">
+          {!openMenu ? (
+            <IconButton className={classes.menuIcon} onClick={handleMenuIconClick}>
+              <MenuIcon />
+            </IconButton>
           ) : (
-            <Button
-              component={Link}
-              href="/auth"
-              variant="contained"
-              size="small"
-              className={classes.signButton}
-            >
-              Sign In
-            </Button>
+            <IconButton className={classes.menuIcon} onClick={handleMenuIconClick}>
+              <MenuOpenIcon />
+            </IconButton>
           )}
+
+          <HamburgerMenu openMenu={openMenu} setOpenMenu={setOpenMenu} />
+
+          <Box flexGrow={1} className={classes.navItemContainer}>
+            <Typography className={classes.navTitle} variant="h1">
+              My My Cocktails
+            </Typography>
+            <Link
+              className={classes.navItems}
+              variant="h3"
+              href="/"
+              exact="true"
+            >
+              Shake
+            </Link>
+            <Link
+              className={classes.navItems}
+              variant="h3"
+              href="/library"
+              exact="true"
+            >
+              Library
+            </Link>
+            <Link
+              className={classes.navItems}
+              variant="h3"
+              href="/mybar"
+              exact="true"
+            >
+              My Bar
+            </Link>
+          </Box>
+          <Box
+            display="flex"
+            flexWrap="wrap"
+            justifyContent="flex-end"
+            className={classes.loginContainer}
+          >
+            {location.pathname === '/library' && <RecipeSearchInput />}
+            {location.pathname === '/mybar' && <RecipeSearchInput />}
+            {user?.result ? (
+              <Profile name={user.result.name} setUser={setUser} />
+            ) : (
+              <Button
+                component={Link}
+                href="/auth"
+                variant="contained"
+                size="small"
+                className={classes.signButton}
+              >
+                Sign In
+              </Button>
+            )}
+          </Box>
         </Box>
-      </Box>
-      </Toolbar>
-    </AppBar>
+        </Toolbar>
+      </AppBar>
+    </section>
   );
 };
 

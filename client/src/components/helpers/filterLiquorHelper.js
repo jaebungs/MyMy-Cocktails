@@ -1,4 +1,5 @@
-// function for filtering cocktails that have all liquorChips.
+// function for filtering cocktails by liquorChips.
+
 // compare two array of strings(ingredients) & liquorChips (Chips) and get all including cocktail object.
 const filterByLiquors = (cocktails, liquorChips) => { 
   return cocktails.filter((cocktail)=>{
@@ -14,7 +15,7 @@ const filterByLiquors = (cocktails, liquorChips) => {
 
 const filterLiquorHelper = (cocktails, text, liquorChips) => {
   let filterResult = [];
-//   cocktails = array[{},{}].  liquorChips=[types of liquor checked(strings)]
+//   cocktails = array[{},{}...].  liquorChips=[types of liquor checked(strings)]
   // When no filter and search
   if (liquorChips.length === 0 && !text) {
     filterResult = [...cocktails];

@@ -15,13 +15,12 @@ const authenticateToken = async (req, res, next) => {
         } else if (token && isGoogleAuth) {
             decodedToken = jwt.decode(token);
             req.userId = decodedToken.sub; //it is like account id for google.
-
         }
 
         if (!token) return res.status(400).json({message: 'No token exists'});
 
         next();
-    } catch (error){
+    } catch (error) {
         console.log(error)
     }
 }

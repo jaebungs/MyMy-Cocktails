@@ -40,10 +40,10 @@ export const hamburgerMenuStyle = makeStyles({
       padding: '0.8rem 5rem',
       border: '1px solid rgba(0, 0, 0, 0.1)',
       '&:hover': {
-        backgroundColor: '#fff',
+      backgroundColor: '#fff',
       boxSizing:'border-box',
 
-        border: '2px solid #000',
+      border: '2px solid #000',
       },
     },
   },
