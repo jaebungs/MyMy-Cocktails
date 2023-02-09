@@ -10,7 +10,7 @@ import { CssBaseline } from '@material-ui/core';
 const store = configureStore();
 
 //Get all cocktail recipes
-fetch('https://mymycocktails-backend876.herokuapp.com/cocktails')
+fetch('https://cocktail-api-x8zo.onrender.com/cocktails')
     .then((res) => res.json())
     .then((data) => {
     // if user logged before, get mybar

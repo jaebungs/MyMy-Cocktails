@@ -6,7 +6,7 @@ export const resetMessage = () => ({
   });
 
 export const signUp = (formData, history) => async (dispatch) => {
-  await fetch('https://mymycocktails-backend876.herokuapp.com/user/signup', {
+  await fetch('https://cocktail-api-x8zo.onrender.com/user/signup', {
     method: 'post',
     headers: {
       Accept: 'application/json',
@@ -25,7 +25,7 @@ export const signUp = (formData, history) => async (dispatch) => {
 };
 
 export const signIn = (formData, history, googleLogin) => async (dispatch) => {
-  await fetch('https://mymycocktails-backend876.herokuapp.com/user/signin', {
+  await fetch('https://cocktail-api-x8zo.onrender.com/user/signin', {
     method: 'post',
     headers: {
       Accept: 'application/json',

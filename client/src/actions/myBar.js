@@ -9,7 +9,7 @@ export const addToMyBar = (cocktail, id) => async (dispatch) => {
         ...cocktail,
         id
     }
-    await fetch('https://mymycocktails-backend876.herokuapp.com/mybar', {
+    await fetch('https://cocktail-api-x8zo.onrender.com/mybar', {
         method: 'post',
         headers: {
             'Accept': 'application/json',
@@ -35,7 +35,7 @@ export const removeFromMyBar = (_id, id) => async (dispatch) => {
         id
     };
 
-    await fetch('https://mymycocktails-backend876.herokuapp.com/mybar', {
+    await fetch('https://cocktail-api-x8zo.onrender.com/mybar', {
         method: 'delete',
         headers: {
             'Accept': 'application/json',
