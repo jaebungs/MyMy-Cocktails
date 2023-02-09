@@ -36,12 +36,13 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
+// next time use /api/v1/cocktails for version control
 app.use('/cocktails', cocktailsRoutes);
 app.use('/user', userRoutes);
 app.use('/mybar', mybarRoutes);
 
 app.get('/', (req, res) => {
-  res.send('Hi, this is MyMyCocktais API');
+  res.send('Hi, this is REST API fro MyMyCocktail website. /cocktails - to get all recipes.');
 });
 
 app.listen(PORT, () => {
